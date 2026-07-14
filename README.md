@@ -2,7 +2,6 @@
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/downloads/)
-[![Paper](https://img.shields.io/badge/paper-JIDM%202026-green)](https://github.com/jsansao/bias_embedding/tree/main/paper/jidm)
 
 Multilingual Word Embedding Association Test (WEAT) and Sentence Embedding Association Test (SEAT) evaluation framework for measuring gender, racial, ethnic, regional, and sentiment bias in embedding models across five languages.
 
