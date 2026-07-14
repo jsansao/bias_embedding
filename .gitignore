@@ -1,0 +1,52 @@
+# LaTeX auxiliary files
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# PDF outputs
+*.pdf
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project-specific: exclude generated/experimental files
+SUBMISSION_DETAILS.md
+nlp_writing_guide.md
+cover_letter.tex
+cover_letter.pdf
+cover_letter.aux
+cover_letter.log
+cover_letter.out
+cover_letter.pdf
+
+# LaTeX build artifacts in paper/jidm
+paper/jidm/main.aux
+paper/jidm/main.log
+paper/jidm/main.out
+paper/jidm/main.pdf
+paper/jidm/main.bbl
+paper/jidm/main.blg
+paper/jidm/main.toc

@@ -1,0 +1,124 @@
+{
+  "metadata": {
+    "description": "WEAT/SEAT word lists for bias evaluation in English (for cross-lingual comparison)",
+    "version": "1.0",
+    "language": "en",
+    "references": [
+      "Caliskan et al. (2017) - WEAT",
+      "May et al. (2019) - SEAT",
+      "Mukherjee et al. (2023) - WEATHub"
+    ]
+  },
+  "gender": {
+    "WEAT6_professions": {
+      "description": "Gender-profession association (WEAT6)",
+      "target1": {
+        "label": "male",
+        "words": ["man", "father", "brother", "uncle", "grandfather", "nephew", "cousin_m", "husband", "son", "grandson"]
+      },
+      "target2": {
+        "label": "female",
+        "words": ["woman", "mother", "sister", "aunt", "grandmother", "niece", "cousin_f", "wife", "daughter", "granddaughter"]
+      },
+      "attribute1": {
+        "label": "career",
+        "words": ["executive", "management", "professional", "corporation", "salary", "office", "business", "career", "work", "occupation"]
+      },
+      "attribute2": {
+        "label": "family",
+        "words": ["home", "parents", "children", "family", "husband", "wife", "marriage", "wedding", "relatives", "household"]
+      }
+    },
+    "SEAT_adjectives": {
+      "description": "Gender-adjective association (agentic vs communal)",
+      "attribute1": {
+        "label": "agentic",
+        "words": ["competitive", "ambitious", "assertive", "decisive", "courageous", "independent", "dominant", "strong", "rational", "analytical"]
+      },
+      "attribute2": {
+        "label": "communal",
+        "words": ["kind", "sensitive", "caring", "gentle", "compassionate", "emotional", "affectionate", "warm", "nurturing", "supportive"]
+      }
+    }
+  },
+  "race_ethnicity": {
+    "WEAT_race_adjectives": {
+      "description": "Race-adjective association (African American vs European American)",
+      "target1": {
+        "label": "european_american",
+        "words": ["white", "caucasian", "european", "american", "anglo"]
+      },
+      "target2": {
+        "label": "african_american",
+        "words": ["black", "african", "negro", "afro", "african_american"]
+      },
+      "attribute1": {
+        "label": "pleasant",
+        "words": ["joy", "love", "happy", "good", "beautiful", "success", "pleasure", "fun", "celebration", "victory"]
+      },
+      "attribute2": {
+        "label": "unpleasant",
+        "words": ["agony", "terrible", "horrible", "nasty", "evil", "awful", "failure", "hurt", "dangerous", "tragic"]
+      }
+    },
+    "SEAT_race_professions": {
+      "description": "Race-profession association (European American vs African American descriptors)",
+      "target1": {
+        "label": "european_american",
+        "words": ["white", "blond-hair", "blue-eyes"]
+      },
+      "target2": {
+        "label": "african_american",
+        "words": ["black", "afro-hair", "dark-skinned", "african-american"]
+      },
+      "attribute1": {
+        "label": "high_status",
+        "words": ["CEO", "director", "president", "doctor", "lawyer", "engineer", "professor", "scientist"]
+      },
+      "attribute2": {
+        "label": "low_status",
+        "words": ["janitor", "maid", "servant", "cleaner", "guard", "delivery", "driver", "cook"]
+      }
+    }
+  },
+  "sentiment": {
+    "WEAT1_flowers_insects": {
+      "description": "Universal pleasant/unpleasant association (Caliskan Test 1)",
+      "target1": {
+        "label": "flowers",
+        "words": ["flower", "rose", "daisy", "sunflower", "violet", "carnation", "lily", "orchid", "dahlia", "tulip"]
+      },
+      "target2": {
+        "label": "insects",
+        "words": ["insect", "ant", "cockroach", "spider", "mosquito", "wasp", "fly", "caterpillar", "scorpion", "centipede"]
+      },
+      "attribute1": {
+        "label": "pleasant",
+        "words": ["joy", "love", "happy", "good", "beautiful", "success", "pleasure", "fun", "celebration", "victory"]
+      },
+      "attribute2": {
+        "label": "unpleasant",
+        "words": ["agony", "terrible", "horrible", "nasty", "evil", "awful", "failure", "hurt", "dangerous", "tragic"]
+      }
+    },
+    "WEAT2_instruments_weapons": {
+      "description": "Universal pleasant/unpleasant association (Caliskan Test 2)",
+      "target1": {
+        "label": "instruments",
+        "words": ["guitar", "piano", "drums", "flute", "violin", "saxophone", "bass", "keyboard", "trumpet", "harp"]
+      },
+      "target2": {
+        "label": "weapons",
+        "words": ["gun", "revolver", "rifle", "sword", "dagger", "grenade", "shotgun", "machine_gun", "blade", "katana"]
+      },
+      "attribute1": {
+        "label": "pleasant",
+        "words": ["joy", "love", "happy", "good", "beautiful", "success", "pleasure", "fun", "celebration", "victory"]
+      },
+      "attribute2": {
+        "label": "unpleasant",
+        "words": ["agony", "terrible", "horrible", "nasty", "evil", "awful", "failure", "hurt", "dangerous", "tragic"]
+      }
+    }
+  }
+}

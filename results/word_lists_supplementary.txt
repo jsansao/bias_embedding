@@ -1,0 +1,251 @@
+=== Multilingual WEAT Word Lists ===
+
+--- PT-BR ---
+  [WEAT6_professions] Gender-profession association (WEAT6 adapted for PT-BR)
+    T1 (masculine): homem, pai, irmão, tio, avô, sobrinho, primo, marido, filho, neto
+    T2 (feminine): mulher, mãe, irmã, tia, avó, sobrinha, prima, esposa, filha, neto
+    A1 (career): emprego, salário, escritório, chefe, reunião... (15 words)
+    A2 (family): casa, filhos, casamento, família, crianças... (15 words)
+
+  [WEAT_race_adjectives] Race-adjective association for Brazilian racial categories
+    T1 (branco): branco, loiro, olho azul, pele clara, descendente europeu
+    T2 (preto): preto, negro, moreno escuro, pele escura, afrodescendente
+    A1 (positive): bonito, inteligente, bom, sucesso, limpo... (10 words)
+    A2 (negative): feio, burro, mau, fracasso, sujo... (10 words)
+
+  [SEAT_race_professions] Race-profession association
+    T1 (branco): branco, loiro, de olho azul, de pele clara, descendente europeu, europeu
+    T2 (preto): preto, negro, de pele escura, afrodescendente, moreno escuro, de pele negra
+    A1 (high_status): diretor, presidente, juiz, executivo, médico... (10 words)
+    A2 (low_status): servente, pedreiro, catador, doméstica, vendedor ambulante... (10 words)
+
+  [WEAT_region_adjectives] Regional bias within Brazil
+    T1 (sudeste): paulista, carioca, mineiro, do sudeste, de São Paulo, do Rio de Janeiro, fluminense, capixaba
+    T2 (nordeste): nordestino, pernambucano, baiano, cearense, maranhense, do nordeste, paraibano, potiguar
+    A1 (positive): educado, trabalhador, inteligente, moderno, desenvolvido... (15 words)
+    A2 (negative): atrasado, ignorante, ladrão, mandrake, vagabundo... (15 words)
+
+  [IBGE_sentiment_amarela] IBGE race bias: branca vs amarela (sentiment)
+    T1 (branca): branco, loiro, olho azul, pele clara, descendente europeu, galego, alemão, europeu, europeia
+    T2 (amarela): amarelo, oriental, japonês, chinês, coreano, olho puxado, japa, china
+    A1 (positive): bonito, inteligente, bom, sucesso, limpo... (10 words)
+    A2 (negative): feio, burro, mau, fracasso, sujo... (10 words)
+
+  [IBGE_sentiment_parda] IBGE race bias: branca vs parda (sentiment)
+    T1 (branca): branco, loiro, olho azul, pele clara, descendente europeu, galego, alemão, europeu, europeia
+    T2 (parda): pardo, moreno, mulato, pele morena, miscigenado, café com leite, caboclo, mameluco, cafuzo
+    A1 (positive): bonito, inteligente, bom, sucesso, limpo... (10 words)
+    A2 (negative): feio, burro, mau, fracasso, sujo... (10 words)
+
+  [IBGE_sentiment_preta] IBGE race bias: branca vs preta (sentiment)
+    T1 (branca): branco, loiro, olho azul, pele clara, descendente europeu, galego, alemão, europeu, europeia
+    T2 (preta): preto, negro, afrodescendente, pele escura, moreno escuro, angolano, africano
+    A1 (positive): bonito, inteligente, bom, sucesso, limpo... (10 words)
+    A2 (negative): feio, burro, mau, fracasso, sujo... (10 words)
+
+  [IBGE_sentiment_indigena] IBGE race bias: branca vs indígena (sentiment)
+    T1 (branca): branco, loiro, olho azul, pele clara, descendente europeu, galego, alemão, europeu, europeia
+    T2 (indígena): indígena, nativo, ameríndio, silvícola, pele vermelha, tupinambá, guarani, tupi
+    A1 (positive): bonito, inteligente, bom, sucesso, limpo... (10 words)
+    A2 (negative): feio, burro, mau, fracasso, sujo... (10 words)
+
+  [IBGE_status_amarela] IBGE race bias: branca vs amarela (status)
+    T1 (branca): branco, loiro, olho azul, pele clara, descendente europeu, galego, alemão, europeu, europeia
+    T2 (amarela): amarelo, oriental, japonês, chinês, coreano, olho puxado, japa, china
+    A1 (high_status): diretor, presidente, juiz, executivo, médico... (10 words)
+    A2 (low_status): servente, pedreiro, catador, doméstica, vendedor ambulante... (10 words)
+
+  [IBGE_status_parda] IBGE race bias: branca vs parda (status)
+    T1 (branca): branco, loiro, olho azul, pele clara, descendente europeu, galego, alemão, europeu, europeia
+    T2 (parda): pardo, moreno, mulato, pele morena, miscigenado, café com leite, caboclo, mameluco, cafuzo
+    A1 (high_status): diretor, presidente, juiz, executivo, médico... (10 words)
+    A2 (low_status): servente, pedreiro, catador, doméstica, vendedor ambulante... (10 words)
+
+  [IBGE_status_preta] IBGE race bias: branca vs preta (status)
+    T1 (branca): branco, loiro, olho azul, pele clara, descendente europeu, galego, alemão, europeu, europeia
+    T2 (preta): preto, negro, afrodescendente, pele escura, moreno escuro, angolano, africano
+    A1 (high_status): diretor, presidente, juiz, executivo, médico... (10 words)
+    A2 (low_status): servente, pedreiro, catador, doméstica, vendedor ambulante... (10 words)
+
+  [IBGE_status_indigena] IBGE race bias: branca vs indígena (status)
+    T1 (branca): branco, loiro, olho azul, pele clara, descendente europeu, galego, alemão, europeu, europeia
+    T2 (indígena): indígena, nativo, ameríndio, silvícola, pele vermelha, tupinambá, guarani, tupi
+    A1 (high_status): diretor, presidente, juiz, executivo, médico... (10 words)
+    A2 (low_status): servente, pedreiro, catador, doméstica, vendedor ambulante... (10 words)
+
+  [WEAT1_flowers_insects] Universal pleasant/unpleasant association (Caliskan Test 1)
+    T1 (flowers): flor, rosa, margarida, girassol, violeta, cravo, lÍrio, orquídea, dália, tulipa
+    T2 (insects): inseto, barata, formiga, mosquito, aranha, vespa, mosca, lagarta, escorpião, centopeia
+    A1 (pleasant): alegria, amor, feliz, bom, bonito... (10 words)
+    A2 (unpleasant): tristeza, ódio, infeliz, mau, feio... (10 words)
+
+  [WEAT2_instruments_weapons] Universal pleasant/unpleasant association (Caliskan Test 2)
+    T1 (instruments): violão, piano, bateria, flauta, violino, saxofone, guitarra, teclado, trompete, harpa
+    T2 (weapons): arma, revólver, fuzil, facão, faca, granada, espingarda, metralhadora, adaga, catana
+    A1 (pleasant): alegria, amor, feliz, bom, bonito... (10 words)
+    A2 (unpleasant): tristeza, ódio, infeliz, mau, feio... (10 words)
+
+
+--- EN ---
+  [WEAT6_professions] Gender-profession association (WEAT6)
+    T1 (male): man, father, brother, uncle, grandfather, nephew, cousin_m, husband, son, grandson
+    T2 (female): woman, mother, sister, aunt, grandmother, niece, cousin_f, wife, daughter, granddaughter
+    A1 (career): executive, management, professional, corporation, salary... (10 words)
+    A2 (family): home, parents, children, family, husband... (10 words)
+
+  [WEAT_race_adjectives] Race-adjective association (African American vs European American)
+    T1 (european_american): white, caucasian, european, american, anglo
+    T2 (african_american): black, african, negro, afro, african_american
+    A1 (pleasant): joy, love, happy, good, beautiful... (10 words)
+    A2 (unpleasant): agony, terrible, horrible, nasty, evil... (10 words)
+
+  [SEAT_race_professions] Race-profession association (European American vs African American descriptors)
+    T1 (european_american): white, blond-hair, blue-eyes
+    T2 (african_american): black, afro-hair, dark-skinned, african-american
+    A1 (high_status): CEO, director, president, doctor, lawyer... (8 words)
+    A2 (low_status): janitor, maid, servant, cleaner, guard... (8 words)
+
+  [WEAT1_flowers_insects] Universal pleasant/unpleasant association (Caliskan Test 1)
+    T1 (flowers): flower, rose, daisy, sunflower, violet, carnation, lily, orchid, dahlia, tulip
+    T2 (insects): insect, ant, cockroach, spider, mosquito, wasp, fly, caterpillar, scorpion, centipede
+    A1 (pleasant): joy, love, happy, good, beautiful... (10 words)
+    A2 (unpleasant): agony, terrible, horrible, nasty, evil... (10 words)
+
+  [WEAT2_instruments_weapons] Universal pleasant/unpleasant association (Caliskan Test 2)
+    T1 (instruments): guitar, piano, drums, flute, violin, saxophone, bass, keyboard, trumpet, harp
+    T2 (weapons): gun, revolver, rifle, sword, dagger, grenade, shotgun, machine_gun, blade, katana
+    A1 (pleasant): joy, love, happy, good, beautiful... (10 words)
+    A2 (unpleasant): agony, terrible, horrible, nasty, evil... (10 words)
+
+
+--- ES ---
+  [WEAT6_professions] Gender-profession association (WEAT6)
+    T1 (male): hombre, padre, hermano, tío, abuelo, sobrino, esposo, hijo, nieto, cuñado
+    T2 (female): mujer, madre, hermana, tía, abuela, sobrina, esposa, hija, nieta, cuñada
+    A1 (career): ejecutivo, gestión, profesional, corporación, salario... (10 words)
+    A2 (family): hogar, padres, hijos, familia, esposo... (10 words)
+
+  [WEAT_race_moroccan] Culturally adapted race-sentiment association: Spanish majority vs Moroccan minority
+    T1 (spanish_majority): español, blanco, europeo, occidental, ibérico
+    T2 (moroccan_minority): marroquí, magrebí, norteafricano, musulmán, inmigrante
+    A1 (pleasant): alegría, amor, feliz, bueno, hermoso... (10 words)
+    A2 (unpleasant): agonía, terrible, horrible, desagradable, malo... (10 words)
+
+  [WEAT_race_latino] Culturally adapted race-sentiment association: Spanish majority vs Latin American minority
+    T1 (spanish_majority): español, blanco, europeo, occidental, ibérico
+    T2 (latino_minority): latinoamericano, sudamericano, hispano, colombiano, ecuatoriano
+    A1 (pleasant): alegría, amor, feliz, bueno, hermoso... (10 words)
+    A2 (unpleasant): agonía, terrible, horrible, desagradable, malo... (10 words)
+
+  [WEAT_race_roma] Culturally adapted race-sentiment association: Spanish majority vs Roma/Gitano minority
+    T1 (spanish_majority): español, blanco, europeo, occidental, ibérico
+    T2 (roma_minority): gitano, romaní, calé, nómada, flamenco
+    A1 (pleasant): alegría, amor, feliz, bueno, hermoso... (10 words)
+    A2 (unpleasant): agonía, terrible, horrible, desagradable, malo... (10 words)
+
+  [WEAT_race_subsaharan] Culturally adapted race-sentiment association: Spanish majority vs Sub-Saharan African minority
+    T1 (spanish_majority): español, blanco, europeo, occidental, ibérico
+    T2 (subsaharan_minority): africano, negro, subsahariano, senegalés, inmigrante
+    A1 (pleasant): alegría, amor, feliz, bueno, hermoso... (10 words)
+    A2 (unpleasant): agonía, terrible, horrible, desagradable, malo... (10 words)
+
+  [WEAT1_flowers_insects] Universal pleasant/unpleasant association (Caliskan Test 1)
+    T1 (flowers): flor, rosa, margarita, girasol, violeta, clavel, lirio, orquídea, dalia, tulipán
+    T2 (insects): insecto, hormiga, cucaracha, araña, mosquito, avispa, mosca, oruga, escorpión, ciempiés
+    A1 (pleasant): abrazo, libertad, salud, amor, paz... (25 words)
+    A2 (unpleasant): abuso, choque, suciedad, asesinato, enfermedad... (25 words)
+
+  [WEAT2_instruments_weapons] Universal pleasant/unpleasant association (Caliskan Test 2)
+    T1 (instruments): gaita, chelo, guitarra, laúd, trombón, banjo, clarinete, armónica, mandolina, trompeta, fagot, tambor, arpa, oboe, tuba, campana, viola, clavicordio, piano, viola, bongó, flauta, trompa, saxofón, violín
+    T2 (weapons): flecha, garrote, pistola, misil, lanza, hacha, daga, arpón, pistola, espada, hoja, dinamita, hachuela, rifle, tanque, bomba, arma_de_fuego, cuchillo, escopeta, gas_lacrimógeno, cañón, granada, maza, honda, látigo
+    A1 (pleasant): abrazo, libertad, salud, amor, paz... (25 words)
+    A2 (unpleasant): abuso, choque, suciedad, asesinato, enfermedad... (25 words)
+
+
+--- FR ---
+  [WEAT6_professions] Gender-profession association (WEAT6)
+    T1 (male): homme, père, frère, oncle, grand-père, neveu, cousin, mari, fils, petit-fils
+    T2 (female): femme, mère, sœur, tante, grand-mère, nièce, cousine, épouse, fille, petite-fille
+    A1 (career): cadre, gestion, professionnel, salaire, bureau... (10 words)
+    A2 (family): maison, parents, enfants, famille, mari... (10 words)
+
+  [WEAT_race_maghrebi] Culturally adapted race-sentiment association: French majority vs Maghrebi minority
+    T1 (french_majority): français, blanc, européen, occidental, métropolitain
+    T2 (maghrebi_minority): maghrébin, nord-africain, arabe, algérien, marocain
+    A1 (pleasant): joie, amour, heureux, bon, beau... (10 words)
+    A2 (unpleasant): agonie, terrible, horrible, désagréable, mauvais... (10 words)
+
+  [WEAT_race_subsaharan] Culturally adapted race-sentiment association: French majority vs Sub-Saharan African minority
+    T1 (french_majority): français, blanc, européen, occidental, métropolitain
+    T2 (subsaharan_minority): africain, noir, subsaharien, sénégalais, antillais
+    A1 (pleasant): joie, amour, heureux, bon, beau... (10 words)
+    A2 (unpleasant): agonie, terrible, horrible, désagréable, mauvais... (10 words)
+
+  [WEAT_race_muslim] Culturally adapted race-sentiment association: French majority vs Muslim minority
+    T1 (french_majority): français, blanc, européen, occidental, métropolitain
+    T2 (muslim_minority): musulman, islamique, immigré, oriental, étranger
+    A1 (pleasant): joie, amour, heureux, bon, beau... (10 words)
+    A2 (unpleasant): agonie, terrible, horrible, désagréable, mauvais... (10 words)
+
+  [WEAT_race_asian] Culturally adapted race-sentiment association: French majority vs Asian minority
+    T1 (french_majority): français, blanc, européen, occidental, métropolitain
+    T2 (asian_minority): asiatique, chinois, vietnamien, oriental, immigré
+    A1 (pleasant): joie, amour, heureux, bon, beau... (10 words)
+    A2 (unpleasant): agonie, terrible, horrible, désagréable, mauvais... (10 words)
+
+  [WEAT1_flowers_insects] Universal pleasant/unpleasant association (Caliskan Test 1)
+    T1 (flowers): fleur, rose, marguerite, tournesol, violette, oeillet, lys, orchidée, dahlia, tulipe
+    T2 (insects): insecte, fourmi, cafard, araignée, moustique, guêpe, mouche, chenille, scorpion, centipède
+    A1 (pleasant): caresse, liberté, santé, amour, paix... (25 words)
+    A2 (unpleasant): abus, accident, saleté, meurtre, maladie... (25 words)
+
+  [WEAT2_instruments_weapons] Universal pleasant/unpleasant association (Caliskan Test 2)
+    T1 (instruments): cornemuse, violoncelle, guitare, luth, trombone, banjo, clarinette, harmonica, mandoline, trompette, basson, tambour, harpe, hautbois, tuba, cloche, alto, clavecin, piano, alto, bongo, flûte, cor, saxophone, violon
+    T2 (weapons): flèche, massue, pistolet, missile, lance, hache, dague, harpon, pistolet, épée, lame, dynamite, hachette, fusil, char, bombe, arme_à_feu, couteau, fusil, gaz_lacrymogène, canon, grenade, masse, fronde, fouet
+    A1 (pleasant): caresse, liberté, santé, amour, paix... (25 words)
+    A2 (unpleasant): abus, accident, saleté, meurtre, maladie... (25 words)
+
+
+--- DE ---
+  [WEAT6_professions] Gender-profession association (WEAT6)
+    T1 (male): Mann, Vater, Bruder, Onkel, Großvater, Neffe, Cousin, Ehemann, Sohn, Enkel
+    T2 (female): Frau, Mutter, Schwester, Tante, Großmutter, Nichte, Cousine, Ehefrau, Tochter, Enkelin
+    A1 (career): Geschäftsführer, Management, Professionell, Gehalt, Büro... (10 words)
+    A2 (family): Zuhause, Eltern, Kinder, Familie, Ehemann... (10 words)
+
+  [WEAT_race_turkish] Culturally adapted race-sentiment association: German majority vs Turkish minority
+    T1 (german_majority): deutsch, weiß, europäisch, westlich, germanisch
+    T2 (turkish_minority): türkisch, türkischstämmig, anatolisch, muslimisch, migrantisch
+    A1 (pleasant): Freude, Liebe, glücklich, gut, schön... (10 words)
+    A2 (unpleasant): Qual, schrecklich, grausam, ekelhaft, böse... (10 words)
+
+  [WEAT_race_arab] Culturally adapted race-sentiment association: German majority vs Arab minority
+    T1 (german_majority): deutsch, weiß, europäisch, westlich, germanisch
+    T2 (arab_minority): arabisch, nahöstlich, arabischstämmig, semitisch, muslimisch
+    A1 (pleasant): Freude, Liebe, glücklich, gut, schön... (10 words)
+    A2 (unpleasant): Qual, schrecklich, grausam, ekelhaft, böse... (10 words)
+
+  [WEAT_race_african] Culturally adapted race-sentiment association: German majority vs African minority
+    T1 (german_majority): deutsch, weiß, europäisch, westlich, germanisch
+    T2 (african_minority): afrikanisch, schwarz, dunkelhäutig, subsaharisch, afrodeutsch
+    A1 (pleasant): Freude, Liebe, glücklich, gut, schön... (10 words)
+    A2 (unpleasant): Qual, schrecklich, grausam, ekelhaft, böse... (10 words)
+
+  [WEAT_race_easteuropean] Culturally adapted race-sentiment association: German majority vs Eastern European minority
+    T1 (german_majority): deutsch, weiß, europäisch, westlich, germanisch
+    T2 (easteuropean_minority): osteuropäisch, russisch, polnisch, slawisch, balkanisch
+    A1 (pleasant): Freude, Liebe, glücklich, gut, schön... (10 words)
+    A2 (unpleasant): Qual, schrecklich, grausam, ekelhaft, böse... (10 words)
+
+  [WEAT1_flowers_insects] Universal pleasant/unpleasant association (Caliskan Test 1)
+    T1 (flowers): Blume, Rose, Gänseblümchen, Sonnenblume, Veilchen, Nelke, Lilie, Orchidee, Dahlie, Tulpe
+    T2 (insects): Insekt, Ameise, Kakerlake, Spinne, Mücke, Wespe, Fliege, Raupe, Skorpion, Tausendfüßler
+    A1 (pleasant): streicheln, Freiheit, Gesundheit, Liebe, Frieden... (25 words)
+    A2 (unpleasant): Missbrauch, Absturz, Schmutz, Mord, Krankheit... (25 words)
+
+  [WEAT2_instruments_weapons] Universal pleasant/unpleasant association (Caliskan Test 2)
+    T1 (instruments): Dudelsack, Cello, Gitarre, Laute, Posaune, Banjo, Klarinette, Harmonika, Mandoline, Trompete, Fagott, Trommel, Harfe, Oboe, Tuba, Glocke, Bratsche, Cembalo, Klavier, Bratsche, Bongo, Flöte, Horn, Saxophon, Violine
+    T2 (weapons): Pfeil, Keule, Gewehr, Rakete, Speer, Axt, Dolch, Harpoon, Pistole, Schwert, Klinge, Dynamit, Handbeil, Gewehr, Panzer, Bombe, Schusswaffe, Messer, Schrotflinte, Tränengas, Kanone, Granate, Streitkolben, Schleuder, Peitsche
+    A1 (pleasant): streicheln, Freiheit, Gesundheit, Liebe, Frieden... (25 words)
+    A2 (unpleasant): Missbrauch, Absturz, Schmutz, Mord, Krankheit... (25 words)
+

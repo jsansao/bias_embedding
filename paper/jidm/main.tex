@@ -1,0 +1,595 @@
+% !TEX TS-program = XeLaTeX
+\documentclass{sbc2019}
+\setmainfont{TeX Gyre Termes}
+
+\usepackage{graphicx}
+\usepackage{fontspec}
+\usepackage{fontawesome}
+\usepackage{academicons}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{aas_macros}
+\usepackage[marginal]{footmisc}
+\usepackage{supertabular}
+\usepackage{afterpage}
+\usepackage{url}
+\usepackage{pifont}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{booktabs}
+%\usepackage[capitalise]{cleveref}
+
+\setcitestyle{square}
+
+\definecolor{orcidlogo}{rgb}{0.37,0.48,0.13}
+\definecolor{unilogo}{rgb}{0.16, 0.26, 0.58}
+\definecolor{maillogo}{rgb}{0.58, 0.16, 0.26}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.0}
+\hypersetup{colorlinks,breaklinks,
+            linkcolor=darkblue,urlcolor=darkblue,
+            anchorcolor=darkblue,citecolor=darkblue}
+
+\jid{JIDM}
+\jtitle{Journal of Information and Data Management, 2026, 13:1, }
+\doi{10.5753/jidm.2026.XXXXXX}
+\copyrightstatement{This work is licensed under a Creative Commons Attribution 4.0 International License}
+\jyear{2026}
+
+\title[Multilingual WEAT Analysis of Embedding Models]{Multilingual WEAT Analysis of Proprietary and Open-Weight Embedding Models Across Five Languages}
+
+\author[Sansão 2026]{
+\affil{\textbf{João Pedro Hallack Sansão}~\href{https://orcid.org/0000-0003-0095-2629}{\textcolor{orcidlogo}{\aiOrcid}}~\textcolor{blue}{\faEnvelopeO}~~[~\textbf{Universidade Federal de São João del-Rei}~|\href{mailto:joao@ufsj.edu.br}{~\textbf{\textit{joao@ufsj.edu.br}}}~]}
+}
+}
+
+\begin{document}
+
+\begin{frontmatter}
+\maketitle
+
+\begin{mail}
+Departamento de Tecnologia em Engenharia Civil, Computação, Automação, Telemática e Humanidades (DTECH), Universidade Federal de São João del-Rei (UFSJ), Rodovia MG 443, s/n, km 7, Ouro Branco, MG, CEP 36.490-972, Brazil.
+\end{mail}
+
+\begin{dates}
+\small{\textbf{Received:} DD Month YYYY~~~$\bullet$~~~\textbf{Accepted:} DD Month YYYY~~~$\bullet$~~~\textbf{Published:} DD Month YYYY}
+\end{dates}
+
+\begin{abstract}
+\textbf{Abstract.~}
+\noindent Text embedding models encode societal biases, yet non-English languages remain underexplored. We investigate gender, racial, and sentiment bias in nine models: four proprietary (OpenAI text-embedding-3-small/large, Google Gemini Embedding 001/2) and five open-weight (Qwen3-Embedding-8B/4B, BGE-M3, Multilingual-E5-Large, Mistral-Embed), using WEAT and SEAT across five languages: Brazilian Portuguese, English, Spanish, French, and German. The evaluation covers 5 to 14 bias dimensions per language, with permutation-based significance ($n=5{,}000$) and Holm-Bonferroni correction. Sentiment associations (flowers/insects, instruments/weapons) produce the largest and most consistent effects across all five languages. Gender bias is non-significant after correction in four of five languages; only Qwen3-8B in German shows a significant effect. Racial and ethnic bias uses culturally adapted word lists: standard WEAT race tests for English, race adjectives and IBGE racial categories for Portuguese, and adapted tests for Spanish, French, and German with four minority groups each. IBGE categories analysis reveals that sentiment bias (\textit{branca} associated with positive words) is more consistently significant than status bias. Model size correlates positively with bias (Spearman $r = 1.00$ for parameters, exact $p = 0.083$ with $n=4$; $r = 0.70$ for dimensions, $p = 0.037$ with $n=9$), so scaling alone does not reduce bias. Proprietary and open-weight models show no systematic difference in fairness. These findings support culturally adapted bias evaluation for multilingual deployment.
+\end{abstract}
+
+\begin{keywords}
+Natural Language Processing; embedding models; bias evaluation; WEAT; multilingual bias; cross-lingual fairness
+\end{keywords}
+
+\end{frontmatter}
+
+\section{Introduction}
+
+Text embedding models turn words, sentences, or documents into dense vectors that capture semantic meaning. These vectors power downstream tasks, information retrieval, question answering, classification \cite{mikolov2013word, pennington2014glove, devlin2019bert}. As models reach production systems serving diverse populations, the biases they carry become a practical concern.
+
+Prior work has shown that embeddings trained on large corpora reflect and amplify societal stereotypes around gender, race, and other protected attributes \cite{bolukbasi2016man, caliskan2017semantics, garg2018word}. The Word Embedding Association Test (WEAT) \cite{caliskan2017semantics} adapted the Implicit Association Test from social psychology to measure such biases in embedding spaces, comparing associations between target groups (e.g., gender categories) and attribute sets (e.g., career-related terms).
+
+Yet most bias evaluations center on American English. Whether those findings transfer to other languages, especially those with distinct cultural and linguistic contexts, is largely unknown. Brazilian Portuguese, spoken by over 200 million people, brings its own challenges: grammatical gender marking, regional dialects, and specific racial and socioeconomic dynamics \cite{taso2023sexismo}.
+
+This paper addresses three research questions:
+\begin{enumerate}[nosep]
+    \item \textbf{RQ1}: What levels of gender, racial, and sentiment bias exist in proprietary and open-weight embedding models across five languages (PT-BR, EN, ES, FR, DE)?
+    \item \textbf{RQ2}: How do proprietary and open-weight models compare in terms of bias magnitude?
+    \item \textbf{RQ3}: Do bias patterns generalize across languages with distinct cultural and linguistic contexts?
+\end{enumerate}
+
+Our contributions:
+\begin{itemize}[nosep]
+    \item A WEAT evaluation of 9 embedding models (4 proprietary, 5 open-weight) across five languages, with 5 to 14 bias dimensions per language
+    \item Culturally adapted word lists for Brazilian Portuguese (gender, race, regionalism, sentiment, IBGE racial categories) and for Spanish, French, and German (gender, sentiment, plus culturally adapted race/ethnicity lists with 4 minority groups each), alongside standard WEAT lists for English
+    \item Cross-lingual comparison showing that sentiment bias is consistent across all five languages, while gender bias is non-significant in four of five
+    \item Culture-specific race/ethnicity bias patterns: Maghrebi bias in French (5/9 models), Turkish bias in German (4/9), and Moroccan/Sub-Saharan bias in Spanish (3/9) are most consistent
+    \item Open-source word lists and evaluation code for reproducibility
+\end{itemize}
+
+Because embeddings drive modern dense retrieval and ranking systems, systematic bias in embedding spaces can affect the quality and reliability of information retrieved from large textual repositories.
+
+\section{Related Work}
+
+\subsection{Bias in Word Embeddings}
+
+The study of bias in word embeddings took off after \cite{bolukbasi2016man} showed that embeddings encode gender stereotypes, associating ``programmer'' with masculine terms and ``homemaker'' with feminine terms. \cite{caliskan2017semantics} introduced the Word Embedding Association Test (WEAT), adapting the Implicit Association Test from social psychology to measure implicit biases in embedding spaces.
+
+Later work extended these findings to larger models. \cite{ethayarajh2019contextual} showed that BERT's contextualized embeddings exhibit similar bias patterns. \cite{garg2018word} demonstrated that embeddings can capture historical trends in gender and ethnic stereotypes over time. Together these studies establish that bias persists across embedding architectures, though its magnitude varies.
+
+\subsection{Mitigation Approaches}
+
+Researchers have proposed several methods to reduce bias in embeddings. \cite{ravfogel2020inlp} introduced Iterative Null-space Projection (INLP), which projects embeddings onto a subspace orthogonal to the bias direction. \cite{dev2021measuring} offered methods for both measuring and mitigating biased inferences. Still, the effectiveness of these techniques varies across bias types and languages, and their applicability to production-scale embedding models remains limited.
+
+\subsection{Multilingual and Cross-Lingual Bias}
+
+Research on bias in non-English embeddings has grown but remains less extensive than English-focused studies. \cite{lauscher2020we} investigated debiasing across languages, finding that techniques effective in English do not always transfer. \cite{taso2023sexismo} examined Portuguese word embeddings, identifying gender and racial biases in Brazilian Portuguese. \cite{mukherjee2023weathub} introduced WEATHub, providing standardized WEAT word lists for multiple languages including Spanish, French, and German. We extend this work by evaluating proprietary and open-weight models across five languages using culturally adapted WEAT tests, comparing bias patterns across languages with distinct cultural and linguistic contexts.
+
+\section{Methodology}
+
+\subsection{WEAT Framework}
+
+The Word Embedding Association Test (WEAT) \cite{caliskan2017semantics} measures the association between two target word sets $X$ and $Y$ (e.g., male and female terms) and two attribute word sets $A$ and $B$ (e.g., career and family terms). For each target word $x$, the differential association is computed as:
+
+\begin{equation}
+    s(x, A, B) = \text{mean}_{a \in A} \cos(x, a) - \text{mean}_{b \in B} \cos(x, b)
+\end{equation}
+
+where $\cos(\cdot, \cdot)$ denotes cosine similarity. The WEAT test statistic is:
+
+\begin{equation}
+    W = \sum_{x \in X} s(x, A, B) - \sum_{y \in Y} s(y, A, B)
+\end{equation}
+
+For effect size, we compute Cohen's $d$:
+
+\begin{equation}
+    d = \frac{\text{mean}(s(x, A, B)) - \text{mean}(s(y, A, B))}{\text{std}(\{s(w, A, B) : w \in X \cup Y\})}
+\end{equation}
+
+Statistical significance is assessed via permutation testing ($n = 5{,}000$ permutations), where we test the null hypothesis that the target groups are equally associated with the attribute sets. To account for multiple comparisons, we apply Holm-Bonferroni correction within independent families per (model, language, test group). Each model--language pair is corrected separately. The correction families are:
+
+\begin{itemize}[nosep]
+    \item \textbf{WEAT equivalent} (gender, race, and sentiment tests run in all languages): $n = 5$ tests for PT-BR and EN (gender, race adjectives, race professions, flowers/insects, instruments/weapons); $n = 7$ for ES, FR, and DE (gender, 4 culturally adapted race tests, flowers/insects, instruments/weapons)
+    \item \textbf{IBGE word-level} (PT-BR only): $n = 8$ tests covering sentiment and status associations for 4 IBGE racial groups
+    \item \textbf{SEAT IBGE} (PT-BR only): $n = 8$ sentence-level tests covering sentiment and status associations for 4 IBGE racial groups
+    \item \textbf{Regional} (PT-BR only): $n = 1$ test (no correction needed)
+\end{itemize}
+
+We also compute 95\% percentile bootstrap confidence intervals ($n = 10{,}000$ bootstrap resamples) for effect sizes to quantify estimation uncertainty.
+
+\subsection{SEAT Framework}
+
+To complement word-level WEAT tests, we conduct Sentence Embedding Association Tests (SEAT) for the IBGE racial categories. SEAT uses the same association test methodology as WEAT, but embeds complete sentences (e.g., ``branca \'e uma pessoa'') rather than individual words. This captures contextual associations that word-level tests may miss, as sentence embeddings encode information beyond individual words.
+
+\subsection{Word Lists}
+
+We built culturally adapted word lists for Brazilian Portuguese, drawing from prior work on Portuguese embeddings \cite{taso2023sexismo} and adapting standard WEAT lists. The PT-BR lists cover six bias dimensions:
+\begin{itemize}[nosep]
+    \item \textbf{Gender}: Masculine/feminine terms paired with career/family attributes (WEAT-6, adapted from names to gendered terms for Romance languages)
+    \item \textbf{Race}: Racial descriptors (\textit{branco}/\textit{preto}, 5 terms each) paired with positive/negative adjectives (10 each)
+    \item \textbf{IBGE Racial Categories}: \textit{branca} (9 terms) as reference group compared against \textit{amarela} (9), \textit{parda} (9), \textit{preta} (9), and \textit{ind\'{i}gena} (8), paired with sentiment (positive/negative, 10 each) and status (high/low, 10 each) attributes
+    \item \textbf{Regionalism}: Regional identifiers (\textit{sudeste}/\textit{nordeste}, 5 each) paired with positive/negative adjectives (10 each)
+    \item \textbf{Sentiment}: Flowers (25)/insects (25) and instruments (25)/weapons (25) paired with pleasant/unpleasant attributes (10 each)
+    \item \textbf{SEAT IBGE}: Sentence-level tests using IBGE racial categories in the template ``\{word\} \'e uma pessoa,'' with sentiment and status attributes
+\end{itemize}
+
+English word lists follow standard WEAT specifications, covering gender (WEAT-6), race (adjectives and professions, WEAT-3/4), and sentiment (WEAT-1/2).
+
+Spanish, French, and German gender and sentiment lists come from WEATHub \cite{mukherjee2023weathub}. For race/ethnicity, we created culturally adapted lists replacing the US-centric European American/African American dichotomy. Each language has 4 minority groups, each with 5 ethnic/national descriptors paired against 5 majority descriptors:
+\begin{itemize}[nosep]
+    \item \textbf{German}: Turkish (\textit{t\"urkisch, t\"urkischst\"ammig, anatolisch, muslimisch, migrantisch}), Arab (\textit{arabisch, nah\"ostlich, arabischst\"ammig, semitisch, muslimisch}), African (\textit{afrikanisch, schwarz, dunkelh\"autig, subsaharisch, afrodeutsch}), Eastern European (\textit{osteurop\"aisch, russisch, polnisch, slawisch, balkanisch}) vs German majority (\textit{deutsch, wei\ss, europ\"aisch, westlich, germanisch})
+    \item \textbf{French}: Maghrebi (\textit{maghr\'ebin, nord-africain, arabe, alg\'erien, marocain}), Sub-Saharan (\textit{africain, noir, subsaharien, s\'en\'egalais, antillais}), Muslim (\textit{musulman, islamique, immigr\'e, oriental, \'etranger}), Asian (\textit{asiatique, chinois, vietnamien, oriental, immigr\'e}) vs French majority (\textit{fran\c{c}ais, blanc, europ\'een, occidental, m\'etropolitain})
+    \item \textbf{Spanish}: Moroccan (\textit{marroqu\'i, magreb\'i, norteafricano, musulm\'an, inmigrante}), Latin American (\textit{latinoamericano, sudamericano, hispano, colombiano, ecuatoriano}), Roma (\textit{gitano, roman\'i, cal\'e, n\'omada, flamenco}), Sub-Saharan (\textit{africano, negro, subsahariano, senegal\'es, inmigrante}) vs Spanish majority (\textit{espa\~nol, blanco, europeo, occidental, ib\'erico})
+\end{itemize}
+
+Tests use 10 pleasant and 10 unpleasant attribute words per language, following standard WEAT sentiment attribute lists.
+
+We built the culturally adapted race/ethnicity lists for ES, FR, and DE as follows. First, we identified the most salient minority groups in each country from demographic and migration data: in Germany, Turkish, Arab, African, and Eastern European communities \cite{statistisches2023}; in France, Maghrebi, Sub-Saharan African, Muslim, and Asian communities \cite{insee2023}; in Spain, Moroccan, Latin American, Roma, and Sub-Saharan African communities \cite{ine2023}. For each group, we selected five ethnic or national descriptors common in public discourse and academic literature, drawing from census terminology, media studies, and social psychology research on ethnic categorization in each country. Majority-group descriptors represent the dominant national identity in each context. All word lists are available in the supplementary material and in the project repository for independent verification.
+
+\section{Experimental Setup}
+
+We evaluate 9 models across 5 languages (PT-BR, EN, ES, FR, DE), computing WEAT effect sizes with permutation testing ($n=5{,}000$) and 95\% percentile bootstrap confidence intervals for each model-language-test triple. Statistical significance is assessed using Holm-Bonferroni correction within independent families per (model, language) pair. The total number of experiments is 432 (PT-BR: 198, EN: 45, ES: 63, FR: 63, DE: 63).
+
+\subsection{Models}
+
+We evaluate nine embedding models spanning proprietary API-based services and open-weight models that can be self-hosted. Table~\ref{tab:models} lists all models with their type, embedding dimension, and parameter count (where disclosed). We selected one to two representative models per provider to balance coverage with redundancy while capturing the major embedding API offerings (OpenAI, Google) and the most widely used open-weight multilingual embedding models (Qwen, BGE-M3, E5, Mistral).
+
+\begin{table}[t]
+\centering
+\caption{Embedding models evaluated in this study.}
+\label{tab:models}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llcr}
+\toprule
+\textbf{Model} & \textbf{Type} & \textbf{Dimensions} & \textbf{Parameters} \\
+\midrule
+openai/text-embedding-3-small & Proprietary & 1,536 & -- \\
+openai/text-embedding-3-large & Proprietary & 3,072 & -- \\
+google/gemini-embedding-001 & Proprietary & 768 & -- \\
+google/gemini-embedding-2 & Proprietary & 3,072 & -- \\
+mistralai/mistral-embed-2312 & Open-weight & 1,024 & -- \\
+qwen/qwen3-embedding-8B & Open-weight & 4,096 & 8B \\
+qwen/qwen3-embedding-4B & Open-weight & 2,560 & 4B \\
+baai/bge-m3 & Open-weight & 1,024 & 568M \\
+intfloat/multilingual-e5-large & Open-weight & 1,024 & 560M \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+The distinction between proprietary and open-weight models matters for deployment: proprietary models are accessed via API with no control over tokenization, normalization, or versioning; open-weight models can be self-hosted, offering greater transparency and reproducibility. Embedding dimensions range from 768 (Gemini-001) to 4,096 (Qwen3-8B), affecting storage and downstream task compatibility. Parameter counts are disclosed only for open-weight models; proprietary models do not publish architecture details. All nine models support multilingual text, though their training data composition and language-specific tuning vary, details documented only for open-weight models.
+
+\subsection{Evaluation Protocol}
+
+For each model--language pair, we extract embeddings for all words in the WEAT lists. Each word is embedded independently (no surrounding context); multi-word terms get the element-wise mean of their individual embeddings. We compute the full pairwise cosine similarity matrix between all target words ($X \cup Y$) and all attribute words ($A \cup B$), then calculate the WEAT test statistic $W$ and Cohen's $d$ effect size.
+
+We assess statistical significance via permutation testing under the null hypothesis that the two target groups are equally associated with the attribute sets. We randomly permute target-group labels 5,000 times (fixed random seed), recomputing $W$ each time. We use a one-sided $p$-value (the proportion of permuted statistics at least as extreme as the observed $W$ in the direction of the alternative) because WEAT tests for a directional association, whether one target group is more associated with one attribute set than the other. To account for multiple comparisons, we apply Holm--Bonferroni correction within independent test families per (model, language) pair. We also compute 95\% percentile bootstrap confidence intervals for effect sizes using 10,000 resamples, giving a measure of estimation uncertainty independent of the permutation null distribution.
+
+\subsection{Implementation Details}
+
+Experiments ran in Python 3.13 with NumPy and SciPy. We extracted embeddings via the OpenRouter API with parallel requests (5 concurrent workers) and automatic retries on transient errors. Total API cost across all 432 experiments was under \$0.01. WEAT computations (cosine similarity, permutation tests, bootstrap intervals) ran locally on a standard CPU; each model--language pair finishes in under 5 minutes. All random seeds (permutation sampling, bootstrap resampling) are fixed for full reproducibility. The complete codebase, versioned word lists, and raw CSV results are available at \url{https://github.com/jsansao/bias\_embedding}.
+
+\section{Results}
+
+Tables 1--7 present WEAT and SEAT effect sizes (Cohen's $d$) with 95\% bootstrap confidence intervals for all models and bias dimensions across five languages. Statistical significance uses Holm-Bonferroni-corrected $p$-values ($p_{\mathrm{bonf}}$) to account for multiple comparisons within each language.\footnote{PT-BR uses three correction families: WEAT equivalent ($n = 5$), IBGE word-level ($n = 8$), and SEAT IBGE ($n = 8$), plus a Regional test with $n = 1$ (no correction needed). EN uses a single family ($n = 5$). ES, FR, and DE each use a single family ($n = 7$: gender, 4 culturally adapted race tests, 2 sentiment tests).}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/size_vs_bias.png}
+\caption{Model size versus mean absolute bias ($|d|$). Left: parameter count for open-weight models. Right: embedding dimension for all models. Spearman correlation coefficients and $p$-values are shown.}
+\label{fig:size_vs_bias}
+\end{figure*}
+
+\begin{table*}[t]
+\centering
+\caption{WEAT Effect Sizes (Cohen's $d$) with 95\% Bootstrap CI -- Brazilian Portuguese.}
+\label{tab:effect_sizes_pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccc}
+\toprule
+Model & \makecell{Gender\\professions} & \makecell{Race\\adjectives} & \makecell{Race\\professions\\(SEAT)} & \makecell{Regionalism\\adjectives} & \makecell{Sentiment\\flowers/insects} & \makecell{Sentiment\\instruments/weapons} \\
+\midrule
+bge\_m3 & 0.225 [-0.65, 1.06] & \textbf{1.623} [1.34, 1.85]$^{*}$ & 0.481 [-0.78, 1.46] & 0.170 [-0.76, 1.16] & 0.426 [-0.42, 1.31] & 0.505 [-0.37, 1.18] \\
+gemini\_001 & 0.243 [-0.94, 0.87] & 1.279 [0.84, 1.68] & 0.205 [-1.04, 1.23] & 0.379 [-0.57, 1.43] & \textbf{1.109} [0.51, 1.59]$^{*}$ & -0.795 [-1.42, -0.04] \\
+gemini\_2 & -0.030 [-0.90, 0.84] & 1.354 [0.72, 1.81] & 1.210 [0.51, 1.73] & 0.363 [-0.74, 1.14] & \textbf{1.093} [0.53, 1.55]$^{*}$ & 0.452 [-0.40, 1.35] \\
+mistral\_embed & 0.075 [-0.91, 0.85] & 0.767 [-0.40, 1.55] & 1.046 [0.16, 1.74] & -0.718 [-1.49, 0.22] & 0.156 [-0.83, 0.90] & -0.494 [-1.21, 0.40] \\
+multilingual\_e5\_large & 0.242 [-0.66, 1.05] & 1.238 [0.33, 1.83] & 0.706 [-0.42, 1.40] & 0.608 [-0.35, 1.33] & 0.839 [0.09, 1.43] & -0.099 [-0.96, 0.80] \\
+openai\_large & 0.313 [-0.57, 1.12] & \textbf{1.489} [1.27, 1.78]$^{*}$ & \textbf{1.435} [1.08, 1.76]$^{*}$ & 0.842 [-0.07, 1.55]$^{*}$ & \textbf{1.152} [0.57, 1.60]$^{*}$ & \textbf{1.341} [0.92, 1.70]$^{**}$ \\
+openai\_small & 0.151 [-0.76, 0.96] & \textbf{1.463} [1.22, 1.77]$^{*}$ & 1.132 [0.54, 1.61] & 0.194 [-0.73, 1.27] & \textbf{1.230} [0.66, 1.66]$^{*}$ & 0.178 [-0.73, 1.02] \\
+qwen3\_4b & 0.283 [-0.58, 1.11] & 1.247 [0.71, 1.74] & 1.112 [0.26, 1.76] & 0.022 [-0.94, 1.00] & \textbf{1.095} [0.64, 1.49]$^{*}$ & \textbf{1.094} [0.33, 1.70]$^{*}$ \\
+qwen3\_8b & 0.226 [-0.65, 1.05] & \textbf{1.301} [0.82, 1.70]$^{*}$ & 0.743 [-0.32, 1.45] & 0.011 [-0.99, 0.97] & \textbf{1.618} [1.24, 1.88]$^{**}$ & \textbf{1.112} [0.46, 1.60]$^{*}$ \\
+\bottomrule
+\end{tabular}%
+}
+\vspace{2mm}
+\footnotesize{$^* p_{\mathrm{bonf}} < 0.05$, $^{**} p_{\mathrm{bonf}} < 0.01$, $^{***} p_{\mathrm{bonf}} < 0.001$. Brackets show 95\% percentile bootstrap CI.}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\caption{WEAT Effect Sizes (Cohen's $d$) with 95\% Bootstrap CI -- English.}
+\label{tab:effect_sizes_en}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccccc}
+\toprule
+Model & \makecell{Gender\\professions} & \makecell{Race\\adjectives} & \makecell{Race\\professions\\(SEAT)} & \makecell{Sentiment\\flowers/insects} & \makecell{Sentiment\\instruments/weapons} \\
+\midrule
+bge\_m3 & 0.577 [-0.27, 1.36] & 1.308 [0.83, 1.70] & -0.458 [-1.57, 1.19] & \textbf{1.143} [0.46, 1.73]$^{*}$ & \textbf{1.452} [1.15, 1.72]$^{***}$ \\
+gemini\_001 & 0.472 [-0.36, 1.32] & 1.047 [0.28, 1.61] & -0.100 [-1.52, 1.34] & \textbf{1.297} [0.81, 1.68]$^{**}$ & 0.929 [0.24, 1.45] \\
+gemini\_2 & 0.620 [-0.23, 1.45] & 0.078 [-1.19, 1.24] & -0.200 [-1.53, 1.25] & \textbf{1.427} [1.03, 1.74]$^{***}$ & \textbf{1.431} [1.14, 1.70]$^{***}$ \\
+mistral\_embed & 0.198 [-0.71, 0.98] & 0.730 [-0.49, 1.62] & -0.133 [-1.48, 1.31] & \textbf{1.572} [1.31, 1.80]$^{***}$ & \textbf{1.133} [0.60, 1.59]$^{**}$ \\
+multilingual\_e5\_large & 0.458 [-0.40, 1.26] & 1.233 [0.47, 1.75] & -1.070 [-1.82, 0.03] & \textbf{1.399} [1.16, 1.65]$^{***}$ & \textbf{1.088} [0.44, 1.60]$^{*}$ \\
+openai\_large & 0.411 [-0.43, 1.25] & 1.045 [0.21, 1.61] & -0.054 [-1.23, 1.60] & \textbf{1.674} [1.46, 1.85]$^{***}$ & \textbf{1.261} [0.91, 1.60]$^{**}$ \\
+openai\_small & 0.452 [-0.42, 1.16] & \textbf{1.495} [1.36, 1.80]$^{*}$ & -0.377 [-1.50, 1.52] & \textbf{1.644} [1.38, 1.85]$^{***}$ & \textbf{1.326} [0.84, 1.72]$^{**}$ \\
+qwen3\_4b & 0.737 [-0.07, 1.43] & 1.279 [0.52, 1.79] & -0.096 [-1.21, 1.72] & \textbf{1.701} [1.53, 1.85]$^{***}$ & \textbf{1.722} [1.61, 1.85]$^{***}$ \\
+qwen3\_8b & 0.805 [0.08, 1.35] & \textbf{1.552} [1.42, 1.86]$^{*}$ & -0.859 [-1.66, 0.48] & \textbf{1.837} [1.76, 1.91]$^{***}$ & \textbf{1.533} [1.23, 1.79]$^{**}$ \\
+\bottomrule
+\end{tabular}%
+}
+\vspace{2mm}
+\footnotesize{$^* p_{\mathrm{bonf}} < 0.05$, $^{**} p_{\mathrm{bonf}} < 0.01$, $^{***} p_{\mathrm{bonf}} < 0.001$. Brackets show 95\% percentile bootstrap CI.}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\caption{WEAT Effect Sizes (Cohen's $d$) with 95\% Bootstrap CI -- Spanish.}
+\label{tab:effect_sizes_es}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccccccc}
+\toprule
+Model & \makecell{Gender\\professions} & \makecell{Race\\Moroccan} & \makecell{Race\\Latin American} & \makecell{Race\\Roma} & \makecell{Race\\Sub-Saharan} & \makecell{Sentiment\\flowers/insects} & \makecell{Sentiment\\instruments/weapons} \\
+\midrule
+bge\_m3 & -0.124 [-1.00, 0.76] & \textbf{1.711} [1.64, 1.86]$^{*}$ & 0.095 [-0.90, 1.57] & 1.150 [0.59, 1.62] & \textbf{1.556} [1.37, 1.82]$^{*}$ & 0.984 [0.26, 1.57] & 0.200 [-0.34, 0.74] \\
+gemini\_001 & 0.107 [-0.80, 0.88] & 1.256 [0.62, 1.74] & 0.757 [-0.41, 1.61] & -0.786 [-1.67, 0.39] & 1.451 [1.11, 1.78] & \textbf{1.591} [1.37, 1.79]$^{**}$ & 0.224 [-0.32, 0.76] \\
+gemini\_2 & 0.187 [-0.71, 1.04] & 1.189 [0.46, 1.79] & 0.067 [-1.12, 1.33] & -0.211 [-1.31, 1.17] & 1.121 [0.28, 1.73] & \textbf{1.744} [1.62, 1.86]$^{***}$ & 0.616 [0.12, 1.10] \\
+mistral\_embed & 0.143 [-0.72, 0.99] & 1.523 [1.05, 1.87] & 0.836 [-0.32, 1.83] & 0.647 [-0.53, 1.78] & 1.434 [0.89, 1.86] & \textbf{1.340} [0.83, 1.75]$^{**}$ & 0.267 [-0.28, 0.82] \\
+multilingual\_e5\_large & -0.263 [-1.09, 0.62] & \textbf{1.633} [1.44, 1.86]$^{*}$ & 1.031 [0.02, 1.75] & 1.208 [0.44, 1.73] & \textbf{1.644} [1.48, 1.85]$^{*}$ & \textbf{1.261} [0.76, 1.67]$^{**}$ & \textbf{0.658} [0.15, 1.10]$^{*}$ \\
+openai\_large & 0.453 [-0.41, 1.29] & 1.420 [1.09, 1.74] & -0.258 [-1.43, 0.99] & 0.525 [-0.93, 1.38] & 1.198 [0.42, 1.73] & \textbf{1.829} [1.75, 1.91]$^{***}$ & \textbf{0.940} [0.49, 1.35]$^{**}$ \\
+openai\_small & -0.086 [-0.89, 0.85] & 0.731 [-0.53, 1.50] & -0.470 [-1.65, 0.91] & -0.300 [-1.48, 0.91] & 0.854 [-0.26, 1.57] & \textbf{1.476} [1.10, 1.79]$^{**}$ & \textbf{0.772} [0.31, 1.20]$^{*}$ \\
+qwen3\_4b & 0.522 [-0.33, 1.32] & 1.264 [0.59, 1.76] & -0.428 [-1.45, 0.97] & 0.212 [-1.05, 1.38] & 0.945 [-0.09, 1.64] & \textbf{1.578} [1.32, 1.80]$^{***}$ & \textbf{0.976} [0.60, 1.31]$^{**}$ \\
+qwen3\_8b & 0.500 [-0.37, 1.21] & \textbf{1.696} [1.62, 1.84]$^{*}$ & -0.222 [-1.35, 1.22] & 0.113 [-1.74, 1.13] & \textbf{1.511} [1.35, 1.82]$^{*}$ & \textbf{1.862} [1.83, 1.90]$^{***}$ & \textbf{1.165} [0.88, 1.44]$^{***}$ \\
+\bottomrule
+\end{tabular}%
+}
+\vspace{2mm}
+\footnotesize{$^* p_{\mathrm{bonf}} < 0.05$, $^{**} p_{\mathrm{bonf}} < 0.01$, $^{***} p_{\mathrm{bonf}} < 0.001$. Brackets show 95\% percentile bootstrap CI.}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\caption{WEAT Effect Sizes (Cohen's $d$) with 95\% Bootstrap CI -- French.}
+\label{tab:effect_sizes_fr}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccccccc}
+\toprule
+Model & \makecell{Gender\\professions} & \makecell{Race\\Maghrebi} & \makecell{Race\\Sub-Saharan} & \makecell{Race\\Muslim} & \makecell{Race\\Asian} & \makecell{Sentiment\\flowers/insects} & \makecell{Sentiment\\instruments/weapons} \\
+\midrule
+bge\_m3 & 0.685 [-0.12, 1.24] & 0.617 [-0.73, 1.43] & 1.095 [0.28, 1.67] & 1.034 [0.21, 1.60] & 0.555 [-0.74, 1.45] & \textbf{1.121} [0.56, 1.56]$^{*}$ & \textbf{0.749} [0.26, 1.18]$^{*}$ \\
+gemini\_001 & 0.436 [-0.43, 1.20] & \textbf{1.435} [1.21, 1.79]$^{*}$ & 0.905 [-0.17, 1.60] & 1.102 [0.27, 1.67] & 0.729 [-0.61, 1.54] & \textbf{1.380} [1.03, 1.69]$^{**}$ & 0.418 [-0.13, 0.92] \\
+gemini\_2 & 0.482 [-0.34, 1.39] & \textbf{1.548} [1.22, 1.87]$^{*}$ & \textbf{1.494} [1.20, 1.84]$^{*}$ & 1.203 [0.38, 1.78] & 1.040 [0.01, 1.79] & \textbf{1.608} [1.38, 1.81]$^{***}$ & \textbf{0.986} [0.65, 1.33]$^{***}$ \\
+mistral\_embed & -0.075 [-0.81, 1.03] & 1.287 [0.69, 1.74] & 0.711 [-0.47, 1.59] & 1.179 [0.42, 1.71] & 0.212 [-1.01, 1.38] & 0.594 [-0.27, 1.23] & 0.227 [-0.34, 0.73] \\
+multilingual\_e5\_large & 0.375 [-0.54, 1.11] & \textbf{1.433} [1.19, 1.75]$^{*}$ & \textbf{1.456} [1.19, 1.76]$^{*}$ & 1.283 [0.74, 1.71] & 1.097 [0.32, 1.63] & 0.896 [0.27, 1.38] & 0.436 [-0.11, 0.95] \\
+openai\_large & 0.646 [-0.18, 1.44] & 1.228 [0.77, 1.70] & 0.961 [-0.02, 1.58] & 1.093 [0.20, 1.69] & 0.460 [-1.05, 1.38] & 0.937 [0.30, 1.45] & 0.638 [0.12, 1.09] \\
+openai\_small & 0.278 [-0.58, 1.11] & \textbf{1.510} [1.29, 1.78]$^{*}$ & 1.289 [1.01, 1.71] & 0.917 [-0.11, 1.63] & -0.001 [-1.45, 1.12] & 0.970 [0.27, 1.56] & 0.377 [-0.16, 0.89] \\
+qwen3\_4b & 0.765 [-0.02, 1.43] & \textbf{1.641} [1.57, 1.88]$^{*}$ & 0.960 [-0.04, 1.75] & 1.013 [0.23, 1.56] & 0.622 [-1.06, 1.35] & \textbf{1.386} [0.96, 1.74]$^{**}$ & \textbf{0.660} [0.16, 1.12]$^{*}$ \\
+qwen3\_8b & 0.727 [-0.10, 1.43] & 1.157 [0.38, 1.68] & \textbf{1.543} [1.37, 1.82]$^{*}$ & 0.947 [-0.11, 1.70] & -0.294 [-1.53, 0.90] & \textbf{1.643} [1.40, 1.84]$^{***}$ & \textbf{0.900} [0.47, 1.28]$^{**}$ \\
+\bottomrule
+\end{tabular}%
+}
+\vspace{2mm}
+\footnotesize{$^* p_{\mathrm{bonf}} < 0.05$, $^{**} p_{\mathrm{bonf}} < 0.01$, $^{***} p_{\mathrm{bonf}} < 0.001$. Brackets show 95\% percentile bootstrap CI.}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\caption{WEAT Effect Sizes (Cohen's $d$) with 95\% Bootstrap CI -- German.}
+\label{tab:effect_sizes_de}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccccccc}
+\toprule
+Model & \makecell{Gender\\professions} & \makecell{Race\\Turkish} & \makecell{Race\\Arab} & \makecell{Race\\African} & \makecell{Race\\Eastern European} & \makecell{Sentiment\\flowers/insects} & \makecell{Sentiment\\instruments/weapons} \\
+\midrule
+bge\_m3 & 0.842 [0.08, 1.49] & 1.217 [0.50, 1.78] & 1.195 [0.43, 1.78] & 1.258 [0.67, 1.72] & 1.015 [0.05, 1.73] & 0.669 [-0.14, 1.31] & \textbf{0.704} [0.23, 1.11]$^{*}$ \\
+gemini\_001 & 0.590 [-0.24, 1.46] & 1.286 [0.82, 1.70] & 1.431 [1.13, 1.75] & 0.803 [-0.33, 1.67] & 1.022 [0.16, 1.64] & \textbf{1.549} [1.29, 1.77]$^{***}$ & \textbf{0.891} [0.48, 1.23]$^{**}$ \\
+gemini\_2 & 0.402 [-0.45, 1.30] & 1.036 [0.16, 1.62] & 0.936 [-0.13, 1.64] & 1.109 [0.34, 1.64] & 0.262 [-1.06, 1.35] & \textbf{1.653} [1.49, 1.82]$^{***}$ & \textbf{1.344} [1.09, 1.58]$^{***}$ \\
+mistral\_embed & -0.033 [-0.86, 0.85] & 1.202 [0.55, 1.76] & 1.092 [0.27, 1.75] & 0.706 [-0.56, 1.65] & 0.954 [-0.07, 1.69] & \textbf{1.456} [1.14, 1.73]$^{***}$ & 0.492 [-0.04, 0.94] \\
+multilingual\_e5\_large & 0.891 [0.18, 1.45] & \textbf{1.447} [1.20, 1.77]$^{*}$ & \textbf{1.463} [1.24, 1.79]$^{*}$ & 1.297 [0.94, 1.69] & 1.291 [0.86, 1.73] & \textbf{1.397} [1.15, 1.65]$^{***}$ & \textbf{0.855} [0.38, 1.27]$^{**}$ \\
+openai\_large & 0.470 [-0.37, 1.26] & \textbf{1.368} [0.98, 1.74]$^{*}$ & \textbf{1.478} [1.23, 1.79]$^{*}$ & 0.770 [-0.41, 1.72] & 1.211 [0.51, 1.71] & \textbf{1.479} [1.20, 1.73]$^{***}$ & \textbf{1.176} [0.85, 1.45]$^{***}$ \\
+openai\_small & 0.334 [-0.52, 1.21] & 1.189 [0.34, 1.78] & 1.371 [0.80, 1.80] & 1.468 [1.03, 1.80] & 0.535 [-0.71, 1.58] & \textbf{1.369} [0.98, 1.76]$^{***}$ & 0.535 [-0.00, 1.06] \\
+qwen3\_4b & 0.654 [-0.16, 1.31] & \textbf{1.650} [1.48, 1.85]$^{*}$ & \textbf{1.445} [1.09, 1.82]$^{*}$ & 1.145 [0.48, 1.70] & \textbf{1.395} [1.17, 1.73]$^{*}$ & \textbf{1.641} [1.37, 1.86]$^{***}$ & \textbf{1.596} [1.35, 1.79]$^{***}$ \\
+qwen3\_8b & \textbf{1.118} [0.45, 1.63]$^{*}$ & \textbf{1.453} [0.89, 1.85]$^{*}$ & 1.101 [0.12, 1.77] & \textbf{1.606} [1.25, 1.87]$^{*}$ & 1.004 [-0.02, 1.74] & \textbf{1.706} [1.56, 1.86]$^{***}$ & \textbf{1.676} [1.56, 1.79]$^{***}$ \\
+\bottomrule
+\end{tabular}%
+}
+\vspace{2mm}
+\footnotesize{$^* p_{\mathrm{bonf}} < 0.05$, $^{**} p_{\mathrm{bonf}} < 0.01$, $^{***} p_{\mathrm{bonf}} < 0.001$. Brackets show 95\% percentile bootstrap CI.}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\caption{WEAT Effect Sizes (Cohen's $d$) with 95\% Bootstrap CI -- IBGE Racial Categories (PT-BR).}
+\label{tab:effect_sizes_ibge}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccc}
+\toprule
+& \multicolumn{4}{c}{\textit{Sentiment (positive/negative)}} \\
+\cmidrule(lr){2-5}
+Model & \textit{branca}/\textit{amarela} & \textit{branca}/\textit{parda} & \textit{branca}/\textit{preta} & \textit{branca}/\textit{ind\'{i}gena} \\
+\midrule
+bge\_m3 & \textbf{1.278} [0.71, 1.75]$^{*}$ & \textbf{1.417} [1.04, 1.72]$^{**}$ & \textbf{1.344} [0.83, 1.76]$^{*}$ & \textbf{1.268} [0.69, 1.71]$^{*}$ \\
+gemini\_001 & -0.053 [-1.06, 0.85] & 0.837 [0.05, 1.41] & 0.961 [0.26, 1.46] & -0.113 [-1.16, 0.78] \\
+gemini\_2 & -0.600 [-1.50, 0.31] & \textbf{1.113} [0.46, 1.62]$^{*}$ & \textbf{1.256} [0.68, 1.69]$^{*}$ & 0.382 [-0.56, 1.34] \\
+mistral\_embed & 0.449 [-0.47, 1.36] & 0.840 [0.01, 1.54] & 0.992 [0.24, 1.57] & 0.322 [-0.58, 1.32] \\
+multilingual\_e5\_large & 0.324 [-0.61, 1.21] & 0.874 [0.10, 1.44] & 0.981 [0.08, 1.69] & 0.552 [-0.41, 1.24] \\
+openai\_large & \textbf{1.290} [0.84, 1.67]$^{**}$ & \textbf{1.663} [1.42, 1.88]$^{***}$ & \textbf{1.463} [1.12, 1.77]$^{**}$ & \textbf{1.470} [1.09, 1.76]$^{***}$ \\
+openai\_small & \textbf{0.983} [0.26, 1.53] & \textbf{1.591} [1.37, 1.81]$^{***}$ & \textbf{1.607} [1.44, 1.81]$^{**}$ & \textbf{1.038} [0.33, 1.58] \\
+qwen3\_4b & 0.544 [-0.43, 1.29] & \textbf{1.315} [0.88, 1.67]$^{***}$ & \textbf{1.322} [0.97, 1.66]$^{*}$ & 0.918 [0.30, 1.40] \\
+qwen3\_8b & 0.376 [-0.69, 1.15] & \textbf{1.456} [1.02, 1.79]$^{***}$ & \textbf{1.489} [1.20, 1.76]$^{***}$ & \textbf{1.115} [0.49, 1.59]$^{*}$ \\
+\midrule
+& \multicolumn{4}{c}{\textit{Status (high/low)}} \\
+\cmidrule(lr){2-5}
+Model & \textit{branca}/\textit{amarela} & \textit{branca}/\textit{parda} & \textit{branca}/\textit{preta} & \textit{branca}/\textit{ind\'{i}gena} \\
+\midrule
+bge\_m3 & 0.631 [-0.29, 1.39] & 0.996 [0.27, 1.57] & 0.521 [-0.40, 1.40] & 0.966 [0.19, 1.59] \\
+gemini\_001 & 0.607 [-0.35, 1.41] & \textbf{1.205} [0.70, 1.61]$^{*}$ & 0.383 [-0.61, 1.19] & 0.636 [-0.28, 1.31] \\
+gemini\_2 & 0.236 [-0.75, 1.15] & \textbf{1.427} [1.02, 1.75]$^{**}$ & \textbf{1.021} [0.35, 1.56]$^{*}$ & \textbf{1.235} [0.80, 1.61]$^{*}$ \\
+mistral\_embed & 0.596 [-0.35, 1.35] & \textbf{1.149} [0.59, 1.60]$^{*}$ & 0.787 [-0.09, 1.50] & 0.392 [-0.52, 1.33] \\
+multilingual\_e5\_large & 0.341 [-0.63, 1.14] & 0.821 [0.03, 1.41] & 0.496 [-0.52, 1.27] & 0.712 [-0.18, 1.40] \\
+openai\_large & 0.831 [0.02, 1.40]$^{*}$ & \textbf{1.582} [1.40, 1.77]$^{**}$ & \textbf{1.200} [0.66, 1.62]$^{*}$ & \textbf{1.333} [0.89, 1.71]$^{**}$ \\
+openai\_small & \textbf{1.421} [1.12, 1.70]$^{**}$ & \textbf{1.149} [0.60, 1.60]$^{**}$ & 0.621 [-0.28, 1.31] & \textbf{1.013} [0.24, 1.58] \\
+qwen3\_4b & 0.657 [-0.24, 1.43] & \textbf{1.378} [1.00, 1.70]$^{**}$ & 0.798 [-0.10, 1.48] & 1.012 [0.25, 1.61] \\
+qwen3\_8b & 0.343 [-0.63, 1.17] & \textbf{1.256} [0.75, 1.65]$^{*}$ & 0.722 [-0.17, 1.40] & 0.965 [0.22, 1.53] \\
+\bottomrule
+\end{tabular}%
+}
+\vspace{2mm}
+\footnotesize{$^* p_{\mathrm{bonf}} < 0.05$, $^{**} p_{\mathrm{bonf}} < 0.01$, $^{***} p_{\mathrm{bonf}} < 0.001$. Positive $d$ indicates association with \textit{branca}. Brackets show 95\% percentile bootstrap CI.}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\caption{SEAT Effect Sizes (Cohen's $d$) with 95\% Bootstrap CI -- IBGE Racial Categories, Sentence-Level (PT-BR).}
+\label{tab:seat_ibge}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccc}
+\toprule
+& \multicolumn{4}{c}{\textit{Sentiment (positive/negative)}} \\
+\cmidrule(lr){2-5}
+Model & \textit{branca}/\textit{amarela} & \textit{branca}/\textit{parda} & \textit{branca}/\textit{preta} & \textit{branca}/\textit{ind\'{i}gena} \\
+\midrule
+gemini\_001 & -0.793 [-1.54, 0.08] & 0.789 [-0.08, 1.48] & 0.553 [-0.41, 1.37] & -0.257 [-1.33, 0.66] \\
+gemini\_2 & -0.807 [-1.48, 0.04] & 0.917 [0.10, 1.53] & 0.699 [-0.23, 1.38] & 0.031 [-0.92, 1.05] \\
+bge\_m3 & 0.692 [-0.23, 1.48] & \textbf{1.205} [0.70, 1.60]$^{*}$ & \textbf{1.428} [1.05, 1.76]$^{**}$ & \textbf{1.572} [1.25, 1.82]$^{**}$ \\
+mistral\_embed & -0.320 [-1.09, 0.81] & 0.939 [0.16, 1.53] & 0.589 [-0.34, 1.53] & -0.077 [-0.97, 1.01] \\
+multilingual\_e5\_large & -0.161 [-1.06, 0.88] & 1.216 [0.61, 1.66] & 1.173 [0.40, 1.75] & 0.159 [-0.81, 1.14] \\
+openai\_large & \textbf{0.989} [0.35, 1.45]$^{*}$ & \textbf{1.693} [1.50, 1.88]$^{**}$ & \textbf{1.493} [1.27, 1.79]$^{**}$ & \textbf{1.015} [0.26, 1.57]$^{*}$ \\
+openai\_small & 0.310 [-0.73, 1.15] & \textbf{1.782} [1.71, 1.87]$^{**}$ & \textbf{1.455} [1.05, 1.80]$^{**}$ & 0.697 [-0.20, 1.32] \\
+qwen3\_4b & 0.157 [-0.85, 1.09] & 0.663 [-0.26, 1.43] & 0.710 [-0.21, 1.40] & -0.036 [-1.07, 0.88] \\
+qwen3\_8b & 0.014 [-1.33, 0.86] & 0.418 [-0.64, 1.25] & 0.661 [-0.28, 1.66] & -0.223 [-1.14, 0.89] \\
+\midrule
+& \multicolumn{4}{c}{\textit{Status (high/low)}} \\
+\cmidrule(lr){2-5}
+Model & \textit{branca}/\textit{amarela} & \textit{branca}/\textit{parda} & \textit{branca}/\textit{preta} & \textit{branca}/\textit{ind\'{i}gena} \\
+\midrule
+gemini\_001 & 0.084 [-0.92, 1.03] & 1.155 [0.59, 1.60] & -0.273 [-1.18, 0.74] & 0.160 [-0.89, 1.06] \\
+gemini\_2 & -0.072 [-1.03, 0.92] & \textbf{1.325} [0.80, 1.73]$^{*}$ & 0.488 [-0.49, 1.36] & 0.792 [-0.05, 1.36] \\
+bge\_m3 & 0.576 [-0.40, 1.35] & \textbf{1.085} [0.42, 1.59]$^{*}$ & 0.889 [0.06, 1.52] & \textbf{1.315} [0.84, 1.71]$^{**}$ \\
+mistral\_embed & 0.087 [-1.09, 0.85] & \textbf{1.282} [0.85, 1.65]$^{*}$ & 0.393 [-0.76, 1.09] & 0.547 [-0.43, 1.31] \\
+multilingual\_e5\_large & 0.291 [-0.73, 1.17] & 0.891 [0.10, 1.51] & 0.416 [-0.63, 1.24] & 0.160 [-0.91, 1.05] \\
+openai\_large & 0.767 [-0.15, 1.47] & \textbf{1.554} [1.22, 1.83]$^{**}$ & \textbf{1.196} [0.53, 1.69]$^{*}$ & \textbf{1.298} [0.74, 1.71]$^{*}$ \\
+openai\_small & \textbf{0.872} [0.00, 1.58] & 1.338 [0.70, 1.80]$^{*}$ & \textbf{1.202} [0.66, 1.65]$^{*}$ & 0.640 [-0.29, 1.60] \\
+qwen3\_4b & -0.155 [-1.10, 0.81] & \textbf{0.976} [0.23, 1.57] & 0.371 [-0.64, 1.24] & 0.575 [-0.35, 1.52] \\
+qwen3\_8b & -0.030 [-1.08, 0.89] & \textbf{1.389} [1.03, 1.69]$^{**}$ & 0.782 [-0.11, 1.42] & 0.635 [-0.32, 1.37] \\
+\bottomrule
+\end{tabular}%
+}
+\vspace{2mm}
+\footnotesize{$^* p_{\mathrm{bonf}} < 0.05$, $^{**} p_{\mathrm{bonf}} < 0.01$. Positive $d$ indicates association with \textit{branca}. Brackets show 95\% percentile bootstrap CI.}
+\end{table*}
+
+\subsection{Gender Bias}
+
+Gender bias, measured with the WEAT-6 profession association test, is not statistically significant across most models after Holm-Bonferroni correction. In PT-BR and EN ($n = 5$), no model reaches significance. In ES and FR ($n = 7$), none do either. In DE ($n = 7$), only Qwen3-8B shows significant gender bias ($d = 1.12$, $p_{\mathrm{bonf}} = 0.030$). Effect sizes range from $d = -0.26$ (Multilingual-E5-Large, ES) to $d = 1.12$ (Qwen3-8B, DE), small to medium effects that largely miss significance under the more conservative correction with $n = 7$ per family. Negative effect sizes (e.g., Multilingual-E5-Large in ES and PT-BR, Mistral-Embed in DE) mean these models associate feminine terms more strongly with career attributes than masculine terms, reversing the stereotypical direction. These reversed effects are also non-significant and should not be read as evidence of counter-stereotypical bias without further investigation.
+
+\subsection{Racial Bias}
+
+Racial bias is the most consistent finding across models. In the race-adjectives test, after Holm-Bonferroni correction ($n = 5$), four models reach significance in PT-BR: BGE-M3 ($d = 1.62$, $p_{\mathrm{bonf}} = 0.045$), OpenAI-Large ($d = 1.49$, $p_{\mathrm{bonf}} = 0.012$), OpenAI-Small ($d = 1.46$, $p_{\mathrm{bonf}} = 0.022$), and Qwen3-8B ($d = 1.30$, $p_{\mathrm{bonf}} = 0.040$). The other five models miss significance ($p_{\mathrm{bonf}} > 0.05$), yet effect sizes stay consistently large ($d = 0.77$ to $1.35$). Mistral-Embed shows the smallest effect ($d = 0.77$, $p_{\mathrm{bonf}} = 0.44$). The consistent direction and magnitude across all nine models point to pervasive racial associations.
+
+In English, racial bias is significant for 2/9 models after Holm-Bonferroni correction ($d = 1.50$ to $1.55$, $p_{\mathrm{bonf}} < 0.05$), with Qwen3-8B showing the largest effect ($d = 1.55$, $p_{\mathrm{bonf}} = 0.016$). Effects point in the same direction across all nine models, ranging from $d = 0.08$ to $1.55$, suggesting widespread racial associations regardless of proprietary or open-weight status.
+
+The race-professions SEAT test yields smaller effect sizes and no statistical significance in English after Holm-Bonferroni correction ($d = -1.07$ to $-0.05$, all $p_{\mathrm{bonf}} > 0.05$), suggesting profession-based racial associations are weaker than sentiment-based ones at the sentence level.
+
+\subsection{IBGE Racial Category Bias}
+
+Table~\ref{tab:effect_sizes_ibge} presents the IBGE racial category comparisons, using \textit{branca} (white) as the reference group against \textit{amarela} (East Asian), \textit{parda} (brown/mixed), \textit{preta} (black), and \textit{ind\'{i}gena} (indigenous). Target word lists were expanded to improve coverage: \textit{branca} (9 terms), \textit{amarela} (9 terms), \textit{parda} (9 terms including \textit{caboclo}, \textit{mameluco}, \textit{cafuzo}), \textit{preta} (9 terms), and \textit{ind\'{i}gena} (8 terms).
+
+\textbf{Sentiment bias}: After Holm-Bonferroni correction ($n = 8$), \textit{branca}/\textit{parda} sentiment is significant for 6/9 models (openai-large, openai-small, bge-m3, qwen3-8b, qwen3-4b, gemini-2; $p_{\mathrm{bonf}} < 0.05$). \textit{branca}/\textit{preta} sentiment is significant for 6/9 models (same six, with openai-small showing the largest effect: $d = 1.61$, $p_{\mathrm{bonf}} = 0.003$). \textit{branca}/\textit{amarela} sentiment is significant for 2/9 models (openai-large: $d = 1.29$, $p_{\mathrm{bonf}} = 0.007$; bge-m3: $d = 1.28$, $p_{\mathrm{bonf}} = 0.021$). \textit{branca}/\textit{ind\'{i}gena} sentiment is significant for 3/9 models (openai-large: $d = 1.47$, $p_{\mathrm{bonf}} = 0.001$; bge-m3: $d = 1.27$, $p_{\mathrm{bonf}} = 0.021$; qwen3-8b: $d = 1.12$, $p_{\mathrm{bonf}} = 0.033$). OpenAI-Large shows the most consistent sentiment bias across all racial pairs and the largest effect sizes.
+
+\textbf{Status bias}: After Holm-Bonferroni correction ($n = 8$), \textit{branca}/\textit{parda} status is significant for 6/9 models (openai-large, openai-small, qwen3-8b, gemini-2, mistral-embed, bge-m3; $p_{\mathrm{bonf}} < 0.05$). \textit{branca}/\textit{ind\'{i}gena} status is significant for 2/9 models (openai-large: $d = 1.30$, $p_{\mathrm{bonf}} = 0.015$; bge-m3: $d = 1.32$, $p_{\mathrm{bonf}} = 0.008$). \textit{branca}/\textit{preta} status is significant for 2/9 models (openai-large: $d = 1.20$, $p_{\mathrm{bonf}} = 0.026$; openai-small: $d = 1.20$, $p_{\mathrm{bonf}} = 0.025$). \textit{branca}/\textit{amarela} status is significant for 2/9 models (openai-small: $d = 1.42$, $p_{\mathrm{bonf}} = 0.004$; openai-large: $d = 0.83$, $p_{\mathrm{bonf}} = 0.042$).
+
+Sentiment bias (\textit{branca} linked to positive words) is more consistently significant than status bias (\textit{branca} linked to high-status professions). \textit{branca}/\textit{parda} is the most robust finding, significant in both sentiment and status tests, showing that racial bias in embeddings manifests more strongly through affective associations than through occupational stereotypes.
+
+\subsection{SEAT Sentence-Level Analysis}
+
+We also ran Sentence Embedding Association Tests (SEAT) for the IBGE racial categories. SEAT embeds complete sentences (e.g., ``branca \'e uma pessoa'') rather than individual words, capturing contextual associations that word-level tests may miss. Full results appear in Table~\ref{tab:seat_ibge}.
+
+After Holm-Bonferroni correction within the SEAT experiment ($n = 8$ per model), distinct patterns emerge. For sentiment bias, \textit{branca}/\textit{parda} is significant for 3/9 models (openai-large: $d = 1.69$, openai-small: $d = 1.78$, bge-m3: $d = 1.21$; $p_{\mathrm{bonf}} < 0.05$). \textit{branca}/\textit{preta} is significant for the same three models (openai-large $d = 1.49$, openai-small $d = 1.46$, bge-m3 $d = 1.43$; $p_{\mathrm{bonf}} < 0.01$). \textit{branca}/\textit{ind\'{i}gena} sentiment is significant for 2/9 models (bge-m3: $d = 1.57$, $p_{\mathrm{bonf}} < 0.01$; openai-large: $d = 1.02$, $p_{\mathrm{bonf}} < 0.05$). \textit{branca}/\textit{amarela} sentiment is significant for 1/9 models (openai-large: $d = 0.99$, $p_{\mathrm{bonf}} = 0.047$). Gemini models show negative $d$ values for \textit{branca}/\textit{amarela} (gemini-001: $d = -0.79$; gemini-2: $d = -0.81$), though neither reaches significance.
+
+For status bias in sentence context, \textit{branca}/\textit{parda} is significant for 6/9 models: openai-large ($d = 1.55$), openai-small ($d = 1.34$), qwen3-8b ($d = 1.39$), gemini-2 ($d = 1.33$), mistral-embed ($d = 1.28$), and bge-m3 ($d = 1.09$). \textit{branca}/\textit{ind\'{i}gena} status is significant for 2/9 models (bge-m3: $d = 1.32$, openai-large: $d = 1.30$). \textit{branca}/\textit{preta} status is significant for 2/9 models (openai-large: $d = 1.20$, openai-small: $d = 1.20$). \textit{branca}/\textit{amarela} status is non-significant across all models. OpenAI models show the strongest and most consistent SEAT effects, reproducing the word-level pattern of sentiment associations being more robust than status associations.
+
+\subsection{Regional Bias}
+
+Regional bias within Brazil, measured using \textit{sudeste}/\textit{nordeste} associations, is significant only for OpenAI-Large ($d = 0.84$, $p_{\mathrm{bonf}} = 0.044$). This result is borderline and should be interpreted with caution, the $p$-value sits near the significance threshold and the test has no correction ($n = 1$). The other eight models show non-significant associations ($p_{\mathrm{bonf}} > 0.05$), with effect sizes ranging from $d = -0.72$ (Mistral-Embed) to $d = 0.61$ (Multilingual-E5-Large).
+
+\subsection{Sentiment Bias}
+
+Sentiment associations show the largest effect sizes in our evaluation and are the most consistent finding across all five languages. The flowers/insects test yields significant results for most models after Holm-Bonferroni correction, with effect sizes ranging from $d = 0.43$ (BGE-M3, PT-BR, non-significant) to $d = 1.86$ (Qwen3-8B, ES, $p_{\mathrm{bonf}} < 0.001$). The test is significant for 8/9 models in ES, 8/9 in DE, 5/9 in FR, 9/9 in EN, and 6/9 in PT-BR.
+
+The instruments/weapons test shows significant associations across languages, with the strongest effects in DE (7/9 models significant) and EN (8/9). In ES, 5/9 models reach significance; in FR 4/9; in PT-BR 3/9. Effect sizes range from $d = 0.20$ (BGE-M3, ES, non-significant) to $d = 1.68$ (Qwen3-8B, DE, $p_{\mathrm{bonf}} < 0.001$). These results show that sentiment bias transcends linguistic boundaries, with consistent patterns across typologically diverse languages.
+
+\subsection{Racial and Ethnic Bias in ES, FR, and DE}
+
+We extend the race-sentiment association test to Spanish, French, and German using culturally adapted word lists. For each language, we define four minority ethnic groups against the majority group, paired with pleasant/unpleasant attributes. These tests replace the US-centric European American/African American dichotomy with culturally relevant categories.
+
+In German ($n = 7$), Turkish is the most consistently biased group (4/9 models significant, $p_{\mathrm{bonf}} < 0.05$), with Qwen3-4B showing the strongest effect ($d = 1.65$). Arab bias is significant for 3/9 models (Multilingual-E5-Large, OpenAI-Large, Qwen3-4B, $d = 1.45$ to $1.48$). African bias is significant only for Qwen3-8B ($d = 1.61$, $p_{\mathrm{bonf}} = 0.036$). Eastern European bias is significant only for Qwen3-4B ($d = 1.40$, $p_{\mathrm{bonf}} = 0.027$).
+
+In French ($n = 7$), Maghrebi bias is the most robust finding (5/9 models significant, $p_{\mathrm{bonf}} < 0.05$), with effect sizes from $d = 1.43$ (Multilingual-E5-Large) to $d = 1.64$ (Qwen3-4B). Sub-Saharan African bias is significant for 3/9 models (Gemini-2: $d = 1.49$; Multilingual-E5-Large: $d = 1.46$; Qwen3-8B: $d = 1.54$). Muslim and Asian bias are non-significant across all models.
+
+In Spanish ($n = 7$), bias patterns are selective. Moroccan and Sub-Saharan African bias are significant for 3/9 models each. BGE-M3 and Multilingual-E5-Large show significant bias for both groups, with the strongest effects for Sub-Saharan bias (Multilingual-E5-Large: $d = 1.64$; BGE-M3: $d = 1.55$, $p_{\mathrm{bonf}} < 0.05$). Latin American and Roma bias are non-significant for all models.
+
+Across all three languages, open-weight and proprietary models show comparable effect sizes. The Maghrebi bias in French is the most consistent finding (5/9 models significant), while Latin American and Roma bias in Spanish show the weakest effects.
+
+\subsection{Proprietary vs Open-Weight Comparison}
+
+Proprietary models show no systematic advantage over open-weight alternatives in terms of bias magnitude. Mistral-Embed, an open-weight model, shows the smallest bias in sentiment tests for PT-BR (mean $|d| = 0.33$), while Qwen3-8B shows the largest bias in English sentiment tests. Proprietary models (OpenAI, Gemini) sit in the middle, suggesting architecture and training data matter more than model access type. Gemini-Embedding-2 shows moderate bias levels comparable to other models.
+
+\subsection{Model Size and Bias}
+
+To investigate whether larger models exhibit less bias, we analyzed the correlation between model size (number of parameters) and mean absolute bias (mean $|d|$ across all tests). For open-weight models with public parameter counts, we have: BGE-M3 (568M), Multilingual-E5-Large (560M), Qwen3-4B (4B), and Qwen3-8B (8B). For proprietary models without public parameter counts, we use embedding dimension as a proxy for model capacity, acknowledging this is imperfect, embedding dimension reflects output representation size, not total parameters or training compute. This mean is computed over all 48 bias dimensions per model: 5 tests in EN (gender, race adjectives, race professions SEAT, flowers/insects, instruments/weapons), 7 in ES (gender, 4 culturally adapted race tests, 2 sentiment), 7 in FR (gender, 4 culturally adapted race tests, 2 sentiment), 7 in DE (gender, 4 culturally adapted race tests, 2 sentiment), and 22 in PT-BR (gender, race adjectives, race professions SEAT, 8 IBGE sentiment, 8 IBGE status, regionalism, 2 sentiment, 8 SEAT IBGE).
+
+Figure~\ref{fig:size_vs_bias} shows scatter plots of model size versus mean absolute bias. For parameter count (4 open-weight models), we observe a strong positive correlation (Spearman $r = 1.00$, exact $p = 0.083$ with $n=4$), with larger open-weight models showing higher bias. For embedding dimension (all 9 models), we observe a moderate positive correlation (Spearman $r = 0.70$, $p = 0.037$ with $n=9$).
+
+With such small samples ($n = 4$ for parameter count, $n = 9$ for embedding dimension), these correlations are exploratory only, the tests have negligible statistical power (e.g., the $n=4$ correlation has exact $p = 0.083$). The positive association does not support causal conclusions; larger models may simply encode more detailed associations from their training data, including both positive and negative social patterns. Scaling model size alone does not reliably reduce bias; architecture, training data, and debiasing methods likely matter more than model scale.
+
+\subsection{Cross-Lingual Comparison}
+
+Extending the evaluation to five languages reveals which bias patterns generalize across linguistic boundaries. The flowers/insects sentiment test is the most consistent finding, with significant results for most models in all five languages. Effect sizes are comparable across languages, ranging from $d = 0.43$ to $d = 1.86$, suggesting that pleasant/unpleasant associations with natural objects transcend cultural and linguistic contexts.
+
+The instruments/weapons sentiment test shows more variation across languages. EN exhibits the strongest effects (8/9 models significant), followed by DE (7/9). ES, FR, and PT-BR show weaker effects (5/9, 4/9, and 3/9 models significant, respectively).
+
+Gender bias is non-significant in four of five languages after correction, with DE as the exception where one model (Qwen3-8B) shows significant effects. The DE race tests use 5 descriptors per group, comparable to other languages, and the gender test uses 6 terms per target group (WEAT-6).
+
+Racial and ethnic bias, using culturally adapted word lists across all five languages, shows significant effects for a subset of models in all languages, with large effect sizes ($d > 1.0$). In PT-BR, the IBGE analysis reveals that sentiment bias is more consistently significant than status bias, and racial bias in EN is significant for 2/9 models. In ES, FR, and DE, culturally adapted race tests reveal that some groups (Maghrebi in FR: 5/9; Turkish in DE: 4/9; Moroccan and Sub-Saharan in ES: 3/9 each) consistently show significant bias, while others (Latin American, Roma, Asian, Eastern European, Muslim) show weaker or non-significant effects.
+
+Proprietary and open-weight models show similar cross-lingual patterns: no model consistently exhibits the lowest or highest bias across all five languages. This suggests that bias mitigation strategies should be evaluated per language rather than assuming cross-lingual transfer of fairness properties.
+
+\section{Discussion}
+
+\subsection{Key Findings}
+
+Three patterns emerge from our five-language evaluation:
+
+\textbf{First}, sentiment bias is the most consistent finding across all languages. The flowers/insects test is significant for most models in all five languages, and instruments/weapons is significant for a majority of models in four of five languages (PT-BR being the weakest). Effect sizes frequently exceed $d = 1.0$ for many model--language combinations, indicating large associations between natural objects and artifacts and pleasant/unpleasant concepts. This cross-lingual consistency suggests that sentiment associations in embedding spaces reflect broadly stable conceptual mappings across cultures.
+
+\textbf{Second}, racial and ethnic bias is significant for a subset of models in all five languages, but the affected groups and number of significant models vary by language. Maghrebi bias in French is the most robust finding (5/9 models significant, $n = 7$), followed by Turkish in German (4/9), and Moroccan and Sub-Saharan in Spanish (3/9 each). In PT-BR, race-adjective bias is significant for 4/9 models ($n = 5$) and in English for 2/9. IBGE category analysis reveals that sentiment bias (\textit{branca} linked to positive words) is more consistently significant than status bias, suggesting that racial bias in embeddings operates primarily through affective associations. Other groups (African/German, Muslim/French, Asian/French, Latin American, Roma) show no significant bias. These findings confirm that racial and ethnic associations are culture-specific, reflecting the demographic, colonial, and migration histories of each language community, a model that is relatively unbiased in one language may exhibit significant bias in another.
+
+\textbf{Third}, gender bias is non-significant in four of five languages after correction, with DE being the exception (1/9 models significant). This may reflect successful debiasing efforts, differences in how gender is encoded across languages with varying grammatical gender systems, or limited statistical power in some tests. Proprietary and open-weight models show no systematic difference in fairness metrics, suggesting that architecture and training data matter more than proprietary status.
+
+\subsection{Comparison with Prior Work}
+
+Our results can be contextualized against previous multilingual bias evaluations. WEATHub \cite{mukherjee2023weathub} reported WEAT effect sizes for sentiment tests in ES, FR, and DE using static embeddings (fastText, word2vec). Our evaluations of contextualized models (BERT-based and later architectures) generally show comparable or larger effect sizes for sentiment bias, suggesting that newer architectures do not automatically reduce affective associations. For gender bias, WEATHub reported significant effects in DE and FR for some models, whereas we find only one significant model in DE and none in FR after correction. This difference may reflect improvements in gender debiasing in production models, or methodological differences in word list composition and correction procedures. Taso et al. \cite{taso2023sexismo} reported race-adjective bias in PT-BR for a single model (word2vec); we extend this to 9 models and find that 4/9 show significant bias after correction, indicating that the phenomenon persists across modern architectures.
+
+A key methodological insight from prior work is that direct translations of English WEAT lists (XWEAT) yield unreliable cross-cultural results. Espa\~{n}a-Bonet and Barr\'{o}n-Cede\~{n}o \cite{espana2022attenuation} introduced culturally adapted tests (CA-WEAT) for nine languages, showing that multiple native-speaker word lists per language reduce variance and produce more reliable bias estimates than single translated lists. Kurpicz-Briki \cite{kurpiczbriki2020cultural} demonstrated this concretely for DE and FR, finding that gender bias manifests differently in German than in English, historical stereotypes from the 18th century remain detectable in modern embeddings, and that origin bias shows clear cultural variation depending on local migration patterns. Our work follows this principle by adapting race and minority group names per culture (e.g., Turkish-origin names for DE, Maghrebi names for FR/ES) rather than relying on translated English lists.
+
+Mukherjee et al. \cite{mukherjee2023global} scaled WEAT to 24 languages with culturally relevant target and attribute pairs across multiple embedding methods. Their analysis focused on static versus contextual models and the effect of translation quality on bias measurements, but did not compare proprietary API-based embeddings against locally hostable open-weight models, the comparison most relevant for practitioners choosing embedding providers. Rowe et al. \cite{rowe2025eurogest} introduced EuroGEST, a gender stereotype benchmark spanning 29 European languages evaluated across 24 multilingual models. They found that larger models encode gender stereotypes more strongly and that instruction finetuning does not reduce them, a finding that complements our observation that proprietary models show lower bias on gender tests (likely due to post-training alignment) but remain susceptible to race and national-origin biases that are less frequently targeted by debiasing interventions.
+
+To our knowledge, no prior work systematically compares API-based proprietary embeddings against locally hostable open-weight models across multiple languages with culturally adapted minority groups. This comparison is practically important because practitioners increasingly choose between proprietary APIs and self-hosted models based on both performance and fairness considerations, and the bias profiles of these two model categories may differ due to divergent training data curation and post-training alignment strategies.
+
+\subsection{Limitations of Cross-Lingual Comparisons}
+
+A methodological caveat applies to the cross-lingual comparisons presented in this paper. The Holm-Bonferroni correction families differ across languages: PT-BR uses three separate families (WEAT equivalent with $n = 5$, IBGE with $n = 8$, and SEAT with $n = 8$), while ES, FR, and DE each use a single family ($n = 7$). This means that the threshold for statistical significance varies across languages, making direct comparisons of ``number of significant models'' imperfect. We report the correction family sizes explicitly to enable readers to assess the stringency of each comparison. Future work should consider unified correction procedures that treat all languages within a consistent statistical framework.
+
+\subsection{Implications for Deployment}
+
+These results have practical implications for deployment:
+\begin{itemize}[nosep]
+    \item Model evaluation should include bias testing alongside standard performance metrics
+    \item Organizations deploying embeddings in Brazilian Portuguese should be particularly aware of racial bias
+    \item Sentiment bias (flowers/insects, instruments/weapons) is consistent across all five languages, suggesting sentiment associations in embedding spaces reflect broadly stable conceptual mappings across cultures
+    \item Open-weight models may offer comparable fairness to proprietary alternatives, with the advantage of greater transparency
+    \item Cross-lingual deployment requires language-specific bias evaluation, as bias patterns differ across languages, a model relatively unbiased in one language may show significant bias in another
+    \item In dense retrieval and ranking pipelines, embedding bias can propagate to result relevance and ranking outcomes, making bias evaluation a data-quality consideration
+\end{itemize}
+
+\section{Conclusion}
+
+We evaluated gender, racial, regional, and sentiment bias in nine proprietary and open-weight embedding models across five languages (PT-BR, EN, ES, FR, DE), using WEAT and SEAT with culturally adapted word lists. Sentiment bias (flowers/insects, instruments/weapons) is the most consistent finding across all five languages, with large effect sizes. Gender bias is non-significant in four of five languages after correction; DE shows a significant effect only for Qwen3-8B. Racial and ethnic bias varies by culture: Maghrebi in French (5/9 models), Turkish in German (4/9), and Moroccan and Sub-Saharan in Spanish (3/9 each). Proprietary and open-weight models show no systematic difference in fairness.
+
+Two practical implications follow. First, bias evaluation should accompany model deployment, a model that appears unbiased in one language may show significant bias in another. Second, scaling model size alone does not reliably reduce bias; architecture, training data, and debiasing methods matter more than scale. Culturally adapted evaluation methods, as demonstrated here for five languages, are essential for responsible multilingual deployment. In information retrieval and large-scale text mining, this means bias evaluation is a prerequisite for trustworthy data access.
+
+\section{Limitations}
+
+This study has several limitations:
+
+\begin{itemize}[nosep]
+    \item The WEAT methodology relies on predefined word lists that may not fully capture the complexity of bias in any language.
+    \item We evaluate one to two embedding models per provider; results may vary across different model versions or training updates.
+    \item The permutation test with 5,000 permutations may lack statistical power for detecting small effect sizes, particularly when word lists are small.
+    \item We do not assess bias in downstream tasks; bias measured at the embedding level may or may not propagate to task-level outcomes depending on the application.
+    \item All models were accessed via API, giving us no control over tokenization, normalization, or versioning, API providers may update models without notice, and the results reported here reflect the model versions available at the time of evaluation.
+    \item For proprietary models, training data composition and model architecture are not publicly documented, preventing us from attributing bias patterns to specific data sources or architectural choices.
+    \item The ES, FR, and DE evaluations include 7 tests (gender, 4 culturally adapted race tests, 2 sentiment tests). The culturally adapted race word lists may not capture the full complexity of racial and ethnic dynamics in each country.
+    \item Our word lists focus on specific racial, gender, ethnic, and sentiment categories and may not represent the full spectrum of identities in any society.
+\end{itemize}
+
+\section*{Declarations}
+
+\begin{contributions}
+João Pedro Hallack Sansão: Conceptualization, Methodology, Software, Investigation, Writing, Original Draft, Writing, Review \& Editing.
+\end{contributions}
+
+\begin{interests}
+The author declares that there are no competing interests.
+\end{interests}
+
+\begin{funding}
+No funding was received to assist with the preparation of this manuscript.
+\end{funding}
+
+\begin{materials}
+All word lists, evaluation code, and experimental results are available at \url{https://github.com/jsansao/bias\_embedding}. The complete word lists are also provided as supplementary material.
+\end{materials}
+
+\begin{acknowledgements}
+During the preparation of this work, Generative Artificial Intelligence tools were used for translation, language review, and assistance in experiment preparation. All supervision, validation, and intellectual authorship of the manuscript are the sole responsibility of the human author.
+\end{acknowledgements}
+
+\bibliographystyle{apalike-sol}
+\bibliography{refs}
+
+\end{document}

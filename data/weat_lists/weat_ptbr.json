@@ -1,0 +1,1201 @@
+{
+  "metadata": {
+    "description": "WEAT/SEAT word lists for bias evaluation in Brazilian Portuguese embeddings",
+    "version": "1.0",
+    "language": "pt-BR",
+    "dimensions": [
+      "gender",
+      "race_ethnicity",
+      "race_ibge",
+      "regionalism"
+    ],
+    "references": [
+      "Caliskan et al. (2017) - WEAT",
+      "May et al. (2019) - SEAT",
+      "Taso et al. (2023) - Sexismo no Brasil",
+      "España-Bonet & Barrón-Cedeño (2022) - CA-WEAT",
+      "Mukherjee et al. (2023) - WEATHub"
+    ]
+  },
+  "gender": {
+    "WEAT6_professions": {
+      "description": "Gender-profession association (WEAT6 adapted for PT-BR)",
+      "target1": {
+        "label": "masculine",
+        "words": [
+          "homem",
+          "pai",
+          "irmão",
+          "tio",
+          "avô",
+          "sobrinho",
+          "primo",
+          "marido",
+          "filho",
+          "neto"
+        ]
+      },
+      "target2": {
+        "label": "feminine",
+        "words": [
+          "mulher",
+          "mãe",
+          "irmã",
+          "tia",
+          "avó",
+          "sobrinha",
+          "prima",
+          "esposa",
+          "filha",
+          "neto"
+        ]
+      },
+      "attribute1": {
+        "label": "career",
+        "words": [
+          "emprego",
+          "salário",
+          "escritório",
+          "chefe",
+          "reunião",
+          "trabalho",
+          "carreira",
+          "profissão",
+          "contrato",
+          "empresa",
+          "chefia",
+          "concurso",
+          "formatura",
+          "promoção",
+          "estabilidade"
+        ]
+      },
+      "attribute2": {
+        "label": "family",
+        "words": [
+          "casa",
+          "filhos",
+          "casamento",
+          "família",
+          "crianças",
+          "esposo",
+          "esposa",
+          "cozinha",
+          "jantar",
+          "festas",
+          "lar",
+          "pais",
+          "irmãos",
+          "batismo",
+          "natal"
+        ]
+      }
+    },
+    "SEAT_professions_stimulus": {
+      "description": "SEAT stimulus sentences for gender-profession bias",
+      "target1_template": "{word} é um profissional competente",
+      "target2_template": "{word} é uma profissional competente",
+      "professions_male_aligned": [
+        "médico",
+        "engenheiro",
+        "advogado",
+        "diretor",
+        "gerente",
+        "presidente",
+        "cientista",
+        "programador",
+        "arquiteto",
+        "piloto",
+        "cirurgião",
+        "dentista",
+        "professor",
+        "jornalista",
+        "motorista"
+      ],
+      "professions_female_aligned": [
+        "enfermeira",
+        "secretária",
+        "cozinheira",
+        "babá",
+        "costureira",
+        "vendedora",
+        "caixeira",
+        "empregada",
+        "doméstica",
+        "manicure",
+        "professora",
+        "pediatra",
+        "psicóloga",
+        "nutricionista",
+        "fonoaudióloga"
+      ],
+      "professions_neutral": [
+        "analista",
+        "coordenador",
+        "supervisor",
+        "consultor",
+        "pesquisador",
+        "tutor",
+        "instrutor",
+        "assessor",
+        "encarregado",
+        "responsável"
+      ]
+    },
+    "SEAT_adjectives": {
+      "description": "Gender-adjective association",
+      "attribute1": {
+        "label": "agentic",
+        "words": [
+          "competente",
+          "ambicioso",
+          "assertivo",
+          "decidido",
+          "corajoso",
+          "independente",
+          "liderar",
+          "dominante",
+          "forte",
+          "racional",
+          "direto",
+          "proativo",
+          "determinado",
+          "eficiente",
+          "objetivo"
+        ]
+      },
+      "attribute2": {
+        "label": "communal",
+        "words": [
+          "bondoso",
+          "sensível",
+          "carinhoso",
+          "gentil",
+          "comprensivo",
+          "emocional",
+          "amável",
+          "delicado",
+          "paciente",
+          "solidário",
+          "caridoso",
+          "altruísta",
+          "compassivo",
+          "amoroso",
+          "acolhedor"
+        ]
+      }
+    }
+  },
+  "race_ethnicity": {
+    "WEAT_race_adjectives": {
+      "description": "Race-adjective association for Brazilian racial categories",
+      "target1": {
+        "label": "branco",
+        "words": [
+          "branco",
+          "loiro",
+          "olho azul",
+          "pele clara",
+          "descendente europeu"
+        ]
+      },
+      "target2": {
+        "label": "preto",
+        "words": [
+          "preto",
+          "negro",
+          "moreno escuro",
+          "pele escura",
+          "afrodescendente"
+        ]
+      },
+      "attribute1": {
+        "label": "positive",
+        "words": [
+          "bonito",
+          "inteligente",
+          "bom",
+          "sucesso",
+          "limpo",
+          "educado",
+          "trabalhador",
+          "honesto",
+          "respeitado",
+          "_valor"
+        ]
+      },
+      "attribute2": {
+        "label": "negative",
+        "words": [
+          "feio",
+          "burro",
+          "mau",
+          "fracasso",
+          "sujo",
+          "ignorante",
+          "preguiçoso",
+          "desonesto",
+          "marginal",
+          "violento"
+        ]
+      }
+    },
+    "SEAT_race_professions": {
+      "description": "Race-profession association",
+      "target1": {
+        "label": "branco",
+        "words": [
+          "branco",
+          "loiro",
+          "de olho azul",
+          "de pele clara",
+          "descendente europeu",
+          "europeu"
+        ]
+      },
+      "target2": {
+        "label": "preto",
+        "words": [
+          "preto",
+          "negro",
+          "de pele escura",
+          "afrodescendente",
+          "moreno escuro",
+          "de pele negra"
+        ]
+      },
+      "attribute1": {
+        "label": "high_status",
+        "words": [
+          "diretor",
+          "presidente",
+          "juiz",
+          "executivo",
+          "médico",
+          "advogado",
+          "engenheiro",
+          "professor universitário",
+          "cientista",
+          "desembargador"
+        ]
+      },
+      "attribute2": {
+        "label": "low_status",
+        "words": [
+          "servente",
+          "pedreiro",
+          "catador",
+          "doméstica",
+          "vendedor ambulante",
+          "segurança",
+          "motoboy",
+          "faxineiro",
+          "diarista",
+          "operário"
+        ]
+      }
+    }
+  },
+  "regionalism": {
+    "WEAT_region_adjectives": {
+      "description": "Regional bias within Brazil",
+      "target1": {
+        "label": "sudeste",
+        "words": [
+          "paulista",
+          "carioca",
+          "mineiro",
+          "do sudeste",
+          "de São Paulo",
+          "do Rio de Janeiro",
+          "fluminense",
+          "capixaba"
+        ]
+      },
+      "target2": {
+        "label": "nordeste",
+        "words": [
+          "nordestino",
+          "pernambucano",
+          "baiano",
+          "cearense",
+          "maranhense",
+          "do nordeste",
+          "paraibano",
+          "potiguar"
+        ]
+      },
+      "attribute1": {
+        "label": "positive",
+        "words": [
+          "educado",
+          "trabalhador",
+          "inteligente",
+          "moderno",
+          "desenvolvido",
+          "eficiente",
+          "organizado",
+          "progressista",
+          "culto",
+          "empreendedor",
+          "puro",
+          "nobre",
+          "elevado",
+          "excelente",
+          "admirável"
+        ]
+      },
+      "attribute2": {
+        "label": "negative",
+        "words": [
+          "atrasado",
+          "ignorante",
+          "ladrão",
+          "mandrake",
+          "vagabundo",
+          "sujo",
+          "frio",
+          "grosseiro",
+          "machista",
+          "violento",
+          "covarde",
+          "egoísta",
+          "cruel",
+          "traiçoeiro",
+          "mesquinho"
+        ]
+      }
+    },
+    "SEAT_region_stimulus": {
+      "description": "SEAT stimulus sentences for regional bias",
+      "template_positive": "{word} é uma pessoa educada e trabalhadora",
+      "template_negative": "{word} é uma pessoa atrasada e ignorante",
+      "regions": {
+        "sudeste": [
+          "paulista",
+          "carioca",
+          "mineiro",
+          "fluminense",
+          "capixaba"
+        ],
+        "nordeste": [
+          "nordestino",
+          "pernambucano",
+          "baiano",
+          "cearense",
+          "maranhense",
+          "piauiense",
+          "paraibano",
+          "potiguar",
+          "alagoano",
+          "sergipano"
+        ],
+        "norte": [
+          "nortista",
+          "amazonense",
+          "paraense",
+          "rondoniense",
+          "roraimense",
+          "tocantinense",
+          "acreano",
+          "apuense"
+        ],
+        "centro_oeste": [
+          "centro-oestino",
+          "goiano",
+          "mato-grossense",
+          "sul-mato-grossense",
+          "distritalense",
+          "brasiliense"
+        ],
+        "sul": [
+          "sulista",
+          "paranaense",
+          "catarinense",
+          "gaúcho",
+          "rio-grandense"
+        ]
+      }
+    }
+  },
+  "race_ibge": {
+    "IBGE_sentiment_amarela": {
+      "description": "IBGE race bias: branca vs amarela (sentiment)",
+      "target1": {
+        "label": "branca",
+        "words": [
+          "branco",
+          "loiro",
+          "olho azul",
+          "pele clara",
+          "descendente europeu",
+          "galego",
+          "alemão",
+          "europeu",
+          "europeia"
+        ]
+      },
+      "target2": {
+        "label": "amarela",
+        "words": [
+          "amarelo",
+          "oriental",
+          "japonês",
+          "chinês",
+          "coreano",
+          "olho puxado",
+          "japa",
+          "china"
+        ]
+      },
+      "attribute1": {
+        "label": "positive",
+        "words": [
+          "bonito",
+          "inteligente",
+          "bom",
+          "sucesso",
+          "limpo",
+          "educado",
+          "trabalhador",
+          "honesto",
+          "respeitado",
+          "_valor"
+        ]
+      },
+      "attribute2": {
+        "label": "negative",
+        "words": [
+          "feio",
+          "burro",
+          "mau",
+          "fracasso",
+          "sujo",
+          "ignorante",
+          "preguiçoso",
+          "desonesto",
+          "marginal",
+          "violento"
+        ]
+      }
+    },
+    "IBGE_sentiment_parda": {
+      "description": "IBGE race bias: branca vs parda (sentiment)",
+      "target1": {
+        "label": "branca",
+        "words": [
+          "branco",
+          "loiro",
+          "olho azul",
+          "pele clara",
+          "descendente europeu",
+          "galego",
+          "alemão",
+          "europeu",
+          "europeia"
+        ]
+      },
+      "target2": {
+        "label": "parda",
+        "words": [
+          "pardo",
+          "moreno",
+          "mulato",
+          "pele morena",
+          "miscigenado",
+          "café com leite",
+          "caboclo",
+          "mameluco",
+          "cafuzo"
+        ]
+      },
+      "attribute1": {
+        "label": "positive",
+        "words": [
+          "bonito",
+          "inteligente",
+          "bom",
+          "sucesso",
+          "limpo",
+          "educado",
+          "trabalhador",
+          "honesto",
+          "respeitado",
+          "_valor"
+        ]
+      },
+      "attribute2": {
+        "label": "negative",
+        "words": [
+          "feio",
+          "burro",
+          "mau",
+          "fracasso",
+          "sujo",
+          "ignorante",
+          "preguiçoso",
+          "desonesto",
+          "marginal",
+          "violento"
+        ]
+      }
+    },
+    "IBGE_sentiment_preta": {
+      "description": "IBGE race bias: branca vs preta (sentiment)",
+      "target1": {
+        "label": "branca",
+        "words": [
+          "branco",
+          "loiro",
+          "olho azul",
+          "pele clara",
+          "descendente europeu",
+          "galego",
+          "alemão",
+          "europeu",
+          "europeia"
+        ]
+      },
+      "target2": {
+        "label": "preta",
+        "words": [
+          "preto",
+          "negro",
+          "afrodescendente",
+          "pele escura",
+          "moreno escuro",
+          "angolano",
+          "africano"
+        ]
+      },
+      "attribute1": {
+        "label": "positive",
+        "words": [
+          "bonito",
+          "inteligente",
+          "bom",
+          "sucesso",
+          "limpo",
+          "educado",
+          "trabalhador",
+          "honesto",
+          "respeitado",
+          "_valor"
+        ]
+      },
+      "attribute2": {
+        "label": "negative",
+        "words": [
+          "feio",
+          "burro",
+          "mau",
+          "fracasso",
+          "sujo",
+          "ignorante",
+          "preguiçoso",
+          "desonesto",
+          "marginal",
+          "violento"
+        ]
+      }
+    },
+    "IBGE_sentiment_indigena": {
+      "description": "IBGE race bias: branca vs indígena (sentiment)",
+      "target1": {
+        "label": "branca",
+        "words": [
+          "branco",
+          "loiro",
+          "olho azul",
+          "pele clara",
+          "descendente europeu",
+          "galego",
+          "alemão",
+          "europeu",
+          "europeia"
+        ]
+      },
+      "target2": {
+        "label": "indígena",
+        "words": [
+          "indígena",
+          "nativo",
+          "ameríndio",
+          "silvícola",
+          "pele vermelha",
+          "tupinambá",
+          "guarani",
+          "tupi"
+        ]
+      },
+      "attribute1": {
+        "label": "positive",
+        "words": [
+          "bonito",
+          "inteligente",
+          "bom",
+          "sucesso",
+          "limpo",
+          "educado",
+          "trabalhador",
+          "honesto",
+          "respeitado",
+          "_valor"
+        ]
+      },
+      "attribute2": {
+        "label": "negative",
+        "words": [
+          "feio",
+          "burro",
+          "mau",
+          "fracasso",
+          "sujo",
+          "ignorante",
+          "preguiçoso",
+          "desonesto",
+          "marginal",
+          "violento"
+        ]
+      }
+    },
+    "IBGE_status_amarela": {
+      "description": "IBGE race bias: branca vs amarela (status)",
+      "target1": {
+        "label": "branca",
+        "words": [
+          "branco",
+          "loiro",
+          "olho azul",
+          "pele clara",
+          "descendente europeu",
+          "galego",
+          "alemão",
+          "europeu",
+          "europeia"
+        ]
+      },
+      "target2": {
+        "label": "amarela",
+        "words": [
+          "amarelo",
+          "oriental",
+          "japonês",
+          "chinês",
+          "coreano",
+          "olho puxado",
+          "japa",
+          "china"
+        ]
+      },
+      "attribute1": {
+        "label": "high_status",
+        "words": [
+          "diretor",
+          "presidente",
+          "juiz",
+          "executivo",
+          "médico",
+          "advogado",
+          "engenheiro",
+          "professor universitário",
+          "cientista",
+          "desembargador"
+        ]
+      },
+      "attribute2": {
+        "label": "low_status",
+        "words": [
+          "servente",
+          "pedreiro",
+          "catador",
+          "doméstica",
+          "vendedor ambulante",
+          "segurança",
+          "motoboy",
+          "faxineiro",
+          "diarista",
+          "operário"
+        ]
+      }
+    },
+    "IBGE_status_parda": {
+      "description": "IBGE race bias: branca vs parda (status)",
+      "target1": {
+        "label": "branca",
+        "words": [
+          "branco",
+          "loiro",
+          "olho azul",
+          "pele clara",
+          "descendente europeu",
+          "galego",
+          "alemão",
+          "europeu",
+          "europeia"
+        ]
+      },
+      "target2": {
+        "label": "parda",
+        "words": [
+          "pardo",
+          "moreno",
+          "mulato",
+          "pele morena",
+          "miscigenado",
+          "café com leite",
+          "caboclo",
+          "mameluco",
+          "cafuzo"
+        ]
+      },
+      "attribute1": {
+        "label": "high_status",
+        "words": [
+          "diretor",
+          "presidente",
+          "juiz",
+          "executivo",
+          "médico",
+          "advogado",
+          "engenheiro",
+          "professor universitário",
+          "cientista",
+          "desembargador"
+        ]
+      },
+      "attribute2": {
+        "label": "low_status",
+        "words": [
+          "servente",
+          "pedreiro",
+          "catador",
+          "doméstica",
+          "vendedor ambulante",
+          "segurança",
+          "motoboy",
+          "faxineiro",
+          "diarista",
+          "operário"
+        ]
+      }
+    },
+    "IBGE_status_preta": {
+      "description": "IBGE race bias: branca vs preta (status)",
+      "target1": {
+        "label": "branca",
+        "words": [
+          "branco",
+          "loiro",
+          "olho azul",
+          "pele clara",
+          "descendente europeu",
+          "galego",
+          "alemão",
+          "europeu",
+          "europeia"
+        ]
+      },
+      "target2": {
+        "label": "preta",
+        "words": [
+          "preto",
+          "negro",
+          "afrodescendente",
+          "pele escura",
+          "moreno escuro",
+          "angolano",
+          "africano"
+        ]
+      },
+      "attribute1": {
+        "label": "high_status",
+        "words": [
+          "diretor",
+          "presidente",
+          "juiz",
+          "executivo",
+          "médico",
+          "advogado",
+          "engenheiro",
+          "professor universitário",
+          "cientista",
+          "desembargador"
+        ]
+      },
+      "attribute2": {
+        "label": "low_status",
+        "words": [
+          "servente",
+          "pedreiro",
+          "catador",
+          "doméstica",
+          "vendedor ambulante",
+          "segurança",
+          "motoboy",
+          "faxineiro",
+          "diarista",
+          "operário"
+        ]
+      }
+    },
+    "IBGE_status_indigena": {
+      "description": "IBGE race bias: branca vs indígena (status)",
+      "target1": {
+        "label": "branca",
+        "words": [
+          "branco",
+          "loiro",
+          "olho azul",
+          "pele clara",
+          "descendente europeu",
+          "galego",
+          "alemão",
+          "europeu",
+          "europeia"
+        ]
+      },
+      "target2": {
+        "label": "indígena",
+        "words": [
+          "indígena",
+          "nativo",
+          "ameríndio",
+          "silvícola",
+          "pele vermelha",
+          "tupinambá",
+          "guarani",
+          "tupi"
+        ]
+      },
+      "attribute1": {
+        "label": "high_status",
+        "words": [
+          "diretor",
+          "presidente",
+          "juiz",
+          "executivo",
+          "médico",
+          "advogado",
+          "engenheiro",
+          "professor universitário",
+          "cientista",
+          "desembargador"
+        ]
+      },
+      "attribute2": {
+        "label": "low_status",
+        "words": [
+          "servente",
+          "pedreiro",
+          "catador",
+          "doméstica",
+          "vendedor ambulante",
+          "segurança",
+          "motoboy",
+          "faxineiro",
+          "diarista",
+          "operário"
+        ]
+      }
+    },
+    "SEAT_ibge_sentiment": {
+      "description": "SEAT racial sentiment bias using sentence embeddings",
+      "target1_template": "{word} é uma pessoa",
+      "target2_template": "{word} é uma pessoa",
+      "targets": {
+        "branca": [
+          "branco",
+          "loiro",
+          "olho azul",
+          "pele clara",
+          "galego",
+          "alemão",
+          "europeu",
+          "europeia"
+        ],
+        "amarela": [
+          "amarelo",
+          "japonês",
+          "chinês",
+          "coreano",
+          "japa",
+          "china",
+          "asiático",
+          "asiática"
+        ],
+        "parda": [
+          "pardo",
+          "moreno",
+          "mulato",
+          "café com leite",
+          "caboclo",
+          "mameluco",
+          "mestiço",
+          "mestiça"
+        ],
+        "preta": [
+          "preto",
+          "negro",
+          "afrodescendente",
+          "angolano",
+          "africano",
+          "pele escura",
+          "de pele negra",
+          "cabelo crespo"
+        ],
+        "indígena": [
+          "indígena",
+          "nativo",
+          "ameríndio",
+          "tupinambá",
+          "silvícola",
+          "pele vermelha",
+          "guarani",
+          "tupi"
+        ]
+      },
+      "attribute1": {
+        "label": "positive",
+        "words": [
+          "bonito",
+          "inteligente",
+          "bom",
+          "sucesso",
+          "educado",
+          "respeitado",
+          "trabalhador",
+          "honesto"
+        ]
+      },
+      "attribute2": {
+        "label": "negative",
+        "words": [
+          "feio",
+          "burro",
+          "mau",
+          "fracasso",
+          "violento",
+          "ignorante",
+          "desonesto",
+          "marginal"
+        ]
+      }
+    },
+    "SEAT_ibge_status": {
+      "description": "SEAT racial status bias using sentence embeddings",
+      "target1_template": "{word} é uma pessoa",
+      "target2_template": "{word} é uma pessoa",
+      "targets": {
+        "branca": [
+          "branco",
+          "loiro",
+          "olho azul",
+          "pele clara",
+          "galego",
+          "alemão",
+          "europeu",
+          "europeia"
+        ],
+        "amarela": [
+          "amarelo",
+          "japonês",
+          "chinês",
+          "coreano",
+          "japa",
+          "china",
+          "asiático",
+          "asiática"
+        ],
+        "parda": [
+          "pardo",
+          "moreno",
+          "mulato",
+          "café com leite",
+          "caboclo",
+          "mameluco",
+          "mestiço",
+          "mestiça"
+        ],
+        "preta": [
+          "preto",
+          "negro",
+          "afrodescendente",
+          "angolano",
+          "africano",
+          "pele escura",
+          "de pele negra",
+          "cabelo crespo"
+        ],
+        "indígena": [
+          "indígena",
+          "nativo",
+          "ameríndio",
+          "tupinambá",
+          "silvícola",
+          "pele vermelha",
+          "guarani",
+          "tupi"
+        ]
+      },
+      "attribute1": {
+        "label": "high_status",
+        "words": [
+          "diretor",
+          "presidente",
+          "executivo",
+          "médico",
+          "advogado",
+          "engenheiro",
+          "professor",
+          "cientista",
+          "juiz",
+          "desembargador"
+        ]
+      },
+      "attribute2": {
+        "label": "low_status",
+        "words": [
+          "servente",
+          "pedreiro",
+          "catador",
+          "doméstica",
+          "vendedor ambulante",
+          "segurança",
+          "motoboy",
+          "faxineiro",
+          "diarista",
+          "operário"
+        ]
+      }
+    }
+  },
+  "sentiment": {
+    "WEAT1_flowers_insects": {
+      "description": "Universal pleasant/unpleasant association (Caliskan Test 1)",
+      "target1": {
+        "label": "flowers",
+        "words": [
+          "flor",
+          "rosa",
+          "margarida",
+          "girassol",
+          "violeta",
+          "cravo",
+          "lÍrio",
+          "orquídea",
+          "dália",
+          "tulipa"
+        ]
+      },
+      "target2": {
+        "label": "insects",
+        "words": [
+          "inseto",
+          "barata",
+          "formiga",
+          "mosquito",
+          "aranha",
+          "vespa",
+          "mosca",
+          "lagarta",
+          "escorpião",
+          "centopeia"
+        ]
+      },
+      "attribute1": {
+        "label": "pleasant",
+        "words": [
+          "alegria",
+          "amor",
+          "feliz",
+          "bom",
+          "bonito",
+          "sucesso",
+          "prazer",
+          "diversão",
+          "celebração",
+          "vitória"
+        ]
+      },
+      "attribute2": {
+        "label": "unpleasant",
+        "words": [
+          "tristeza",
+          "ódio",
+          "infeliz",
+          "mau",
+          "feio",
+          "fracasso",
+          "dor",
+          "tédio",
+          "problema",
+          "derrota"
+        ]
+      }
+    },
+    "WEAT2_instruments_weapons": {
+      "description": "Universal pleasant/unpleasant association (Caliskan Test 2)",
+      "target1": {
+        "label": "instruments",
+        "words": [
+          "violão",
+          "piano",
+          "bateria",
+          "flauta",
+          "violino",
+          "saxofone",
+          "guitarra",
+          "teclado",
+          "trompete",
+          "harpa"
+        ]
+      },
+      "target2": {
+        "label": "weapons",
+        "words": [
+          "arma",
+          "revólver",
+          "fuzil",
+          "facão",
+          "faca",
+          "granada",
+          "espingarda",
+          "metralhadora",
+          "adaga",
+          "catana"
+        ]
+      },
+      "attribute1": {
+        "label": "pleasant",
+        "words": [
+          "alegria",
+          "amor",
+          "feliz",
+          "bom",
+          "bonito",
+          "sucesso",
+          "prazer",
+          "diversão",
+          "celebração",
+          "vitória"
+        ]
+      },
+      "attribute2": {
+        "label": "unpleasant",
+        "words": [
+          "tristeza",
+          "ódio",
+          "infeliz",
+          "mau",
+          "feio",
+          "fracasso",
+          "dor",
+          "tédio",
+          "problema",
+          "derrota"
+        ]
+      }
+    }
+  }
+}

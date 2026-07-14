@@ -1,0 +1,433 @@
+model,language,dimension,test,label,effect_size,ci_95_lower,ci_95_upper,p_value,statistic,significant_005,significant_001,p_bonferroni,significant_bonferroni_005
+bge-m3,de,gender,WEAT6_professions,Gender: professions,0.8421199633676092,0.08462151204841596,1.4872385986376853,0.0296,0.31348422169685364,True,False,0.135,False
+bge-m3,de,race_ethnicity,WEAT_race_turkish,Race: Turkish,1.216547230326661,0.5046135612539279,1.7799470565802464,0.027,0.16366732120513916,True,False,0.135,False
+bge-m3,de,race_ethnicity,WEAT_race_arab,Race: Arab,1.1953470655485552,0.42926030761402084,1.7840567998869186,0.0324,0.15193191170692444,True,False,0.135,False
+bge-m3,de,race_ethnicity,WEAT_race_african,Race: African,1.257697067369413,0.6731580410071697,1.721918455393043,0.0166,0.30513429641723633,True,False,0.0996,False
+bge-m3,de,race_ethnicity,WEAT_race_easteuropean,Race: Eastern European,1.0146094800052847,0.04980010977821056,1.726172034456964,0.0536,0.11906450986862183,False,False,0.135,False
+bge-m3,de,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,0.6685116029969705,-0.13941723966272462,1.3145809458341986,0.0682,0.1295774281024933,False,False,0.135,False
+bge-m3,de,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.7042779048069143,0.2316170646808752,1.1128170527225323,0.0054,0.30052587389945984,True,True,0.0378,True
+bge-m3,en,gender,WEAT6_professions,Gender: professions,0.5767723612187681,-0.2682825821559674,1.3600229363133518,0.1046,0.1575409471988678,False,False,0.2092,False
+bge-m3,en,race_ethnicity,WEAT_race_adjectives,Race: adjectives,1.307690536376826,0.8276978089138366,1.7037723620861163,0.0254,0.21649014949798584,True,False,0.07619999999999999,False
+bge-m3,en,race_ethnicity,SEAT_race_professions,Race: professions (SEAT),-0.4576398618876754,-1.5690852609288322,1.1939377061777794,0.6994,-0.023893237113952637,False,False,0.6994,False
+bge-m3,en,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.1429570193164231,0.4617259510817892,1.728872897638269,0.003,0.351349413394928,True,True,0.012,True
+bge-m3,en,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,1.4524069201349874,1.1530793946566993,1.7208405330412149,0.0,0.4007534086704254,True,True,0.0,True
+bge-m3,es,gender,WEAT6_professions,Gender: professions,-0.12383128762265913,-1.0011847331298567,0.7567248401304757,0.6082,-0.04637262225151062,False,False,0.9012,False
+bge-m3,es,race_ethnicity,WEAT_race_moroccan,Race: Moroccan,1.7113078920848444,1.6386312932419775,1.8581002223455716,0.0054,0.196247398853302,True,True,0.0378,True
+bge-m3,es,race_ethnicity,WEAT_race_latino,Race: Latin American,0.09488882728063151,-0.8977313298093046,1.5707420620650367,0.4506,0.005745202302932739,False,False,0.9012,False
+bge-m3,es,race_ethnicity,WEAT_race_roma,Race: Roma,1.1502288781376504,0.5926849069753737,1.6184783029867003,0.0252,0.0772877037525177,True,False,0.1008,False
+bge-m3,es,race_ethnicity,WEAT_race_subsaharan,Race: Sub-Saharan,1.5556857856537365,1.371051488009374,1.8185086948853044,0.0054,0.19422084093093872,True,True,0.0378,True
+bge-m3,es,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,0.9838446274450335,0.2628219455395051,1.5744832907122353,0.0148,0.1970941126346588,True,False,0.07400000000000001,False
+bge-m3,es,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.19974448346413376,-0.3420861806472713,0.7420485464698564,0.2382,0.07382503151893616,False,False,0.7146,False
+bge-m3,fr,gender,WEAT6_professions,Gender: professions,0.685272560125181,-0.11848818845376473,1.2413782048543474,0.0614,0.2200811207294464,False,False,0.2296,False
+bge-m3,fr,race_ethnicity,WEAT_race_maghrebi,Race: Maghrebi,0.6169362763903692,-0.7343709258691169,1.4270285948132166,0.181,0.06162524223327637,False,False,0.362,False
+bge-m3,fr,race_ethnicity,WEAT_race_subsaharan,Race: Sub-Saharan,1.094999505513339,0.28195310111908983,1.6729216951986323,0.0418,0.13767260313034058,True,False,0.209,False
+bge-m3,fr,race_ethnicity,WEAT_race_muslim,Race: Muslim,1.0344399570599987,0.20936283937228758,1.5965993492076767,0.0574,0.129680335521698,False,False,0.2296,False
+bge-m3,fr,race_ethnicity,WEAT_race_asian,Race: Asian,0.5547350436432539,-0.7386439253924605,1.4459564674493812,0.2078,0.05576708912849426,False,False,0.362,False
+bge-m3,fr,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.12068139918579,0.5556739002375604,1.5625023890178458,0.005,0.20987588167190552,True,True,0.03,True
+bge-m3,fr,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.7494941180130924,0.2597231449930196,1.1759373144264527,0.0038,0.33516690135002136,True,True,0.0266,True
+bge-m3,pt,gender,WEAT6_professions,Gender: professions,0.2252071827783812,-0.6506610706022592,1.0553641958296347,0.2958,0.05913946032524109,False,False,0.5232,False
+bge-m3,pt,race_ethnicity,WEAT_race_adjectives,Race: adjectives,1.62294438078147,1.3420785951547924,1.8524504685443557,0.009,0.14959537982940674,True,True,0.045,True
+bge-m3,pt,race_ethnicity,SEAT_race_professions,Race: professions (SEAT),0.4806081244712432,-0.7841697040855289,1.4577201021967323,0.2324,0.049438804388046265,False,False,0.5232,False
+bge-m3,pt,race_ibge,IBGE_sentiment_amarela,IBGE: branca/amarela (sent.),1.278255888242264,0.7100109151098043,1.7539883254524282,0.003,0.18989238142967224,True,True,0.021,True
+bge-m3,pt,race_ibge,IBGE_sentiment_parda,IBGE: branca/parda (sent.),1.4173223273252775,1.0423956391451488,1.7241142771812468,0.0,0.28022778034210205,True,True,0.0,True
+bge-m3,pt,race_ibge,IBGE_sentiment_preta,IBGE: branca/preta (sent.),1.344009149126959,0.831945365927534,1.7630263763267713,0.0034,0.21918350458145142,True,True,0.021,True
+bge-m3,pt,race_ibge,IBGE_sentiment_indigena,IBGE: branca/indígena (sent.),1.268220053600553,0.68918519876086,1.7069105245535046,0.0036,0.21780025959014893,True,True,0.021,True
+bge-m3,pt,race_ibge,IBGE_status_amarela,IBGE: branca/amarela (status),0.630660889742192,-0.29156900614823456,1.385291643939416,0.1068,0.15762737393379211,False,False,0.2136,False
+bge-m3,pt,race_ibge,IBGE_status_parda,IBGE: branca/parda (status),0.9956526503569152,0.2738698782957754,1.5697075996443344,0.017,0.19772517681121826,True,False,0.068,False
+bge-m3,pt,race_ibge,IBGE_status_preta,IBGE: branca/preta (status),0.5207799006182297,-0.40290451465382915,1.3993671261079048,0.1598,0.15181320905685425,False,False,0.2136,False
+bge-m3,pt,race_ibge,IBGE_status_indigena,IBGE: branca/indígena (status),0.9659144666956035,0.19393660765138254,1.5891260438572763,0.0222,0.21091228723526,True,False,0.068,False
+bge-m3,pt,regionalism,WEAT_region_adjectives,Regionalism: adjectives,0.16999940492746965,-0.7550094134913888,1.1643034103625634,0.3608,0.02125975489616394,False,False,0.3608,False
+bge-m3,pt,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,0.4261983054755736,-0.4191946378524765,1.3095739225648353,0.173,0.08550459146499634,False,False,0.5232,False
+bge-m3,pt,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.5053433778270479,-0.373233878858509,1.1832245474597871,0.1308,0.10278487205505371,False,False,0.5232,False
+bge-m3,pt,race_ibge,SEAT_ibge_sentiment_branca_amarela,SEAT IBGE: branca/amarela (sentiment),0.6916602911717208,-0.22833350842737776,1.4763731628412284,0.0834,0.05626368522644043,False,False,0.1668,False
+bge-m3,pt,race_ibge,SEAT_ibge_sentiment_branca_parda,SEAT IBGE: branca/parda (sentiment),1.2045600316420855,0.702811029358856,1.6046530104668997,0.0034,0.15508317947387695,True,True,0.016999999999999998,True
+bge-m3,pt,race_ibge,SEAT_ibge_sentiment_branca_preta,SEAT IBGE: branca/preta (sentiment),1.4284090486999357,1.0543657384049712,1.7614272722336566,0.0006,0.19086599349975586,True,True,0.0042,True
+bge-m3,pt,race_ibge,SEAT_ibge_sentiment_branca_indígena,SEAT IBGE: branca/indígena (sentiment),1.5723288448161146,1.2461976194692759,1.820093907717305,0.0,0.2105284333229065,True,True,0.0,True
+bge-m3,pt,race_ibge,SEAT_ibge_status_branca_amarela,SEAT IBGE: branca/amarela (status),0.5761032089406326,-0.3951651765058107,1.3452528755697992,0.1222,0.055106133222579956,False,False,0.1668,False
+bge-m3,pt,race_ibge,SEAT_ibge_status_branca_parda,SEAT IBGE: branca/parda (status),1.08468701646768,0.42011837163451865,1.5892676416995857,0.0106,0.1381703019142151,True,False,0.0424,True
+bge-m3,pt,race_ibge,SEAT_ibge_status_branca_preta,SEAT IBGE: branca/preta (status),0.8890453825129262,0.05553009650995928,1.5200743009691753,0.0322,0.08505594730377197,True,False,0.09659999999999999,False
+bge-m3,pt,race_ibge,SEAT_ibge_status_branca_indígena,SEAT IBGE: branca/indígena (status),1.315469589509789,0.8426903050885011,1.7075635303653425,0.0014,0.11709463596343994,True,True,0.0084,True
+gemini-001,de,gender,WEAT6_professions,Gender: professions,0.5901955395832775,-0.23552856214456333,1.4574193376343831,0.1168,0.1529577374458313,False,False,0.2052,False
+gemini-001,de,race_ethnicity,WEAT_race_turkish,Race: Turkish,1.2858745344164393,0.8227659109381725,1.6992081463409707,0.0142,0.08444380760192871,True,False,0.0568,False
+gemini-001,de,race_ethnicity,WEAT_race_arab,Race: Arab,1.430509287941687,1.1268014726374993,1.7511461071254324,0.0112,0.10583412647247314,True,False,0.056,False
+gemini-001,de,race_ethnicity,WEAT_race_african,Race: African,0.8030650597911212,-0.3325387207064891,1.6650782363997294,0.1026,0.05607324838638306,False,False,0.2052,False
+gemini-001,de,race_ethnicity,WEAT_race_easteuropean,Race: Eastern European,1.0218026759629144,0.16031165955787344,1.6428973199646593,0.0576,0.05105936527252197,False,False,0.1728,False
+gemini-001,de,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.548525366589754,1.2871464956129153,1.774117230971318,0.0,0.1679871678352356,True,True,0.0,True
+gemini-001,de,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.8910352156580469,0.47961357585485936,1.2315870127938071,0.0006,0.20344412326812744,True,True,0.0036,True
+gemini-001,en,gender,WEAT6_professions,Gender: professions,0.47240738497079704,-0.36210088668410884,1.3165461028197192,0.1538,0.11583149433135986,False,False,0.3076,False
+gemini-001,en,race_ethnicity,WEAT_race_adjectives,Race: adjectives,1.0470636992764928,0.27804360383214866,1.6083505425783673,0.0484,0.07425206899642944,True,False,0.1452,False
+gemini-001,en,race_ethnicity,SEAT_race_professions,Race: professions (SEAT),-0.099584912447753,-1.516615658114702,1.3410907706143154,0.5396,0.009795188903808594,False,False,0.5396,False
+gemini-001,en,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.2970352342649367,0.8138203926955734,1.684638310650735,0.0008,0.22472357749938965,True,True,0.004,True
+gemini-001,en,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.9293447497042953,0.23855695524896903,1.4494931530752728,0.0168,0.1023397445678711,True,False,0.0672,False
+gemini-001,es,gender,WEAT6_professions,Gender: professions,0.10653367774313936,-0.7952715544052562,0.8844409443523019,0.4062,0.02169555425643921,False,False,0.8124,False
+gemini-001,es,race_ethnicity,WEAT_race_moroccan,Race: Moroccan,1.2555404836153568,0.6151722750325295,1.736178107764789,0.0272,0.06592303514480591,True,False,0.13599999999999998,False
+gemini-001,es,race_ethnicity,WEAT_race_latino,Race: Latin American,0.7571972856899362,-0.41095096784662516,1.6087461693370797,0.1378,0.030474483966827393,False,False,0.5512,False
+gemini-001,es,race_ethnicity,WEAT_race_roma,Race: Roma,-0.7855725949790926,-1.6662044496764492,0.3875919662060587,0.8854,-0.04236692190170288,False,False,0.8854,False
+gemini-001,es,race_ethnicity,WEAT_race_subsaharan,Race: Sub-Saharan,1.4508790905336566,1.1082863097866014,1.775184015882832,0.0098,0.10949701070785522,True,True,0.0588,False
+gemini-001,es,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.5905616215168734,1.3679290930525967,1.7859968114114662,0.0002,0.26404517889022827,True,True,0.0014,True
+gemini-001,es,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.22372999985686096,-0.31950934162791433,0.7623388258791972,0.208,0.0751197338104248,False,False,0.624,False
+gemini-001,fr,gender,WEAT6_professions,Gender: professions,0.4361262489753916,-0.428913406783277,1.198713539125446,0.1772,0.08170098066329956,False,False,0.3112,False
+gemini-001,fr,race_ethnicity,WEAT_race_maghrebi,Race: Maghrebi,1.4351816383170142,1.2102335139882503,1.7906700048585764,0.0054,0.11889410018920898,True,True,0.0324,True
+gemini-001,fr,race_ethnicity,WEAT_race_subsaharan,Race: Sub-Saharan,0.9047633103241111,-0.16962688791687935,1.5974870736648759,0.0808,0.06382042169570923,False,False,0.26,False
+gemini-001,fr,race_ethnicity,WEAT_race_muslim,Race: Muslim,1.1023698710022192,0.2747481044526208,1.6678738693772865,0.0492,0.09112662076950073,True,False,0.246,False
+gemini-001,fr,race_ethnicity,WEAT_race_asian,Race: Asian,0.7292804723645262,-0.6128245680988758,1.542386114729988,0.1556,0.04625856876373291,False,False,0.3112,False
+gemini-001,fr,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.3800601408870488,1.0277832138597547,1.6884897817013356,0.0002,0.18592751026153564,True,True,0.0014,True
+gemini-001,fr,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.41800091020934654,-0.13073442548037276,0.9237539228963081,0.065,0.13051050901412964,False,False,0.26,False
+gemini-001,pt,gender,WEAT6_professions,Gender: professions,0.24296958285501877,-0.9370950312424688,0.8729693009409454,0.3134,0.033364951610565186,False,False,0.9402,False
+gemini-001,pt,race_ethnicity,WEAT_race_adjectives,Race: adjectives,1.2790817642646743,0.8404113941322584,1.6799412738493102,0.0196,0.0866660475730896,True,False,0.0784,False
+gemini-001,pt,race_ethnicity,SEAT_race_professions,Race: professions (SEAT),0.20500805054477902,-1.039181785808287,1.2348022459011851,0.36,0.009308576583862305,False,False,0.9402,False
+gemini-001,pt,race_ibge,IBGE_sentiment_amarela,IBGE: branca/amarela (sent.),-0.05253936967357334,-1.0577867487467127,0.8546379412936527,0.5518,0.006719708442687988,False,False,1.0,False
+gemini-001,pt,race_ibge,IBGE_sentiment_parda,IBGE: branca/parda (sent.),0.8365668488272314,0.04776072803563708,1.4147422117006552,0.0382,0.08502966165542603,True,False,0.2292,False
+gemini-001,pt,race_ibge,IBGE_sentiment_preta,IBGE: branca/preta (sent.),0.9612355843729811,0.26061128453117,1.4579865084881694,0.0278,0.10000509023666382,True,False,0.1946,False
+gemini-001,pt,race_ibge,IBGE_sentiment_indigena,IBGE: branca/indígena (sent.),-0.11308738400181645,-1.1590056290905006,0.7794068078998712,0.596,0.0029341578483581543,False,False,1.0,False
+gemini-001,pt,race_ibge,IBGE_status_amarela,IBGE: branca/amarela (status),0.6067597622735724,-0.3520213062043501,1.4102635383388191,0.1142,0.08160430192947388,False,False,0.509,False
+gemini-001,pt,race_ibge,IBGE_status_parda,IBGE: branca/parda (status),1.204814665534693,0.697342131717367,1.6079194944915478,0.0036,0.1065790057182312,True,True,0.0288,True
+gemini-001,pt,race_ibge,IBGE_status_preta,IBGE: branca/preta (status),0.3832793593629626,-0.6100888910798161,1.190494998216073,0.2294,0.056903064250946045,False,False,0.6881999999999999,False
+gemini-001,pt,race_ibge,IBGE_status_indigena,IBGE: branca/indígena (status),0.6357074358971786,-0.28482462196756886,1.3073410005491986,0.1018,0.0618937611579895,False,False,0.509,False
+gemini-001,pt,regionalism,WEAT_region_adjectives,Regionalism: adjectives,0.3792492902865186,-0.5675838126934172,1.4280739085239964,0.2308,0.02678757905960083,False,False,0.2308,False
+gemini-001,pt,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.108764018690933,0.5121388353518133,1.5929591564058088,0.004,0.1410035490989685,True,True,0.02,True
+gemini-001,pt,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,-0.7954156950390109,-1.4188990758740525,-0.038082377535943276,0.966,-0.06513851881027222,False,False,0.966,False
+gemini-001,pt,race_ibge,SEAT_ibge_sentiment_branca_amarela,SEAT IBGE: branca/amarela (sentiment),-0.7927987995586077,-1.5422687433345805,0.07852074348410025,0.9376,-0.04937624931335449,False,False,1.0,False
+gemini-001,pt,race_ibge,SEAT_ibge_sentiment_branca_parda,SEAT IBGE: branca/parda (sentiment),0.7891769725197647,-0.07704807588468601,1.4790059167946188,0.0628,0.04588484764099121,False,False,0.4396,False
+gemini-001,pt,race_ibge,SEAT_ibge_sentiment_branca_preta,SEAT IBGE: branca/preta (sentiment),0.5527688730042543,-0.40576054018461827,1.3695637870472046,0.1478,0.03303885459899902,False,False,0.8867999999999999,False
+gemini-001,pt,race_ibge,SEAT_ibge_sentiment_branca_indígena,SEAT IBGE: branca/indígena (sentiment),-0.25748681188653116,-1.331178137538622,0.660421315458804,0.6916,-0.013232886791229248,False,False,1.0,False
+gemini-001,pt,race_ibge,SEAT_ibge_status_branca_amarela,SEAT IBGE: branca/amarela (status),0.08402999730726987,-0.9191272820355708,1.0283822609529245,0.4332,0.0041196346282958984,False,False,1.0,False
+gemini-001,pt,race_ibge,SEAT_ibge_status_branca_parda,SEAT IBGE: branca/parda (status),1.155044585164572,0.5861756249585472,1.604877225313782,0.0068,0.07811790704727173,True,True,0.0544,False
+gemini-001,pt,race_ibge,SEAT_ibge_status_branca_preta,SEAT IBGE: branca/preta (status),-0.2727758818329051,-1.182677675275859,0.7380897736704906,0.7086,-0.012421071529388428,False,False,1.0,False
+gemini-001,pt,race_ibge,SEAT_ibge_status_branca_indígena,SEAT IBGE: branca/indígena (status),0.15951110024858692,-0.8856000935723892,1.060177259128193,0.3804,0.008745014667510986,False,False,1.0,False
+gemini-2,de,gender,WEAT6_professions,Gender: professions,0.4024746555441862,-0.44597851012869005,1.3024248619040286,0.1908,0.0629584789276123,False,False,0.3816,False
+gemini-2,de,race_ethnicity,WEAT_race_turkish,Race: Turkish,1.0359036022262818,0.15687325683485512,1.616930495275928,0.0574,0.07292839884757996,False,False,0.259,False
+gemini-2,de,race_ethnicity,WEAT_race_arab,Race: Arab,0.9364415658952482,-0.12971512897975515,1.6362049418020859,0.0924,0.055012643337249756,False,False,0.2772,False
+gemini-2,de,race_ethnicity,WEAT_race_african,Race: African,1.1088084637565618,0.3395476649002815,1.6402891110458542,0.0518,0.0881425142288208,False,False,0.259,False
+gemini-2,de,race_ethnicity,WEAT_race_easteuropean,Race: Eastern European,0.2615820037716141,-1.0569025587895795,1.3547202818163995,0.3414,0.016098767518997192,False,False,0.3816,False
+gemini-2,de,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.653322775894425,1.4918615755823486,1.8200346478296852,0.0,0.28618499636650085,True,True,0.0,True
+gemini-2,de,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,1.3444557203507304,1.0887170092182554,1.5783418401567482,0.0,0.4019249677658081,True,True,0.0,True
+gemini-2,en,gender,WEAT6_professions,Gender: professions,0.619640877836681,-0.23064267828580476,1.446336345090828,0.0864,0.17321252822875977,False,False,0.2592,False
+gemini-2,en,race_ethnicity,WEAT_race_adjectives,Race: adjectives,0.07819379903907035,-1.186327396482185,1.244766017936165,0.4594,0.005929350852966309,False,False,0.9188,False
+gemini-2,en,race_ethnicity,SEAT_race_professions,Race: professions (SEAT),-0.1998341127639333,-1.5274728612646327,1.254170079607886,0.6344,-0.013840138912200928,False,False,0.9188,False
+gemini-2,en,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.4273825979570132,1.025685251265731,1.7408183068091931,0.0,0.2928382158279419,True,True,0.0,True
+gemini-2,en,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,1.430823627463557,1.1391452247337088,1.7009817685997106,0.0002,0.22877883911132812,True,True,0.0008,True
+gemini-2,es,gender,WEAT6_professions,Gender: professions,0.18673874561050377,-0.7098424821115836,1.0393744264437113,0.3438,0.037409961223602295,False,False,1.0,False
+gemini-2,es,race_ethnicity,WEAT_race_moroccan,Race: Moroccan,1.1891656797754562,0.4602031378840667,1.785424923284189,0.0398,0.08333316445350647,True,False,0.1592,False
+gemini-2,es,race_ethnicity,WEAT_race_latino,Race: Latin American,0.0674071933074401,-1.1225238069244992,1.3259822122323655,0.4648,0.00470849871635437,False,False,1.0,False
+gemini-2,es,race_ethnicity,WEAT_race_roma,Race: Roma,-0.2105872960841179,-1.3056517292291951,1.170159604085201,0.632,-0.012616455554962158,False,False,1.0,False
+gemini-2,es,race_ethnicity,WEAT_race_subsaharan,Race: Sub-Saharan,1.120883119573936,0.2802593933007891,1.7268572440068637,0.0268,0.09164309501647949,True,False,0.134,False
+gemini-2,es,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.7437240095418058,1.6220865129478437,1.8625172309771931,0.0,0.34405243396759033,True,True,0.0,True
+gemini-2,es,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.6158361769849916,0.12033645474264702,1.1028926132376493,0.0122,0.24675002694129944,True,False,0.0732,False
+gemini-2,fr,gender,WEAT6_professions,Gender: professions,0.4822290511641523,-0.34391874536888095,1.3888190049115274,0.1464,0.09220325946807861,False,False,0.1464,False
+gemini-2,fr,race_ethnicity,WEAT_race_maghrebi,Race: Maghrebi,1.5483904507566886,1.221844506073939,1.8707283830545849,0.0054,0.1378742754459381,True,True,0.027000000000000003,True
+gemini-2,fr,race_ethnicity,WEAT_race_subsaharan,Race: Sub-Saharan,1.4944431871174044,1.2038892772658363,1.842146405205506,0.0106,0.1568126380443573,True,False,0.0424,True
+gemini-2,fr,race_ethnicity,WEAT_race_muslim,Race: Muslim,1.2029380279521824,0.3823599755813129,1.7784560502420788,0.035,0.08720678091049194,True,False,0.10500000000000001,False
+gemini-2,fr,race_ethnicity,WEAT_race_asian,Race: Asian,1.040390858702906,0.009951682439980446,1.7871330699015695,0.0536,0.06723248958587646,False,False,0.1072,False
+gemini-2,fr,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.6078531110621206,1.376151475646655,1.8108637176728708,0.0,0.28413069248199463,True,True,0.0,True
+gemini-2,fr,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.9863962171790716,0.6533628045095748,1.333891202324908,0.0,0.30432888865470886,True,True,0.0,True
+gemini-2,pt,gender,WEAT6_professions,Gender: professions,-0.029884011809994053,-0.8999479893103638,0.8365244083597487,0.5182,-0.003953397274017334,False,False,0.5182,False
+gemini-2,pt,race_ethnicity,WEAT_race_adjectives,Race: adjectives,1.3543202848627103,0.7227016758994976,1.8110186897959881,0.019,0.06904369592666626,True,False,0.0576,False
+gemini-2,pt,race_ethnicity,SEAT_race_professions,Race: professions (SEAT),1.210024654959828,0.5063098852786786,1.7327252516629386,0.0144,0.09715062379837036,True,False,0.0576,False
+gemini-2,pt,race_ibge,IBGE_sentiment_amarela,IBGE: branca/amarela (sent.),-0.5996584172632735,-1.4999951828163172,0.3099644196932078,0.8914,-0.02736017107963562,False,False,0.8914,False
+gemini-2,pt,race_ibge,IBGE_sentiment_parda,IBGE: branca/parda (sent.),1.1133141891508591,0.455883586288758,1.617199080808167,0.0092,0.12477284669876099,True,True,0.046,True
+gemini-2,pt,race_ibge,IBGE_sentiment_preta,IBGE: branca/preta (sent.),1.2556349761146388,0.6845145471434784,1.6908202929933165,0.005,0.0968078076839447,True,True,0.03,True
+gemini-2,pt,race_ibge,IBGE_sentiment_indigena,IBGE: branca/indígena (sent.),0.3818022601104409,-0.5586046033084113,1.3429155523632155,0.2198,0.038641393184661865,False,False,0.6594,False
+gemini-2,pt,race_ibge,IBGE_status_amarela,IBGE: branca/amarela (status),0.2356304774169044,-0.7458613312921962,1.1503966549907274,0.3186,0.055324554443359375,False,False,0.6594,False
+gemini-2,pt,race_ibge,IBGE_status_parda,IBGE: branca/parda (status),1.4272035015113564,1.0185843163592874,1.7464053658741574,0.0002,0.22654405236244202,True,True,0.0016,True
+gemini-2,pt,race_ibge,IBGE_status_preta,IBGE: branca/preta (status),1.0209151606631588,0.35343586498794266,1.5616880948020209,0.0238,0.14087897539138794,True,False,0.0952,False
+gemini-2,pt,race_ibge,IBGE_status_indigena,IBGE: branca/indígena (status),1.2354659401537975,0.8011215507625026,1.6088211944599733,0.0028,0.19043999910354614,True,True,0.0196,True
+gemini-2,pt,regionalism,WEAT_region_adjectives,Regionalism: adjectives,0.3626130141676285,-0.742504769981236,1.141514426966469,0.2428,0.023451894521713257,False,False,0.2428,False
+gemini-2,pt,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.09311384525436,0.527003540324149,1.5454330009017836,0.0042,0.11945700645446777,True,True,0.020999999999999998,True
+gemini-2,pt,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.45162620716183044,-0.3982822543057097,1.3452083398987662,0.1498,0.03840044140815735,False,False,0.2996,False
+gemini-2,pt,race_ibge,SEAT_ibge_sentiment_branca_amarela,SEAT IBGE: branca/amarela (sentiment),-0.8067544591089355,-1.475938966934726,0.04272950872482585,0.9492,-0.06268841028213501,False,False,1.0,False
+gemini-2,pt,race_ibge,SEAT_ibge_sentiment_branca_parda,SEAT IBGE: branca/parda (sentiment),0.9170499541494589,0.09829172420701046,1.5295296463535608,0.0352,0.07394284009933472,True,False,0.2464,False
+gemini-2,pt,race_ibge,SEAT_ibge_sentiment_branca_preta,SEAT IBGE: branca/preta (sentiment),0.6987563594011108,-0.22725302341321318,1.3846913595670696,0.0774,0.04250842332839966,False,False,0.387,False
+gemini-2,pt,race_ibge,SEAT_ibge_sentiment_branca_indígena,SEAT IBGE: branca/indígena (sentiment),0.03141843309784779,-0.9213270316352645,1.051787324350584,0.4744,0.0021175146102905273,False,False,1.0,False
+gemini-2,pt,race_ibge,SEAT_ibge_status_branca_amarela,SEAT IBGE: branca/amarela (status),-0.07220416462055802,-1.0283759266768022,0.9175698665866718,0.5498,-0.004734814167022705,False,False,1.0,False
+gemini-2,pt,race_ibge,SEAT_ibge_status_branca_parda,SEAT IBGE: branca/parda (status),1.3254273130060652,0.7965678711410057,1.729104141166037,0.0034,0.14850732684135437,True,True,0.0272,True
+gemini-2,pt,race_ibge,SEAT_ibge_status_branca_preta,SEAT IBGE: branca/preta (status),0.4876792918789641,-0.492137176819058,1.3583639948167014,0.176,0.03113803267478943,False,False,0.704,False
+gemini-2,pt,race_ibge,SEAT_ibge_status_branca_indígena,SEAT IBGE: branca/indígena (status),0.792440078514148,-0.054152084278829955,1.3647180725842663,0.0472,0.08026859164237976,True,False,0.2832,False
+mistral-embed,de,gender,WEAT6_professions,Gender: professions,-0.033413540154475674,-0.8580037967769796,0.846678855141058,0.5284,-0.006624817848205566,False,False,0.5284,False
+mistral-embed,de,race_ethnicity,WEAT_race_turkish,Race: Turkish,1.2015650148542008,0.5454280195025132,1.7601246938374198,0.0368,0.12200641632080078,True,False,0.2208,False
+mistral-embed,de,race_ethnicity,WEAT_race_arab,Race: Arab,1.0917718805667544,0.26806153896926516,1.7455262278328627,0.0494,0.10521960258483887,True,False,0.2208,False
+mistral-embed,de,race_ethnicity,WEAT_race_african,Race: African,0.7056684359981056,-0.5649149156721675,1.6461545457038262,0.139,0.06499630212783813,False,False,0.278,False
+mistral-embed,de,race_ethnicity,WEAT_race_easteuropean,Race: Eastern European,0.9541304202636658,-0.06910831248685824,1.6947646726429257,0.0768,0.08969873189926147,False,False,0.2304,False
+mistral-embed,de,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.4556936698979026,1.1409078775872237,1.7325970173587308,0.0,0.1808730959892273,True,True,0.0,True
+mistral-embed,de,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.49200273350277596,-0.03687567658117803,0.9423007408510464,0.0394,0.08134013414382935,True,False,0.2208,False
+mistral-embed,en,gender,WEAT6_professions,Gender: professions,0.19773681268551846,-0.705476373300492,0.9824594166110934,0.334,0.04726874828338623,False,False,0.668,False
+mistral-embed,en,race_ethnicity,WEAT_race_adjectives,Race: adjectives,0.7295945672559608,-0.4909148101144133,1.6244694457879207,0.1384,0.044509708881378174,False,False,0.4152,False
+mistral-embed,en,race_ethnicity,SEAT_race_professions,Race: professions (SEAT),-0.13268673329881256,-1.4822396524043413,1.306596794400912,0.5792,-0.013991475105285645,False,False,0.668,False
+mistral-embed,en,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.572035307784813,1.3054312890554374,1.8006084383499792,0.0,0.27244436740875244,True,True,0.0,True
+mistral-embed,en,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,1.1332122277017627,0.5971276638370175,1.5879206683462164,0.0018,0.13301992416381836,True,True,0.0072,True
+mistral-embed,es,gender,WEAT6_professions,Gender: professions,0.14297418396176192,-0.7249631388738675,0.993463433280814,0.3798,0.029843151569366455,False,False,0.5082,False
+mistral-embed,es,race_ethnicity,WEAT_race_moroccan,Race: Moroccan,1.5234857509606123,1.0488541848176327,1.8659025322812535,0.0128,0.10298210382461548,True,False,0.07680000000000001,False
+mistral-embed,es,race_ethnicity,WEAT_race_latino,Race: Latin American,0.8355974792966203,-0.3170994463522739,1.8330961259611276,0.0976,0.0327947735786438,False,False,0.3904,False
+mistral-embed,es,race_ethnicity,WEAT_race_roma,Race: Roma,0.6474110081347969,-0.5293264152651677,1.7792577179060391,0.1752,0.024544894695281982,False,False,0.5082,False
+mistral-embed,es,race_ethnicity,WEAT_race_subsaharan,Race: Sub-Saharan,1.4343838008281544,0.8915996681975144,1.855567480135963,0.018,0.09456157684326172,True,False,0.09,False
+mistral-embed,es,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.3402539972769723,0.8250011827548739,1.7540223524088543,0.0008,0.2112140655517578,True,True,0.0056,True
+mistral-embed,es,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.2669149999128905,-0.28305450092935724,0.8185493246925793,0.1694,0.07559752464294434,False,False,0.5082,False
+mistral-embed,fr,gender,WEAT6_professions,Gender: professions,-0.07531988232071612,-0.814376540754682,1.0290557656946009,0.5582,-0.014348268508911133,False,False,0.7528,False
+mistral-embed,fr,race_ethnicity,WEAT_race_maghrebi,Race: Maghrebi,1.286747432584269,0.6850544675830059,1.7395178773510942,0.02,0.0845726728439331,True,False,0.14,False
+mistral-embed,fr,race_ethnicity,WEAT_race_subsaharan,Race: Sub-Saharan,0.7109584037879592,-0.47237442610185765,1.5901610516676168,0.142,0.03618043661117554,False,False,0.568,False
+mistral-embed,fr,race_ethnicity,WEAT_race_muslim,Race: Muslim,1.1789836787919608,0.4164865039545751,1.712297860086702,0.037,0.09175944328308105,True,False,0.22199999999999998,False
+mistral-embed,fr,race_ethnicity,WEAT_race_asian,Race: Asian,0.21183662024360608,-1.0056754004882305,1.3770774188411783,0.3764,0.012348353862762451,False,False,0.7528,False
+mistral-embed,fr,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,0.5939399475012407,-0.2653774584765543,1.2263618375388925,0.0894,0.07278937101364136,False,False,0.44699999999999995,False
+mistral-embed,fr,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.2269555815464517,-0.34282210936787355,0.7331887407331076,0.209,0.08343476057052612,False,False,0.627,False
+mistral-embed,pt,gender,WEAT6_professions,Gender: professions,0.0745302909937648,-0.9098208664704971,0.8478820049997573,0.4246,0.009039044380187988,False,False,1.0,False
+mistral-embed,pt,race_ethnicity,WEAT_race_adjectives,Race: adjectives,0.7669779012559867,-0.40239794524537237,1.5504094996233975,0.1102,0.040164053440093994,False,False,0.4408,False
+mistral-embed,pt,race_ethnicity,SEAT_race_professions,Race: professions (SEAT),1.0461229499814788,0.156345979477169,1.7370069637644905,0.03,0.05241727828979492,True,False,0.15,False
+mistral-embed,pt,race_ibge,IBGE_sentiment_amarela,IBGE: branca/amarela (sent.),0.4494821856127987,-0.46798109912743435,1.364980537864212,0.1956,0.03675264120101929,False,False,0.5868,False
+mistral-embed,pt,race_ibge,IBGE_sentiment_parda,IBGE: branca/parda (sent.),0.8402737381122088,0.007598726641209572,1.5382699548919507,0.042,0.06374722719192505,True,False,0.252,False
+mistral-embed,pt,race_ibge,IBGE_sentiment_preta,IBGE: branca/preta (sent.),0.9916588761936199,0.2405778847264968,1.5744828115280096,0.0276,0.07730865478515625,True,False,0.19319999999999998,False
+mistral-embed,pt,race_ibge,IBGE_sentiment_indigena,IBGE: branca/indígena (sent.),0.3220829581822519,-0.5827777956925498,1.3154328238025996,0.2678,0.025692641735076904,False,False,0.5868,False
+mistral-embed,pt,race_ibge,IBGE_status_amarela,IBGE: branca/amarela (status),0.5962197082685395,-0.3522262299103722,1.3521125496292388,0.1166,0.055887460708618164,False,False,0.4664,False
+mistral-embed,pt,race_ibge,IBGE_status_parda,IBGE: branca/parda (status),1.1488159773743807,0.5888505026564144,1.603293590680192,0.0052,0.09447091817855835,True,True,0.0416,True
+mistral-embed,pt,race_ibge,IBGE_status_preta,IBGE: branca/preta (status),0.7871142409438947,-0.08769815314740323,1.4960363142391533,0.0664,0.07011133432388306,False,False,0.332,False
+mistral-embed,pt,race_ibge,IBGE_status_indigena,IBGE: branca/indígena (status),0.3923733794955282,-0.5226102842989054,1.3272765089820744,0.2222,0.03278779983520508,False,False,0.5868,False
+mistral-embed,pt,regionalism,WEAT_region_adjectives,Regionalism: adjectives,-0.7182589940030067,-1.4928483092467368,0.21533567121852007,0.9202,-0.04604220390319824,False,False,0.9202,False
+mistral-embed,pt,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,0.15600958639854473,-0.834938097329726,0.9006234198824242,0.3682,0.01627051830291748,False,False,1.0,False
+mistral-embed,pt,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,-0.49410655280936433,-1.2133689612342182,0.40190493639268815,0.8688,-0.0419619083404541,False,False,1.0,False
+mistral-embed,pt,race_ibge,SEAT_ibge_sentiment_branca_amarela,SEAT IBGE: branca/amarela (sentiment),-0.32034189842859334,-1.093137430996729,0.8124495440376436,0.7362,-0.017945468425750732,False,False,1.0,False
+mistral-embed,pt,race_ibge,SEAT_ibge_sentiment_branca_parda,SEAT IBGE: branca/parda (sentiment),0.9394255537047603,0.1626985760438826,1.5251621284993357,0.0326,0.06436681747436523,True,False,0.2282,False
+mistral-embed,pt,race_ibge,SEAT_ibge_sentiment_branca_preta,SEAT IBGE: branca/preta (sentiment),0.5894275350185869,-0.3426358961913216,1.5265521470247478,0.1198,0.03436899185180664,False,False,0.7188,False
+mistral-embed,pt,race_ibge,SEAT_ibge_sentiment_branca_indígena,SEAT IBGE: branca/indígena (sentiment),-0.07707771385139482,-0.967722375368015,1.007546456891868,0.5696,-0.003824472427368164,False,False,1.0,False
+mistral-embed,pt,race_ibge,SEAT_ibge_status_branca_amarela,SEAT IBGE: branca/amarela (status),0.08706581644842432,-1.0945013284823049,0.8519005918090712,0.4324,0.002542853355407715,False,False,1.0,False
+mistral-embed,pt,race_ibge,SEAT_ibge_status_branca_parda,SEAT IBGE: branca/parda (status),1.2822741066181247,0.8490125956091727,1.6458857805202962,0.0016,0.051617443561553955,True,True,0.0128,True
+mistral-embed,pt,race_ibge,SEAT_ibge_status_branca_preta,SEAT IBGE: branca/preta (status),0.3934132894806324,-0.763119413281176,1.0851304343964858,0.259,0.017730116844177246,False,False,1.0,False
+mistral-embed,pt,race_ibge,SEAT_ibge_status_branca_indígena,SEAT IBGE: branca/indígena (status),0.5465436176347722,-0.4273291347700838,1.308980086001139,0.1372,0.015136003494262695,False,False,0.7188,False
+multilingual-e5-large,de,gender,WEAT6_professions,Gender: professions,0.8908853956499543,0.17823930566740556,1.4538400406881997,0.024,0.09864675998687744,True,False,0.0534,False
+multilingual-e5-large,de,race_ethnicity,WEAT_race_turkish,Race: Turkish,1.446839060441659,1.2032325732340678,1.7696422734320916,0.0054,0.08785456418991089,True,True,0.027000000000000003,True
+multilingual-e5-large,de,race_ethnicity,WEAT_race_arab,Race: Arab,1.4634573659573118,1.238387596832631,1.7874746421325194,0.0054,0.08514463901519775,True,True,0.027000000000000003,True
+multilingual-e5-large,de,race_ethnicity,WEAT_race_african,Race: African,1.2969253982694573,0.9415862972853111,1.6911348675750042,0.0178,0.08820420503616333,True,False,0.0534,False
+multilingual-e5-large,de,race_ethnicity,WEAT_race_easteuropean,Race: Eastern European,1.2908670759297696,0.8599726756471441,1.733992131885113,0.0178,0.06564801931381226,True,False,0.0534,False
+multilingual-e5-large,de,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.39666620495475,1.1462587204064427,1.6527138149678489,0.0,0.10688149929046631,True,True,0.0,True
+multilingual-e5-large,de,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.8552248591720347,0.38284297215545177,1.2744309070076238,0.0008,0.11370313167572021,True,True,0.0048000000000000004,True
+multilingual-e5-large,en,gender,WEAT6_professions,Gender: professions,0.458054122339625,-0.3962107398060271,1.2616506279172843,0.1584,0.05301821231842041,False,False,0.3168,False
+multilingual-e5-large,en,race_ethnicity,WEAT_race_adjectives,Race: adjectives,1.2327539935979346,0.4724192184855988,1.753298859344555,0.025,0.046928226947784424,True,False,0.07500000000000001,False
+multilingual-e5-large,en,race_ethnicity,SEAT_race_professions,Race: professions (SEAT),-1.0703672689237727,-1.821396436826658,0.02669080798608244,0.918,-0.028084754943847656,False,False,0.918,False
+multilingual-e5-large,en,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.3987233845532323,1.1553440645050017,1.6503904039011275,0.0,0.20079529285430908,True,True,0.0,True
+multilingual-e5-large,en,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,1.0881726384245327,0.44291067073843726,1.600677445425928,0.0056,0.08321928977966309,True,True,0.0224,True
+multilingual-e5-large,es,gender,WEAT6_professions,Gender: professions,-0.26343170367396607,-1.0853767397822758,0.6209217256582383,0.72,-0.02138221263885498,False,False,0.72,False
+multilingual-e5-large,es,race_ethnicity,WEAT_race_moroccan,Race: Moroccan,1.633434178314633,1.4394732160108217,1.8573419351648908,0.0054,0.07966053485870361,True,True,0.0324,True
+multilingual-e5-large,es,race_ethnicity,WEAT_race_latino,Race: Latin American,1.0306566757774422,0.0204702584903417,1.748049257843908,0.0632,0.035602688789367676,False,False,0.1264,False
+multilingual-e5-large,es,race_ethnicity,WEAT_race_roma,Race: Roma,1.2082118801958999,0.440395352623352,1.732093282008763,0.031,0.048774659633636475,True,False,0.093,False
+multilingual-e5-large,es,race_ethnicity,WEAT_race_subsaharan,Race: Sub-Saharan,1.6444451004057918,1.4772492436899631,1.849243841373089,0.0054,0.08636748790740967,True,True,0.0324,True
+multilingual-e5-large,es,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.2609275377391718,0.7581137654922544,1.6683903189288491,0.0008,0.1149035096168518,True,True,0.0056,True
+multilingual-e5-large,es,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.6575878830079728,0.1520943754469837,1.1014639582276935,0.0092,0.09361177682876587,True,True,0.0368,True
+multilingual-e5-large,fr,gender,WEAT6_professions,Gender: professions,0.37463976108616337,-0.5366377596203117,1.1066171820617277,0.2006,0.043610453605651855,False,False,0.2006,False
+multilingual-e5-large,fr,race_ethnicity,WEAT_race_maghrebi,Race: Maghrebi,1.4331061149485629,1.1897967292393585,1.7498032450533583,0.0054,0.060059964656829834,True,True,0.0378,True
+multilingual-e5-large,fr,race_ethnicity,WEAT_race_subsaharan,Race: Sub-Saharan,1.4557142811222097,1.190767329738532,1.7582187800329503,0.0054,0.06817930936813354,True,True,0.0378,True
+multilingual-e5-large,fr,race_ethnicity,WEAT_race_muslim,Race: Muslim,1.2827377748401818,0.741652917283741,1.7125100596845575,0.0212,0.060276567935943604,True,False,0.0848,False
+multilingual-e5-large,fr,race_ethnicity,WEAT_race_asian,Race: Asian,1.0966384626240984,0.32067156497207044,1.6309798441339014,0.0496,0.04453873634338379,True,False,0.1488,False
+multilingual-e5-large,fr,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,0.8956749793115449,0.2740992583565738,1.3795103950922527,0.0148,0.08573222160339355,True,False,0.07400000000000001,False
+multilingual-e5-large,fr,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.4364664972567312,-0.10766127792853468,0.9523352910323074,0.0596,0.09576278924942017,False,False,0.1488,False
+multilingual-e5-large,pt,gender,WEAT6_professions,Gender: professions,0.24154060524238433,-0.6561324696720378,1.0513148330157591,0.2954,0.017061233520507812,False,False,0.5908,False
+multilingual-e5-large,pt,race_ethnicity,WEAT_race_adjectives,Race: adjectives,1.238300412810396,0.32853643349107287,1.8275185725133056,0.031,0.05566483736038208,True,False,0.146,False
+multilingual-e5-large,pt,race_ethnicity,SEAT_race_professions,Race: professions (SEAT),0.7057111637203326,-0.41771513729012605,1.3974845809696834,0.1214,0.027663469314575195,False,False,0.36419999999999997,False
+multilingual-e5-large,pt,race_ibge,IBGE_sentiment_amarela,IBGE: branca/amarela (sent.),0.3244541978381039,-0.6148673094870232,1.2069280754290208,0.2652,0.023939549922943115,False,False,0.5672,False
+multilingual-e5-large,pt,race_ibge,IBGE_sentiment_parda,IBGE: branca/parda (sent.),0.8740269703542338,0.09722983963156576,1.438961806795883,0.0306,0.041693150997161865,True,False,0.2256,False
+multilingual-e5-large,pt,race_ibge,IBGE_sentiment_preta,IBGE: branca/preta (sent.),0.981341529529348,0.07550920783187114,1.6911152641620866,0.0282,0.07499116659164429,True,False,0.2256,False
+multilingual-e5-large,pt,race_ibge,IBGE_sentiment_indigena,IBGE: branca/indígena (sent.),0.5515017426174392,-0.41201095646940017,1.2420383360010918,0.1418,0.03275501728057861,False,False,0.5672,False
+multilingual-e5-large,pt,race_ibge,IBGE_status_amarela,IBGE: branca/amarela (status),0.3405307427790384,-0.6329218898650639,1.137685272188592,0.2468,0.023068130016326904,False,False,0.5672,False
+multilingual-e5-large,pt,race_ibge,IBGE_status_parda,IBGE: branca/parda (status),0.8206225239458342,0.03011682749686371,1.4072792670840704,0.0396,0.050956010818481445,True,False,0.23760000000000003,False
+multilingual-e5-large,pt,race_ibge,IBGE_status_preta,IBGE: branca/preta (status),0.4963926525041349,-0.5176643375316103,1.271790487322883,0.16,0.03503882884979248,False,False,0.5672,False
+multilingual-e5-large,pt,race_ibge,IBGE_status_indigena,IBGE: branca/indígena (status),0.7119649490335848,-0.1809646252465837,1.4043042306215705,0.073,0.047856032848358154,False,False,0.365,False
+multilingual-e5-large,pt,regionalism,WEAT_region_adjectives,Regionalism: adjectives,0.6082628932517591,-0.3486709692371531,1.3343322048892574,0.1218,0.021861553192138672,False,False,0.1218,False
+multilingual-e5-large,pt,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,0.8385049630886393,0.08891998020657588,1.4320930583097797,0.0292,0.07289355993270874,True,False,0.146,False
+multilingual-e5-large,pt,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,-0.09909507875358997,-0.9630592274109776,0.7963309932695676,0.5852,-0.005208253860473633,False,False,0.5908,False
+multilingual-e5-large,pt,race_ibge,SEAT_ibge_sentiment_branca_amarela,SEAT IBGE: branca/amarela (sentiment),-0.1608367472445807,-1.059430548549438,0.8752792863843057,0.6366,-0.004487335681915283,False,False,1.0,False
+multilingual-e5-large,pt,race_ibge,SEAT_ibge_sentiment_branca_parda,SEAT IBGE: branca/parda (sentiment),1.2160830593456333,0.6144832786136613,1.659960173164176,0.007,0.045051634311676025,True,True,0.056,False
+multilingual-e5-large,pt,race_ibge,SEAT_ibge_sentiment_branca_preta,SEAT IBGE: branca/preta (sentiment),1.1732489963286048,0.40122570797303253,1.747769314883144,0.0096,0.042199015617370605,True,True,0.0672,False
+multilingual-e5-large,pt,race_ibge,SEAT_ibge_sentiment_branca_indígena,SEAT IBGE: branca/indígena (sentiment),0.1586122853658724,-0.81298439184128,1.139118907601066,0.383,0.003946542739868164,False,False,1.0,False
+multilingual-e5-large,pt,race_ibge,SEAT_ibge_status_branca_amarela,SEAT IBGE: branca/amarela (status),0.29123929852037556,-0.7290862107867184,1.1724041345984864,0.2858,0.011939764022827148,False,False,1.0,False
+multilingual-e5-large,pt,race_ibge,SEAT_ibge_status_branca_parda,SEAT IBGE: branca/parda (status),0.8911572503386045,0.09919608409547703,1.511812040554387,0.0398,0.0338820219039917,True,False,0.2388,False
+multilingual-e5-large,pt,race_ibge,SEAT_ibge_status_branca_preta,SEAT IBGE: branca/preta (status),0.41602026092318634,-0.6282444252619601,1.24247292975501,0.213,0.015640199184417725,False,False,1.0,False
+multilingual-e5-large,pt,race_ibge,SEAT_ibge_status_branca_indígena,SEAT IBGE: branca/indígena (status),0.16003449276273132,-0.9143894653555439,1.0515460670169696,0.3838,0.006341040134429932,False,False,1.0,False
+openai-large,de,gender,WEAT6_professions,Gender: professions,0.47026940855021243,-0.3698560442307702,1.2624374511176675,0.1578,0.20968708395957947,False,False,0.232,False
+openai-large,de,race_ethnicity,WEAT_race_turkish,Race: Turkish,1.3675263575976784,0.9844792942171163,1.7399134593509165,0.0098,0.1655433177947998,True,True,0.0392,True
+openai-large,de,race_ethnicity,WEAT_race_arab,Race: Arab,1.4783553506796692,1.2320989843945642,1.7853543856106942,0.0054,0.18409660458564758,True,True,0.027000000000000003,True
+openai-large,de,race_ethnicity,WEAT_race_african,Race: African,0.7701352217258648,-0.4073367955479505,1.7212904407428296,0.116,0.12134143710136414,False,False,0.232,False
+openai-large,de,race_ethnicity,WEAT_race_easteuropean,Race: Eastern European,1.2112805120396162,0.5061774411476925,1.7102627521020286,0.0336,0.13932889699935913,True,False,0.1008,False
+openai-large,de,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.4788111776648882,1.1978840790194414,1.7313447764689818,0.0,0.3232205957174301,True,True,0.0,True
+openai-large,de,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,1.176421331179322,0.8537904177672642,1.452129090767603,0.0,0.6181227117776871,True,True,0.0,True
+openai-large,en,gender,WEAT6_professions,Gender: professions,0.4113462462274872,-0.43117414239214136,1.2477166210937083,0.1874,0.20862612128257751,False,False,0.3748,False
+openai-large,en,race_ethnicity,WEAT_race_adjectives,Race: adjectives,1.044769191895923,0.20819021585649972,1.609853160757088,0.0564,0.11851213872432709,False,False,0.1692,False
+openai-large,en,race_ethnicity,SEAT_race_professions,Race: professions (SEAT),-0.05410500471388437,-1.2276650116485377,1.602669143372985,0.5182,0.00552193820476532,False,False,0.5182,False
+openai-large,en,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.6739633322735479,1.458071194192254,1.8511961347319354,0.0,0.8702174574136734,True,True,0.0,True
+openai-large,en,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,1.2605325299228667,0.9122489212383368,1.598575762379631,0.0004,0.40850891172885895,True,True,0.0016,True
+openai-large,es,gender,WEAT6_professions,Gender: professions,0.4528425659458028,-0.4069538189698565,1.294082149513016,0.1542,0.17989665269851685,False,False,0.4626,False
+openai-large,es,race_ethnicity,WEAT_race_moroccan,Race: Moroccan,1.4197660503867722,1.0874519538183451,1.7422202877252781,0.014,0.1726246029138565,True,False,0.07,False
+openai-large,es,race_ethnicity,WEAT_race_latino,Race: Latin American,-0.25799326730375716,-1.4324959255775265,0.9941702175705353,0.6492,-0.018025144934654236,False,False,0.6492,False
+openai-large,es,race_ethnicity,WEAT_race_roma,Race: Roma,0.5245819486105018,-0.9335582224918042,1.3845996039791542,0.2304,0.042985156178474426,False,False,0.4626,False
+openai-large,es,race_ethnicity,WEAT_race_subsaharan,Race: Sub-Saharan,1.1983925429171316,0.42198628875426425,1.7263350243116227,0.0348,0.13829979300498962,True,False,0.1392,False
+openai-large,es,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.8292686361888904,1.7501086436547872,1.9075167073227468,0.0,0.6948458552360535,True,True,0.0,True
+openai-large,es,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.9400217100042585,0.49090550977944875,1.347384876359435,0.0004,0.5239199250936508,True,True,0.0024000000000000002,True
+openai-large,fr,gender,WEAT6_professions,Gender: professions,0.6464319731016605,-0.1768771853452782,1.4417891191856207,0.0776,0.27117814123630524,False,False,0.2328,False
+openai-large,fr,race_ethnicity,WEAT_race_maghrebi,Race: Maghrebi,1.2277799459810794,0.7699574628915563,1.7028621400860384,0.0186,0.15915288031101227,True,False,0.093,False
+openai-large,fr,race_ethnicity,WEAT_race_subsaharan,Race: Sub-Saharan,0.9611199770327722,-0.01832709090279885,1.5787363079299572,0.0832,0.1292732208967209,False,False,0.2328,False
+openai-large,fr,race_ethnicity,WEAT_race_muslim,Race: Muslim,1.093088562332097,0.20306902218481623,1.692699082555876,0.0422,0.14299684762954712,True,False,0.1688,False
+openai-large,fr,race_ethnicity,WEAT_race_asian,Race: Asian,0.46043406134835047,-1.0546668963464885,1.3839443413088421,0.2398,0.05238591134548187,False,False,0.2398,False
+openai-large,fr,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,0.9368521573877976,0.2952182318856548,1.448989682860837,0.0144,0.2926103174686432,True,False,0.0864,False
+openai-large,fr,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.6379821055374134,0.12024849778665671,1.0872589283147382,0.011,0.47269320487976074,True,False,0.077,False
+openai-large,pt,gender,WEAT6_professions,Gender: professions,0.3130930200717785,-0.5679734913297119,1.1226815742315035,0.2426,0.07393933832645416,False,False,0.2426,False
+openai-large,pt,race_ethnicity,WEAT_race_adjectives,Race: adjectives,1.4889443627385388,1.266795926792617,1.7841641572423523,0.0054,0.24824562668800354,True,True,0.012,True
+openai-large,pt,race_ethnicity,SEAT_race_professions,Race: professions (SEAT),1.435471218379797,1.0811802364294636,1.7649128213395522,0.003,0.16194702684879303,True,True,0.012,True
+openai-large,pt,race_ibge,IBGE_sentiment_amarela,IBGE: branca/amarela (sent.),1.290276260281541,0.838771435627371,1.6726338404635668,0.0022,0.38077542185783386,True,True,0.0072,True
+openai-large,pt,race_ibge,IBGE_sentiment_parda,IBGE: branca/parda (sent.),1.6626525354826045,1.4218722159148922,1.875826852691651,0.0,0.5462840050458908,True,True,0.0,True
+openai-large,pt,race_ibge,IBGE_sentiment_preta,IBGE: branca/preta (sent.),1.4630929133220285,1.1226102965863354,1.7718973946123562,0.0012,0.41007933020591736,True,True,0.005999999999999999,True
+openai-large,pt,race_ibge,IBGE_sentiment_indigena,IBGE: branca/indígena (sent.),1.470303499086165,1.0888914202987159,1.7638242362698875,0.0002,0.3298640847206116,True,True,0.0012000000000000001,True
+openai-large,pt,race_ibge,IBGE_status_amarela,IBGE: branca/amarela (status),0.8314659595766899,0.016561359053661136,1.396090936469601,0.0424,0.18584024906158447,True,False,0.0424,True
+openai-large,pt,race_ibge,IBGE_status_parda,IBGE: branca/parda (status),1.5824449205350795,1.3956146250089065,1.7721056275612397,0.0,0.42574772238731384,True,True,0.0,True
+openai-large,pt,race_ibge,IBGE_status_preta,IBGE: branca/preta (status),1.2002189525429174,0.6637605144215624,1.62405028822056,0.0068,0.21657755970954895,True,True,0.0136,True
+openai-large,pt,race_ibge,IBGE_status_indigena,IBGE: branca/indígena (status),1.3334160222231581,0.8869596526840574,1.7070323680268153,0.0018,0.23278632760047913,True,True,0.0072,True
+openai-large,pt,regionalism,WEAT_region_adjectives,Regionalism: adjectives,0.8415075715967864,-0.06516307927177206,1.54884514709929,0.0438,0.11036595702171326,True,False,0.0438,True
+openai-large,pt,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.152213324134603,0.5650766884466295,1.597691003294422,0.003,0.29781322181224823,True,True,0.012,True
+openai-large,pt,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,1.3411946303558064,0.9161932821686043,1.6951304586870144,0.0008,0.25125692784786224,True,True,0.004,True
+openai-large,pt,race_ibge,SEAT_ibge_sentiment_branca_amarela,SEAT IBGE: branca/amarela (sentiment),0.9888232868103134,0.35263511826098376,1.45285152141672,0.0188,0.10080906748771667,True,False,0.047400000000000005,True
+openai-large,pt,race_ibge,SEAT_ibge_sentiment_branca_parda,SEAT IBGE: branca/parda (sentiment),1.6927182501002902,1.4997854769865795,1.882502811263502,0.0,0.2792590856552124,True,True,0.0,True
+openai-large,pt,race_ibge,SEAT_ibge_sentiment_branca_preta,SEAT IBGE: branca/preta (sentiment),1.4926609658637153,1.265363469328727,1.7922539592109386,0.0002,0.15860070288181305,True,True,0.0014,True
+openai-large,pt,race_ibge,SEAT_ibge_sentiment_branca_indígena,SEAT IBGE: branca/indígena (sentiment),1.0149629839621943,0.2570569722750899,1.5730419981936763,0.0158,0.09944199025630951,True,False,0.047400000000000005,True
+openai-large,pt,race_ibge,SEAT_ibge_status_branca_amarela,SEAT IBGE: branca/amarela (status),0.7665169061883058,-0.15281686744336342,1.4664980925808488,0.0638,0.05610695481300354,False,False,0.0638,False
+openai-large,pt,race_ibge,SEAT_ibge_status_branca_parda,SEAT IBGE: branca/parda (status),1.5537455447176018,1.2226553417698447,1.8338607820456483,0.0006,0.26071226596832275,True,True,0.0036,True
+openai-large,pt,race_ibge,SEAT_ibge_status_branca_preta,SEAT IBGE: branca/preta (status),1.195585153093742,0.5349149343354374,1.6889614235244115,0.0066,0.09975509345531464,True,True,0.0264,True
+openai-large,pt,race_ibge,SEAT_ibge_status_branca_indígena,SEAT IBGE: branca/indígena (status),1.2977262051891896,0.7410964085290828,1.7149934338174657,0.003,0.10912290215492249,True,True,0.015,True
+openai-small,de,gender,WEAT6_professions,Gender: professions,0.33396719342563347,-0.5200428261217117,1.212422925599961,0.2276,0.18522153794765472,False,False,0.436,False
+openai-small,de,race_ethnicity,WEAT_race_turkish,Race: Turkish,1.1892432963276023,0.33620106947470857,1.7810692784737443,0.0334,0.13880237936973572,True,False,0.1192,False
+openai-small,de,race_ethnicity,WEAT_race_arab,Race: Arab,1.3708242897645362,0.7954803944536605,1.8028578169816656,0.009,0.2041054517030716,True,True,0.05399999999999999,False
+openai-small,de,race_ethnicity,WEAT_race_african,Race: African,1.4682385429124671,1.0328825890377178,1.7994607163203522,0.0112,0.22890202701091766,True,False,0.056,False
+openai-small,de,race_ethnicity,WEAT_race_easteuropean,Race: Eastern European,0.5345858223804828,-0.7082816960928532,1.5798551366285707,0.218,0.06664091348648071,False,False,0.436,False
+openai-small,de,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.3690391119374337,0.9752052017935983,1.7574817765364121,0.0,0.41123832762241364,True,True,0.0,True
+openai-small,de,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.5353733746793566,-0.0018834630296198562,1.0580286874027143,0.0298,0.2896498739719391,True,False,0.1192,False
+openai-small,en,gender,WEAT6_professions,Gender: professions,0.45225934350631253,-0.42371663065784704,1.1620543476332263,0.1644,0.2165357619524002,False,False,0.3288,False
+openai-small,en,race_ethnicity,WEAT_race_adjectives,Race: adjectives,1.4952630937006888,1.3565435698298283,1.7986950230319207,0.0054,0.35057660937309265,True,True,0.0162,True
+openai-small,en,race_ethnicity,SEAT_race_professions,Race: professions (SEAT),-0.3767973737557586,-1.4993617102829837,1.5245451324295896,0.723,-0.020134463906288147,False,False,0.723,False
+openai-small,en,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.6435406799604029,1.3753442594660574,1.849151494998335,0.0,0.9899174869060516,True,True,0.0,True
+openai-small,en,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,1.3262053652172379,0.8438703356048911,1.7155055768177563,0.0006,0.43595387041568756,True,True,0.0024,True
+openai-small,es,gender,WEAT6_professions,Gender: professions,-0.08625439136795218,-0.8910919926237275,0.8453079103053149,0.582,-0.04273104667663574,False,False,1.0,False
+openai-small,es,race_ethnicity,WEAT_race_moroccan,Race: Moroccan,0.7307167770890239,-0.533920188910164,1.5007975630089125,0.15,0.11616788804531097,False,False,0.6,False
+openai-small,es,race_ethnicity,WEAT_race_latino,Race: Latin American,-0.46977331202516215,-1.6467221373220302,0.9109631539262268,0.788,-0.03853978216648102,False,False,1.0,False
+openai-small,es,race_ethnicity,WEAT_race_roma,Race: Roma,-0.3003116719202397,-1.479850953066159,0.910264649961267,0.6848,-0.03588978946208954,False,False,1.0,False
+openai-small,es,race_ethnicity,WEAT_race_subsaharan,Race: Sub-Saharan,0.8538723535869536,-0.26468317904718097,1.573620228365568,0.0806,0.13673052191734314,False,False,0.403,False
+openai-small,es,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.4764814287838004,1.100194266067907,1.7896939456055978,0.0002,0.5340756922960281,True,True,0.0014,True
+openai-small,es,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.7715694385026914,0.3104321560398964,1.2003310911043048,0.003,0.4762478768825531,True,True,0.018000000000000002,True
+openai-small,fr,gender,WEAT6_professions,Gender: professions,0.27758673063377975,-0.5834427874452021,1.1135388628399372,0.2696,0.14504341781139374,False,False,0.5392,False
+openai-small,fr,race_ethnicity,WEAT_race_maghrebi,Race: Maghrebi,1.5098162606424979,1.2850310190007785,1.7824449680150474,0.0054,0.19309809803962708,True,True,0.0378,True
+openai-small,fr,race_ethnicity,WEAT_race_subsaharan,Race: Sub-Saharan,1.28882389889388,1.0089095417201213,1.7109473862403077,0.0136,0.1718573123216629,True,False,0.07919999999999999,False
+openai-small,fr,race_ethnicity,WEAT_race_muslim,Race: Muslim,0.9169642082105999,-0.1105306353555658,1.6258342373570174,0.0684,0.13078363239765167,False,False,0.2736,False
+openai-small,fr,race_ethnicity,WEAT_race_asian,Race: Asian,-0.000793080800614973,-1.4537142603573925,1.1246540093076005,0.502,-7.651746273040771e-05,False,False,0.5392,False
+openai-small,fr,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,0.9703929419417121,0.2726261306740704,1.5617962823935456,0.0132,0.30015018582344055,True,False,0.07919999999999999,False
+openai-small,fr,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.3765262138495769,-0.16230474546465967,0.8850351363676658,0.0894,0.22450019419193268,False,False,0.2736,False
+openai-small,pt,gender,WEAT6_professions,Gender: professions,0.15143628709628368,-0.7560437814717909,0.9578538040309438,0.3546,0.04548485577106476,False,False,0.684,False
+openai-small,pt,race_ethnicity,WEAT_race_adjectives,Race: adjectives,1.4629134344398402,1.2166428319604685,1.7653698593044578,0.0054,0.180294007062912,True,True,0.0216,True
+openai-small,pt,race_ethnicity,SEAT_race_professions,Race: professions (SEAT),1.132273103028358,0.544036133163199,1.6061429559156106,0.019,0.09734347462654114,True,False,0.056999999999999995,False
+openai-small,pt,race_ibge,IBGE_sentiment_amarela,IBGE: branca/amarela (sent.),0.9834540208996342,0.26104902461497204,1.5292884259783335,0.0232,0.15120169520378113,True,False,0.0552,False
+openai-small,pt,race_ibge,IBGE_sentiment_parda,IBGE: branca/parda (sent.),1.5906465266740621,1.374535244399363,1.8093453393120262,0.0,0.40087640285491943,True,True,0.0,True
+openai-small,pt,race_ibge,IBGE_sentiment_preta,IBGE: branca/preta (sent.),1.6067277959388409,1.4391142895106075,1.8116177872413417,0.0004,0.3255499452352524,True,True,0.0028,True
+openai-small,pt,race_ibge,IBGE_sentiment_indigena,IBGE: branca/indígena (sent.),1.037924972275243,0.33460838271517496,1.5838846310711516,0.0138,0.1414705216884613,True,False,0.0552,False
+openai-small,pt,race_ibge,IBGE_status_amarela,IBGE: branca/amarela (status),1.4213352763335219,1.1168040418822383,1.7003751532166207,0.0006,0.227381631731987,True,True,0.0036,True
+openai-small,pt,race_ibge,IBGE_status_parda,IBGE: branca/parda (status),1.1488468817546842,0.5998635167951937,1.6028116392358174,0.0044,0.2882322371006012,True,True,0.022000000000000002,True
+openai-small,pt,race_ibge,IBGE_status_preta,IBGE: branca/preta (status),0.6206243781258628,-0.2832450716374434,1.3058786884569753,0.1174,0.09297940135002136,False,False,0.1174,False
+openai-small,pt,race_ibge,IBGE_status_indigena,IBGE: branca/indígena (status),1.0131175366036635,0.23930826452052958,1.5771091419766488,0.0172,0.16784460842609406,True,False,0.0552,False
+openai-small,pt,regionalism,WEAT_region_adjectives,Regionalism: adjectives,0.19434204868105137,-0.7336508517498286,1.2690599079156077,0.3478,0.029164209961891174,False,False,0.3478,False
+openai-small,pt,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.230237867468017,0.6617749867771177,1.6621678742104282,0.002,0.34447264671325684,True,True,0.01,True
+openai-small,pt,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.17830878516434856,-0.7317703389154876,1.0239385158052536,0.342,0.028377428650856018,False,False,0.684,False
+openai-small,pt,race_ibge,SEAT_ibge_sentiment_branca_amarela,SEAT IBGE: branca/amarela (sentiment),0.30976246581220473,-0.7323199278131127,1.1504163769932092,0.2856,0.024063825607299805,False,False,0.2856,False
+openai-small,pt,race_ibge,SEAT_ibge_sentiment_branca_parda,SEAT IBGE: branca/parda (sentiment),1.782230391511561,1.7119080142424346,1.8749100390666813,0.0,0.3497290164232254,True,True,0.0,True
+openai-small,pt,race_ibge,SEAT_ibge_sentiment_branca_preta,SEAT IBGE: branca/preta (sentiment),1.4549928611353755,1.0479744688113324,1.799876097317996,0.0008,0.3070802241563797,True,True,0.0056,True
+openai-small,pt,race_ibge,SEAT_ibge_sentiment_branca_indígena,SEAT IBGE: branca/indígena (sentiment),0.6966966647843134,-0.1980779963102801,1.3171696778158182,0.0878,0.07079865038394928,False,False,0.2634,False
+openai-small,pt,race_ibge,SEAT_ibge_status_branca_amarela,SEAT IBGE: branca/amarela (status),0.8723859991210201,0.0022932886754205416,1.5816077827847692,0.0416,0.08593206107616425,True,False,0.1664,False
+openai-small,pt,race_ibge,SEAT_ibge_status_branca_parda,SEAT IBGE: branca/parda (status),1.3380569131840823,0.6998048541380203,1.7968359655940092,0.0024,0.2561544328927994,True,True,0.0144,True
+openai-small,pt,race_ibge,SEAT_ibge_status_branca_preta,SEAT IBGE: branca/preta (status),1.2016722002907911,0.6570466544437048,1.649456608784463,0.005,0.14954493939876556,True,True,0.025,True
+openai-small,pt,race_ibge,SEAT_ibge_status_branca_indígena,SEAT IBGE: branca/indígena (status),0.6397881880078239,-0.28712841465446154,1.6014866815580313,0.1032,0.06371308863162994,False,False,0.2634,False
+qwen3-4b,de,gender,WEAT6_professions,Gender: professions,0.6539585455060056,-0.1597808456568327,1.3081649811644862,0.0716,0.18154394626617432,False,False,0.0856,False
+qwen3-4b,de,race_ethnicity,WEAT_race_turkish,Race: Turkish,1.6496543581039167,1.4757424726376944,1.8500981303666475,0.0054,0.11227774620056152,True,True,0.027000000000000003,True
+qwen3-4b,de,race_ethnicity,WEAT_race_arab,Race: Arab,1.4446270003655413,1.0853672618259802,1.817358111802162,0.012,0.055570006370544434,True,False,0.036000000000000004,True
+qwen3-4b,de,race_ethnicity,WEAT_race_african,Race: African,1.144555849029901,0.47664310006023075,1.69610357627253,0.0428,0.062007248401641846,True,False,0.0856,False
+qwen3-4b,de,race_ethnicity,WEAT_race_easteuropean,Race: Eastern European,1.3950305247629597,1.1675257730956643,1.726332651692985,0.0054,0.08429110050201416,True,True,0.027000000000000003,True
+qwen3-4b,de,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.6412635231569475,1.368147911168806,1.8557801779024286,0.0,0.3193957209587097,True,True,0.0,True
+qwen3-4b,de,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,1.596321144374865,1.3526569251918736,1.788526259553807,0.0,0.6290252804756165,True,True,0.0,True
+qwen3-4b,en,gender,WEAT6_professions,Gender: professions,0.7369882183850384,-0.06893792138330963,1.4300529199351888,0.0542,0.22062474489212036,False,False,0.1084,False
+qwen3-4b,en,race_ethnicity,WEAT_race_adjectives,Race: adjectives,1.2793272353699832,0.5206780015808625,1.785833424059563,0.0232,0.08572864532470703,True,False,0.0696,False
+qwen3-4b,en,race_ethnicity,SEAT_race_professions,Race: professions (SEAT),-0.09557040906604078,-1.2121387168385631,1.7186382727593301,0.5192,0.04796254634857178,False,False,0.5192,False
+qwen3-4b,en,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.700997097125689,1.5310843198385171,1.8490624833058513,0.0,0.5112221837043762,True,True,0.0,True
+qwen3-4b,en,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,1.7224242437768857,1.6098717141765484,1.8490586557729767,0.0,0.3185480237007141,True,True,0.0,True
+qwen3-4b,es,gender,WEAT6_professions,Gender: professions,0.5215769716438875,-0.33055003976816344,1.3177358748654608,0.1256,0.14811193943023682,False,False,0.37679999999999997,False
+qwen3-4b,es,race_ethnicity,WEAT_race_moroccan,Race: Moroccan,1.264096263518198,0.5868681812830967,1.760327550825693,0.022,0.09847050905227661,True,False,0.10999999999999999,False
+qwen3-4b,es,race_ethnicity,WEAT_race_latino,Race: Latin American,-0.42785370001064266,-1.4450497120626165,0.9653633515595673,0.7496,-0.027271807193756104,False,False,0.7844,False
+qwen3-4b,es,race_ethnicity,WEAT_race_roma,Race: Roma,0.21160611633403634,-1.0476848600861282,1.3795167175152372,0.3922,0.0134391188621521,False,False,0.7844,False
+qwen3-4b,es,race_ethnicity,WEAT_race_subsaharan,Race: Sub-Saharan,0.9452251295811553,-0.08765553108322088,1.6446882465364105,0.0874,0.07100117206573486,False,False,0.3496,False
+qwen3-4b,es,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.5779203473686925,1.3197316027518502,1.7955978208638532,0.0,0.34049052000045776,True,True,0.0,True
+qwen3-4b,es,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.9758378889914874,0.6019870592872631,1.3109855483383193,0.0004,0.43098628520965576,True,True,0.0024000000000000002,True
+qwen3-4b,fr,gender,WEAT6_professions,Gender: professions,0.7649235068060448,-0.019450635321083036,1.4316627588438096,0.044,0.22912490367889404,True,False,0.176,False
+qwen3-4b,fr,race_ethnicity,WEAT_race_maghrebi,Race: Maghrebi,1.6408609657161692,1.5735417630657977,1.883812494586675,0.0054,0.1442481279373169,True,True,0.0324,True
+qwen3-4b,fr,race_ethnicity,WEAT_race_subsaharan,Race: Sub-Saharan,0.9603564525329915,-0.044856821270526835,1.7481602453539862,0.0736,0.06604284048080444,False,False,0.18719999999999998,False
+qwen3-4b,fr,race_ethnicity,WEAT_race_muslim,Race: Muslim,1.0125875275764789,0.22657967505528076,1.5633892528595514,0.0624,0.07700598239898682,False,False,0.18719999999999998,False
+qwen3-4b,fr,race_ethnicity,WEAT_race_asian,Race: Asian,0.6217296166298548,-1.0552673219354038,1.352726292259227,0.2322,0.035539865493774414,False,False,0.2322,False
+qwen3-4b,fr,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.3855817721376351,0.9584203664600557,1.7359138571593284,0.0008,0.27851366996765137,True,True,0.0056,True
+qwen3-4b,fr,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.660164290097953,0.15936692757888266,1.1163420590895994,0.0098,0.263053297996521,True,True,0.049,True
+qwen3-4b,pt,gender,WEAT6_professions,Gender: professions,0.2834985913495077,-0.5823389864417149,1.111818869725808,0.2592,0.08500057458877563,False,False,0.2592,False
+qwen3-4b,pt,race_ethnicity,WEAT_race_adjectives,Race: adjectives,1.2473117490793277,0.7113155832991209,1.7360424660785627,0.0266,0.11587846279144287,True,False,0.0654,False
+qwen3-4b,pt,race_ethnicity,SEAT_race_professions,Race: professions (SEAT),1.1122824183605293,0.2619666948292981,1.761697474506639,0.0218,0.08903908729553223,True,False,0.0654,False
+qwen3-4b,pt,race_ibge,IBGE_sentiment_amarela,IBGE: branca/amarela (sent.),0.5435343843611689,-0.42904090450511007,1.2906194511766707,0.139,0.05628815293312073,False,False,0.1792,False
+qwen3-4b,pt,race_ibge,IBGE_sentiment_parda,IBGE: branca/parda (sent.),1.3149006597477162,0.8822878087591541,1.6656614929342028,0.0008,0.21658197045326233,True,True,0.0056,True
+qwen3-4b,pt,race_ibge,IBGE_sentiment_preta,IBGE: branca/preta (sent.),1.3217905310706786,0.966851583442249,1.6590044579399805,0.0024,0.14411714673042297,True,True,0.0144,True
+qwen3-4b,pt,race_ibge,IBGE_sentiment_indigena,IBGE: branca/indígena (sent.),0.9178258208504402,0.30449693854512117,1.4041762223924203,0.0212,0.07847556471824646,True,False,0.097,False
+qwen3-4b,pt,race_ibge,IBGE_status_amarela,IBGE: branca/amarela (status),0.6571640269568111,-0.2387867658882308,1.4256856791024393,0.0896,0.07049447298049927,False,False,0.1792,False
+qwen3-4b,pt,race_ibge,IBGE_status_parda,IBGE: branca/parda (status),1.377880434747698,0.9964555824835056,1.7047391292324925,0.0,0.2185983657836914,True,True,0.0,True
+qwen3-4b,pt,race_ibge,IBGE_status_preta,IBGE: branca/preta (status),0.7976537630792406,-0.10124853837798814,1.482860214910023,0.0596,0.08590418100357056,False,False,0.17880000000000001,False
+qwen3-4b,pt,race_ibge,IBGE_status_indigena,IBGE: branca/indígena (status),1.0115590230450984,0.25406409911480937,1.6148605612011149,0.0194,0.12963473796844482,True,False,0.097,False
+qwen3-4b,pt,regionalism,WEAT_region_adjectives,Regionalism: adjectives,0.021784799864899014,-0.9422481231816151,1.0023462368624316,0.4746,0.0018286705017089844,False,False,0.4746,False
+qwen3-4b,pt,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.0946204677320068,0.6434177193762721,1.487185218400609,0.0038,0.10218125581741333,True,True,0.019,True
+qwen3-4b,pt,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,1.0942991366972608,0.33324760849415835,1.6989449769401057,0.0038,0.09880518913269043,True,True,0.019,True
+qwen3-4b,pt,race_ibge,SEAT_ibge_sentiment_branca_amarela,SEAT IBGE: branca/amarela (sentiment),0.15725766031842958,-0.847332486047714,1.0904747995585131,0.3772,0.012052416801452637,False,False,1.0,False
+qwen3-4b,pt,race_ibge,SEAT_ibge_sentiment_branca_parda,SEAT IBGE: branca/parda (sentiment),0.6631280140586109,-0.2606627061736712,1.4288316479667362,0.1004,0.06113961338996887,False,False,0.6024,False
+qwen3-4b,pt,race_ibge,SEAT_ibge_sentiment_branca_preta,SEAT IBGE: branca/preta (sentiment),0.7101886104814786,-0.2104624902879457,1.3984455136045613,0.082,0.057718098163604736,False,False,0.5740000000000001,False
+qwen3-4b,pt,race_ibge,SEAT_ibge_sentiment_branca_indígena,SEAT IBGE: branca/indígena (sentiment),-0.03581533234102716,-1.0683893667255657,0.8779324398907905,0.5308,-0.0026648342609405518,False,False,1.0,False
+qwen3-4b,pt,race_ibge,SEAT_ibge_status_branca_amarela,SEAT IBGE: branca/amarela (status),-0.15467754591524766,-1.0952716519881296,0.8100340902641305,0.6182,-0.010086923837661743,False,False,1.0,False
+qwen3-4b,pt,race_ibge,SEAT_ibge_status_branca_parda,SEAT IBGE: branca/parda (status),0.9763793812384238,0.2318071116788012,1.567606928439421,0.0184,0.07623788714408875,True,False,0.1472,False
+qwen3-4b,pt,race_ibge,SEAT_ibge_status_branca_preta,SEAT IBGE: branca/preta (status),0.3714497127587136,-0.644602903834906,1.2427599273281835,0.2434,0.026523470878601074,False,False,0.9736,False
+qwen3-4b,pt,race_ibge,SEAT_ibge_status_branca_indígena,SEAT IBGE: branca/indígena (status),0.5745424397749442,-0.35032144946497756,1.5182084184843947,0.1242,0.05741998553276062,False,False,0.621,False
+qwen3-8b,de,gender,WEAT6_professions,Gender: professions,1.1184715884139818,0.45313691622509544,1.63029208165266,0.006,0.3327421545982361,True,True,0.03,True
+qwen3-8b,de,race_ethnicity,WEAT_race_turkish,Race: Turkish,1.4534635348891496,0.8870539402340771,1.8520507585867845,0.0112,0.1018838882446289,True,False,0.036,True
+qwen3-8b,de,race_ethnicity,WEAT_race_arab,Race: Arab,1.1011178427296557,0.12146449733776256,1.7654185877082471,0.0444,0.06440228223800659,True,False,0.0888,False
+qwen3-8b,de,race_ethnicity,WEAT_race_african,Race: African,1.6063147194295977,1.2539917441828843,1.87116910897894,0.009,0.13824141025543213,True,True,0.036,True
+qwen3-8b,de,race_ethnicity,WEAT_race_easteuropean,Race: Eastern European,1.0038273928222174,-0.016358724001521503,1.7381966454013995,0.0562,0.0674433708190918,False,False,0.0888,False
+qwen3-8b,de,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.705869240517151,1.5610595188186596,1.8601301665128829,0.0,0.39203691482543945,True,True,0.0,True
+qwen3-8b,de,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,1.6755301168500871,1.5570177747272482,1.7925654890419607,0.0,0.8277571201324463,True,True,0.0,True
+qwen3-8b,en,gender,WEAT6_professions,Gender: professions,0.8047562071787157,0.07698707471728196,1.3514151524918432,0.0376,0.1804460883140564,True,False,0.0752,False
+qwen3-8b,en,race_ethnicity,WEAT_race_adjectives,Race: adjectives,1.5523546012723057,1.415370275920991,1.8629753770001214,0.0054,0.1607171893119812,True,True,0.0162,True
+qwen3-8b,en,race_ethnicity,SEAT_race_professions,Race: professions (SEAT),-0.8588284219649163,-1.6566690897367051,0.4781239489931538,0.8582,-1.4603137969970703e-06,False,False,0.8582,False
+qwen3-8b,en,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.8369976242973025,1.756000479868655,1.9094347226294086,0.0,0.7382196187973022,True,True,0.0,True
+qwen3-8b,en,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,1.533488558013613,1.228697580586224,1.794460078140542,0.0002,0.38721176981925964,True,True,0.0008,True
+qwen3-8b,es,gender,WEAT6_professions,Gender: professions,0.5004821802663335,-0.36846348806122564,1.2149880983548902,0.136,0.10540205240249634,False,False,0.40800000000000003,False
+qwen3-8b,es,race_ethnicity,WEAT_race_moroccan,Race: Moroccan,1.695768188856558,1.6235741284203364,1.8437144841954083,0.0054,0.08683866262435913,True,True,0.027000000000000003,True
+qwen3-8b,es,race_ethnicity,WEAT_race_latino,Race: Latin American,-0.22219053943853434,-1.3467057059723706,1.2221027291439444,0.6354,-0.007226467132568359,False,False,0.9028,False
+qwen3-8b,es,race_ethnicity,WEAT_race_roma,Race: Roma,0.11250405698937581,-1.7395182396445779,1.1251819240570462,0.4514,0.006222665309906006,False,False,0.9028,False
+qwen3-8b,es,race_ethnicity,WEAT_race_subsaharan,Race: Sub-Saharan,1.5108590914410638,1.3536007335582085,1.8171947596857494,0.0054,0.13948363065719604,True,True,0.027000000000000003,True
+qwen3-8b,es,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.8623995755676361,1.832899700049714,1.904418651697711,0.0,0.524916410446167,True,True,0.0,True
+qwen3-8b,es,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,1.164510240341272,0.8769284560136159,1.4403884950649941,0.0,0.7090762257575989,True,True,0.0,True
+qwen3-8b,fr,gender,WEAT6_professions,Gender: professions,0.7269504605807602,-0.10014657146611611,1.4341312361766927,0.0514,0.18206721544265747,False,False,0.1542,False
+qwen3-8b,fr,race_ethnicity,WEAT_race_maghrebi,Race: Maghrebi,1.157371346013511,0.3791493155308085,1.6813332501593887,0.035,0.06646806001663208,True,False,0.14,False
+qwen3-8b,fr,race_ethnicity,WEAT_race_subsaharan,Race: Sub-Saharan,1.5434147455205691,1.3677406007170085,1.8220620774161589,0.0054,0.08706331253051758,True,True,0.027000000000000003,True
+qwen3-8b,fr,race_ethnicity,WEAT_race_muslim,Race: Muslim,0.9472827312730979,-0.11486813285898206,1.6960961703750077,0.0708,0.06387192010879517,False,False,0.1542,False
+qwen3-8b,fr,race_ethnicity,WEAT_race_asian,Race: Asian,-0.2937806917149193,-1.5293987352410432,0.9022157770918495,0.6472,-0.014235973358154297,False,False,0.6472,False
+qwen3-8b,fr,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.6427517699101075,1.399797635040514,1.8411304837247922,0.0,0.48124057054519653,True,True,0.0,True
+qwen3-8b,fr,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,0.8997425490768577,0.4728596851896751,1.279339185380664,0.0004,0.43506455421447754,True,True,0.0024000000000000002,True
+qwen3-8b,pt,gender,WEAT6_professions,Gender: professions,0.22637135983008988,-0.6480349106622684,1.0546205767803882,0.3076,0.060626327991485596,False,False,0.3076,False
+qwen3-8b,pt,race_ethnicity,WEAT_race_adjectives,Race: adjectives,1.3009992653081455,0.8162533406248487,1.702241853598089,0.0134,0.11765807867050171,True,False,0.0402,True
+qwen3-8b,pt,race_ethnicity,SEAT_race_professions,Race: professions (SEAT),0.7428570846102592,-0.3232261655833257,1.4468740699309404,0.106,0.07402414083480835,False,False,0.212,False
+qwen3-8b,pt,race_ibge,IBGE_sentiment_amarela,IBGE: branca/amarela (sent.),0.3758205299490731,-0.6897649150309784,1.1465350756946442,0.2446,0.04085516929626465,False,False,0.476,False
+qwen3-8b,pt,race_ibge,IBGE_sentiment_parda,IBGE: branca/parda (sent.),1.455519399768869,1.0161702113876283,1.7888633212769476,0.0004,0.2431623935699463,True,True,0.0032,True
+qwen3-8b,pt,race_ibge,IBGE_sentiment_preta,IBGE: branca/preta (sent.),1.4892532705863293,1.1988346006684263,1.760633829298306,0.001,0.1830599308013916,True,True,0.007,True
+qwen3-8b,pt,race_ibge,IBGE_sentiment_indigena,IBGE: branca/indígena (sent.),1.1149522043339628,0.4888750625762506,1.5885567480384513,0.0066,0.13640612363815308,True,True,0.033,True
+qwen3-8b,pt,race_ibge,IBGE_status_amarela,IBGE: branca/amarela (status),0.34329316849816677,-0.6336693438897351,1.1723105079744023,0.238,0.023446708917617798,False,False,0.476,False
+qwen3-8b,pt,race_ibge,IBGE_status_parda,IBGE: branca/parda (status),1.256143276290742,0.7491315490213525,1.6545626110229876,0.0036,0.2215883731842041,True,True,0.0216,True
+qwen3-8b,pt,race_ibge,IBGE_status_preta,IBGE: branca/preta (status),0.7215384564337508,-0.17497051364776195,1.3978288823683238,0.076,0.048976898193359375,False,False,0.22799999999999998,False
+qwen3-8b,pt,race_ibge,IBGE_status_indigena,IBGE: branca/indígena (status),0.9646868533111488,0.21872638311487924,1.5318761624511181,0.0208,0.11141645908355713,True,False,0.0832,False
+qwen3-8b,pt,regionalism,WEAT_region_adjectives,Regionalism: adjectives,0.010732794961978832,-0.9874550211131139,0.9711096397792439,0.4952,0.000985562801361084,False,False,0.4952,False
+qwen3-8b,pt,sentiment,WEAT1_flowers_insects,Sentiment: flowers/insects,1.6177695544153654,1.2449345164114962,1.8830008479508704,0.0002,0.3038862943649292,True,True,0.001,True
+qwen3-8b,pt,sentiment,WEAT2_instruments_weapons,Sentiment: instruments/weapons,1.1123076014967943,0.4566685882627699,1.6026685978032997,0.0052,0.16058671474456787,True,True,0.0208,True
+qwen3-8b,pt,race_ibge,SEAT_ibge_sentiment_branca_amarela,SEAT IBGE: branca/amarela (sentiment),0.014431761862102805,-1.3337621858318314,0.8627825611568036,0.4904,0.0011600255966186523,False,False,1.0,False
+qwen3-8b,pt,race_ibge,SEAT_ibge_sentiment_branca_parda,SEAT IBGE: branca/parda (sentiment),0.41815558494480715,-0.6384782341757176,1.2522560850758229,0.2202,0.022794663906097412,False,False,0.8808,False
+qwen3-8b,pt,race_ibge,SEAT_ibge_sentiment_branca_preta,SEAT IBGE: branca/preta (sentiment),0.6612530050525091,-0.28034700588139605,1.6644816950293788,0.0926,0.040642499923706055,False,False,0.5556,False
+qwen3-8b,pt,race_ibge,SEAT_ibge_sentiment_branca_indígena,SEAT IBGE: branca/indígena (sentiment),-0.22311957984617695,-1.1398609549715295,0.8893661725798244,0.663,-0.02073448896408081,False,False,1.0,False
+qwen3-8b,pt,race_ibge,SEAT_ibge_status_branca_amarela,SEAT IBGE: branca/amarela (status),-0.029862544301569635,-1.083673538538067,0.8859577976724679,0.5244,-0.0021259188652038574,False,False,1.0,False
+qwen3-8b,pt,race_ibge,SEAT_ibge_status_branca_parda,SEAT IBGE: branca/parda (status),1.3894374321435308,1.03138024699775,1.6941871706969318,0.0008,0.14322203397750854,True,True,0.0064,True
+qwen3-8b,pt,race_ibge,SEAT_ibge_status_branca_preta,SEAT IBGE: branca/preta (status),0.7819347425051716,-0.11254488721857563,1.4232786157351247,0.0602,0.06476336717605591,False,False,0.4214,False
+qwen3-8b,pt,race_ibge,SEAT_ibge_status_branca_indígena,SEAT IBGE: branca/indígena (status),0.634692473595662,-0.3159368879261289,1.3740144349966936,0.1012,0.054412841796875,False,False,0.5556,False
